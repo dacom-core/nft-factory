@@ -221,15 +221,14 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     eosio::check(market -> status != "pause"_n, "Market on pause");
 
     if (market -> buyer_can_offer_price == false) {
+
       eosio::check(market -> total_price.amount == total_price.amount, "Buyer cant offer the price.");
       eosio::check(market -> one_piece_price.amount == one_piece_price.amount, "Buyer cant offer the price.");
-    
-      eosio::check(one_piece_price.amount * requested_pieces == total_price.amount, "Price for pieces and total price is not equal");
 
-    
-    } else {
-      //TODO check offered price
-    };
+    } 
+
+    eosio::check(one_piece_price.amount * requested_pieces == total_price.amount, "Price for pieces and total price is not equal");
+
 
     sub_balance(buyer, total_price, market -> token_contract);
 
