@@ -24,8 +24,8 @@ public:
     [[eosio::action]] void removenft(eosio::name owner, uint64_t id);
     [[eosio::action]] void editnft(eosio::name creator, uint64_t id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, eosio::asset one_piece_price, bool can_creator_split_to_pieces, bool can_creator_emit_pieces, bool can_owner_split_to_pieces, bool can_owner_emit_pieces);
    
-    static void add_balance(eosio::name username, eosio::asset quantity, uint64_t code);
-    static void sub_balance(eosio::name username, eosio::asset quantity, uint64_t code);
+    static void add_balance(eosio::name payer, eosio::asset quantity, eosio::name contract);   
+    static void sub_balance(eosio::name username, eosio::asset quantity, eosio::name contract);
 
 
     [[eosio::action]] void createorder(uint64_t nft_id, eosio::name buyer, eosio::name lang, uint64_t requested_pieces, eosio::name token_contract, eosio::asset my_total_price, eosio::asset my_one_piece_price, std::string delivery_to, std::string meta);
@@ -68,6 +68,36 @@ public:
     */
     
 };
+
+
+  
+    /**
+     * @brief      Таблица промежуточного хранения балансов пользователей.
+     * @ingroup public_tables
+     * @table balance
+     * @contract _me
+     * @scope username
+     * @details Таблица баланса пользователя пополняется им путём совершения перевода на аккаунт контракта p2p. При создании ордера используется баланс пользователя из этой таблицы. Чтобы исключить необходимость пользователю контролировать свой баланс в контракте p2p, терминал доступа вызывает транзакцию с одновременно двумя действиями: перевод на аккаунт p2p и создание ордера на ту же сумму. 
+     */
+
+    struct [[eosio::table, eosio::contract("nft")]] balance {
+        uint64_t id;                    /*!< идентификатор баланса */
+        eosio::name contract;           /*!< имя контракта токена */
+        eosio::asset quantity;          /*!< количество токенов на балансе */
+
+        uint64_t primary_key() const {return id;} /*!< return id - primary_key */
+        uint128_t byconsym() const {return nft::combine_ids(contract.value, quantity.symbol.code().raw());} /*!< return combine_ids(contract, quantity) - комбинированный secondary_index 2 */
+
+        EOSLIB_SERIALIZE(balance, (id)(contract)(quantity))
+    };
+
+
+    typedef eosio::multi_index<"balance"_n, balance,
+    
+      eosio::indexed_by< "byconsym"_n, eosio::const_mem_fun<balance, uint128_t, &balance::byconsym>>
+    
+    > balances_index;
+
 
 
     /**

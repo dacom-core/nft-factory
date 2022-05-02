@@ -39,26 +39,57 @@
   }
 
 
-  void nft::add_balance(eosio::name username, eosio::asset quantity, uint64_t code){
-    // require_auth(username);
+void nft::add_balance(eosio::name payer, eosio::asset quantity, eosio::name contract){
+    require_auth(payer);
 
-    // balances_index balances(_me, _me.value);
-    // auto balance = balances.find(username.value);
+    balances_index balances(_me, payer.value);
     
-    
-    // if (balance  == balances.end()){
-    //   balances.emplace(_me, [&](auto &b){
-    //     b.username = username;
-    //     b.quantity = quantity;
-    //   }); 
-    // } else {
-    //   balances.modify(balance, _me, [&](auto &b){
-    //     b.quantity += quantity;
-    //   });
-    // };
+    auto balances_by_contract_and_symbol = balances.template get_index<"byconsym"_n>();
+    auto contract_and_symbol_index = combine_ids(contract.value, quantity.symbol.code().raw());
+
+    auto balance = balances_by_contract_and_symbol.find(contract_and_symbol_index);
+
+    if (balance  == balances_by_contract_and_symbol.end()){
+      balances.emplace(_me, [&](auto &b) {
+        b.id = balances.available_primary_key();
+        b.contract = contract;
+        b.quantity = quantity;
+      }); 
+    } else {
+      balances_by_contract_and_symbol.modify(balance, _me, [&](auto &b) {
+        b.quantity += quantity;
+      });
+    };
   
-  }
+}
 
+
+
+void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name contract){
+    balances_index balances(_me, username.value);
+    
+    auto balances_by_contract_and_symbol = balances.template get_index<"byconsym"_n>();
+    auto contract_and_symbol_index = combine_ids(contract.value, quantity.symbol.code().raw());
+
+    auto balance = balances_by_contract_and_symbol.find(contract_and_symbol_index);
+    
+    eosio::check(balance != balances_by_contract_and_symbol.end(), "Balance is not found");
+    
+    eosio::check(balance -> quantity >= quantity, "Not enought user balance for create order");
+
+    if (balance -> quantity == quantity) {
+
+      balances_by_contract_and_symbol.erase(balance);
+
+    } else {
+
+      balances_by_contract_and_symbol.modify(balance, _me, [&](auto &b) {
+        b.quantity -= quantity;
+      });  
+
+    }
+    
+}
 
 
   [[eosio::action]] void nft::createnft(eosio::name creator, eosio::name lang, std::string title, std::string description, eosio::name category, std::string images, std::string ipns, eosio::name token_contract, bool can_creator_split_to_pieces, bool can_creator_emit_pieces, bool can_owner_split_to_pieces, bool can_owner_emit_pieces, eosio::asset one_piece_price, std::string meta){
@@ -149,7 +180,7 @@
       eosio::check(object -> can_owner_emit_pieces == true, "This NFT already prohibit emitting pieces for owners");  
     };
 
-    objects.modify(object, owner, [&](auto &o){
+    objects.modify(object, owner, [&](auto &o) {
       o.title = title;
       o.description = description;
       o.images = images;
