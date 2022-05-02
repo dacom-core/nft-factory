@@ -198,7 +198,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
     uint64_t remain_pieces = object -> remain_pieces - pieces_to_sell;;
 
-    objects.modify(object, owner, [&](auto &o) {
+    objects.modify(object, creator, [&](auto &o) {
       o.remain_pieces = remain_pieces;
     });
 
@@ -301,14 +301,14 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     market_index markets(_me, _me.value);
     auto market = markets.find(market_id);
 
-    eosio::check(market -> seller == seller, "Only owner of market can cancel this sell");
+    eosio::check(market -> seller == creator, "Only owner of market can cancel this sell");
     eosio::check(market -> blocked_pieces == 0, "Only markets with none blocked pieces can be canceled");
 
     
     objects_index objects(_me, _me.value);
     auto object = objects.find(market -> object_id);
 
-    objects.modify(object, seller, [&](auto &o) {
+    objects.modify(object, creator, [&](auto &o) {
       o.remain_pieces += object -> remain_pieces + market -> remain_pieces;
     });
 
