@@ -100,7 +100,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
 
     objects.emplace(_me, [&](auto &o) { 
-      o.id = get_global_id("object"_n);
+      o.id = get_global_id("objects"_n);
       o.creator = creator;
       o.owner = creator;
       o.lang = lang;
@@ -193,7 +193,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     market_index markets(_me, _me.value);
 
     markets.emplace(owner, [&](auto &o) {
-      o.id = get_global_id("market"_n);
+      o.id = get_global_id("markets"_n);
       o.object_id = object_id;
       o.seller = owner;
       o.lang = object -> lang;
@@ -237,11 +237,74 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
   // }
 
 
-  [[eosio::action]] void nft::buy(uint64_t nft_id, eosio::name buyer, eosio::name lang, uint64_t requested_pieces, eosio::name token_contract, eosio::asset my_total_price, eosio::asset my_one_piece_price, std::string delivery_to, std::string meta){
+  [[eosio::action]] void nft::buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset my_total_price, eosio::asset my_one_piece_price, std::string delivery_to, std::string meta){
     
     require_auth(buyer);
 
+    market_index markets(_me, _me.value);
+    auto market = markets.find(market_id);
+    
+    eosio::check(market != markets.end(), "Object is not found on the market");
+    eosio::check(market -> remain_pieces >= requested_pieces, "Not enought pieces on the market");
+    eosio::check(market -> total_price.symbol == my_total_price.symbol, "Symbols is not equal");
+    eosio::check(market -> one_piece_price.symbol == my_one_piece_price.symbol, "Symbols is not equal");
+    
+    if (market -> buyer_can_offer_price == false) {
+      eosio::check(market -> total_price.amount == my_total_price.amount, "Buyer cant offer the price.");
+      eosio::check(market -> one_piece_price.amount == my_one_piece_price.amount, "Buyer cant offer the price.");
+    
+      eosio::check(my_one_piece_price.amount * requested_pieces == my_total_price.amount, "Price for pieces and total price is not equal");
+
+      sub_balance(buyer, my_total_price, market -> token_contract);
+
+    }
+
+    objects_index objects(_me, _me.value);
+    auto object = objects.find(market -> object_id);
+
+    if (market -> with_delivery == true) {
+      requests_index requests(_me, _me.value);
+      
+      requests.emplace(buyer, [&](auto &r) {
+        r.id = get_global_id("requests"_n);
+        r.market_id = market -> id;
+        r.buyer = buyer;
+        r.lang = lang;
+        r.requested_pieces = requested_pieces;
+        r.my_total_price = my_total_price;
+        r.my_one_piece_price = my_one_piece_price;
+        r.total_payed = my_total_price;
+        r.status = market -> buyer_can_offer_price == false ? "payed"_n : "waiting"_n;
+        r.delivery_to = delivery_to;
+        r.meta = meta;
+      });
+
+    } else {
+
+      pieces_index pieces(_me, buyer.value);
+      auto piece = pieces.find(object -> id);
+
+      if (piece == pieces.end()) {
+        
+        pieces.emplace(buyer, [&](auto &p) {
+          p.object_id = object -> id;
+          p.pieces = requested_pieces;
+        });
+
+      } else {
+
+        pieces.modify(piece, buyer, [&](auto &p){
+          p.pieces += requested_pieces;
+        });
+
+      }
+
+    }
+
   }
+
+
+
 
   [[eosio::action]] void nft::sendmessage(uint64_t order_id, eosio::name lang, eosio::name username, eosio::name message){
     

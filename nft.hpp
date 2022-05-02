@@ -27,16 +27,16 @@ public:
     static void add_balance(eosio::name payer, eosio::asset quantity, eosio::name contract);   
     static void sub_balance(eosio::name username, eosio::asset quantity, eosio::name contract);
 
+    [[eosio::action]] void buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset my_total_price, eosio::asset my_one_piece_price, std::string delivery_to, std::string meta);
     [[eosio::action]] void sell(eosio::name owner, uint64_t object_id, uint64_t pieces_to_sell, eosio::asset one_piece_price, eosio::asset total_price, eosio::name pay_type, bool buyer_can_offer_price, bool with_delivery, eosio::name token_contract, eosio::name delivery_method, eosio::name delivery_operator, std::string delivery_details, eosio::asset delivery_fee, std::string meta);
 
-    [[eosio::action]] void buy(uint64_t nft_id, eosio::name buyer, eosio::name lang, uint64_t requested_pieces, eosio::name token_contract, eosio::asset my_total_price, eosio::asset my_one_piece_price, std::string delivery_to, std::string meta);
-    
     static uint64_t get_global_id(eosio::name key);
-    static void payorder(eosio::name buyer, uint64_t order_id, eosio::name code, eosio::asset amount);
+    
     [[eosio::action]] void sendmessage(uint64_t order_id, eosio::name lang, eosio::name username, eosio::name message);
 
-    // [[eosio::action]] void acceptorder();
-    // [[eosio::action]] void confirmsend();
+    // [[eosio::action]] void acceptreq();
+    // [[eosio::action]] void declinereq();
+    // [[eosio::action]] void payrequest();
 
 
     static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
@@ -234,7 +234,7 @@ public:
     typedef eosio::multi_index< "requests"_n, requests,
       eosio::indexed_by<"bybuyer"_n, eosio::const_mem_fun<requests, uint64_t, &requests::bybuyer>>,
       eosio::indexed_by<"bymarket"_n, eosio::const_mem_fun<requests, uint64_t, &requests::bymarket>>    
-    > orders_index;
+    > requests_index;
 
 
     
@@ -250,11 +250,10 @@ public:
     struct [[eosio::table, eosio::contract("nft")]] pieces {
       uint64_t object_id;   /*!< идентификатор объекта */
       uint64_t pieces;      /*!< количество частей */
-      std::string meta;     /*!< метаданные */
       
       uint64_t primary_key() const {return object_id;}       /*!< return object_id - primary_key */
       
-      EOSLIB_SERIALIZE(struct pieces, (object_id)(pieces)(meta))
+      EOSLIB_SERIALIZE(struct pieces, (object_id)(pieces))
     };
 
     typedef eosio::multi_index< "pieces"_n, pieces> pieces_index;
