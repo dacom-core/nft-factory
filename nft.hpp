@@ -28,12 +28,13 @@ public:
     static void sub_balance(eosio::name username, eosio::asset quantity, eosio::name contract);
     static void add_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name to, uint64_t add_pieces);
     static void sub_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name from, uint64_t sub_pieces);
+    static void add_scores(eosio::name payer, eosio::name username, uint64_t new_solded_pieces, uint64_t new_buyed_pieces, uint64_t new_score);
 
-    [[eosio::action]] void buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset total_price, eosio::asset one_piece_price, std::string delivery_to, eosio::name delivery_method, eosio::name delivery_operator, std::string meta);
-    [[eosio::action]] void sell(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::asset one_piece_price, eosio::asset total_price, bool buyer_can_offer_price, bool with_delivery, eosio::name token_contract, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta);
+    [[eosio::action]] void buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset one_piece_price, std::string delivery_to, eosio::name delivery_method, eosio::name delivery_operator, std::string meta);
+    [[eosio::action]] void sell(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::name token_contract, eosio::asset one_piece_price, bool buyer_can_offer_price, bool with_delivery, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta);
     [[eosio::action]] void cancelsell(eosio::name seller, uint64_t market_id);
 
-    [[eosio::action]] void emit(eosio::name creator, uint64_t object_id, uint64_t pieces_for_emit);
+    [[eosio::action]] void emit(eosio::name emitter, uint64_t object_id, uint64_t pieces_for_emit);
     
     [[eosio::action]] void acceptreq(eosio::name seller, uint64_t request_id);
     [[eosio::action]] void declinereq(eosio::name seller, uint64_t request_id);
@@ -48,7 +49,7 @@ public:
     [[eosio::action]] void addtowl(eosio::name creator, uint64_t object_id, eosio::name username);
     [[eosio::action]] void delfromwl(eosio::name creator, uint64_t object_id, eosio::name username);
     
-    [[eosio::action]] void setreview(eosio::name buyer, uint64_t object_id, std::string message);
+    [[eosio::action]] void setreview(eosio::name buyer, uint64_t object_id, std::string message, uint64_t score, std::string meta);
 
 
     static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
@@ -160,10 +161,10 @@ public:
       uint64_t id;          /*!< идентификатор предложения */
       uint64_t object_id;          /*!< идентификатор объекта */
       eosio::name seller;   /*!< продавец */
+      bool is_auction = false;
       eosio::name lang;     /*!< языковой код покупателя */
       eosio::name status = "waiting"_n; //or pause
       uint64_t remain_pieces;
-      uint64_t requested_pieces;
       uint64_t blocked_pieces;
       eosio::name token_contract;         /*!< контракт токена обмена */
       eosio::asset one_piece_price;       /*!< цена за одну часть */
@@ -176,6 +177,8 @@ public:
       std::vector<eosio::name> delivery_methods;        /*!< метод физической поставки */
       std::vector<eosio::name> delivery_operators;        /*!< оператор физической поставки */
       
+      eosio::time_point_sec sales_start_at;
+      eosio::time_point_sec sales_closed_at;
       
       std::string meta;     /*!< мета-данные объекта */
 
@@ -186,7 +189,7 @@ public:
       uint64_t byseller() const {return seller.value; }   /*!< return lang - secondary_key 4 */
       uint64_t bycon() const {return token_contract.value; }   /*!< return contract - secondary_key 6 */
       
-      EOSLIB_SERIALIZE(market, (id)(object_id)(seller)(lang)(status)(remain_pieces)(requested_pieces)(blocked_pieces)(token_contract)(one_piece_price)(total_price)(buyer_can_offer_price)(with_delivery)(delivery_from)(delivery_methods)(delivery_operators)(meta))
+      EOSLIB_SERIALIZE(market, (id)(object_id)(seller)(is_auction)(lang)(status)(remain_pieces)(blocked_pieces)(token_contract)(one_piece_price)(total_price)(buyer_can_offer_price)(with_delivery)(delivery_from)(delivery_methods)(delivery_operators)(sales_start_at)(sales_closed_at)(meta))
     };
 
     typedef eosio::multi_index< "market"_n, market,
@@ -263,20 +266,25 @@ public:
      * @details Таблица хранит запросы на производство NFT
      */
     struct [[eosio::table, eosio::contract("nft")]] pieces {
+      uint64_t id;
       uint64_t object_id;   /*!< идентификатор объекта */
       eosio::name owner;
       uint64_t pieces;      /*!< количество частей */
       
-      uint64_t primary_key() const {return object_id;}       /*!< return object_id - primary_key */
+      uint64_t primary_key() const {return id;}       /*!< return id - primary_key */
+      uint64_t byobject() const {return object_id; }   /*!< return object_id - secondary_key 2 */
+      
       uint64_t byowner() const {return owner.value; }   /*!< return lang - secondary_key 2 */
+      
       uint128_t byobjanduser() const {return nft::combine_ids(object_id, owner.value);} /*!< (contract, blocked_now.symbol) - комбинированный secondary_key для получения курса по имени выходного контракта и символу */
       
 
-      EOSLIB_SERIALIZE(struct pieces, (object_id)(owner)(pieces))
+      EOSLIB_SERIALIZE(struct pieces, (id)(object_id)(owner)(pieces))
     };
 
     typedef eosio::multi_index< "pieces"_n, pieces,
         eosio::indexed_by<"byowner"_n, eosio::const_mem_fun<pieces, uint64_t, &pieces::byowner>>,
+        eosio::indexed_by<"byobject"_n, eosio::const_mem_fun<pieces, uint64_t, &pieces::byobject>>,
         eosio::indexed_by<"byobjanduser"_n, eosio::const_mem_fun<pieces, uint128_t, &pieces::byobjanduser>>
     > pieces_index;
 
@@ -353,10 +361,12 @@ public:
      */
     struct [[eosio::table, eosio::contract("nft")]] reviews {
       uint64_t id;
-      uint64_t object_id;          /*!< идентификатор предложения */
+      uint64_t object_id;          /*!< идентификатор объекта */
       eosio::name buyer;
       uint64_t pieces;
       std::string review;
+      uint64_t score;
+      std::string meta;
 
 
       uint64_t primary_key() const {return id;}       /*!< return id - primary_key */
@@ -365,7 +375,7 @@ public:
 
       uint128_t byobjanduser() const {return nft::combine_ids(object_id, buyer.value);} /*!< (contract, blocked_now.symbol) - комбинированный secondary_key для получения курса по имени выходного контракта и символу */
       
-      EOSLIB_SERIALIZE(reviews, (id)(object_id)(buyer)(pieces)(review))
+      EOSLIB_SERIALIZE(reviews, (id)(object_id)(buyer)(pieces)(review)(score)(meta))
     };
 
     typedef eosio::multi_index< "reviews"_n, reviews,
@@ -402,4 +412,34 @@ public:
         eosio::indexed_by<"keyvalue"_n, eosio::const_mem_fun<counts, uint128_t, &counts::keyvalue>>
     > counts_index;
 
+  /**
+     * @brief      Таблица хранения поверхностной статистики для упрощения анализа системами ML
+     * @contract _me
+     * @scope nft | _me
+     * @table counts
+     * @ingroup public_tables
+     * @details Таблица хранит сборную статистику по сделкам и оценкам пользователя
+     */
+    struct [[eosio::table, eosio::contract("nft")]] scores {
+      eosio::name username;
+      uint64_t solded_pieces;
+      uint64_t buyed_pieces;
+      uint64_t scores;
+
+      uint64_t primary_key() const {return username.value;}       /*!< return id - primary_key */
+      uint64_t bysolded() const {return solded_pieces; }   /*!< return market_id - secondary_key 2 */
+      uint64_t bybyed() const {return buyed_pieces; }   /*!< return market_id - secondary_key 2 */
+      
+      uint64_t byscores() const {return scores; }   /*!< return username - secondary_key 3 */
+
+
+      EOSLIB_SERIALIZE(struct scores, (username)(solded_pieces)(buyed_pieces)(scores))
+    };
+
+    typedef eosio::multi_index< "scores"_n, scores,
+      eosio::indexed_by<"bysolded"_n, eosio::const_mem_fun<scores, uint64_t, &scores::bysolded>>,
+      eosio::indexed_by<"bybyed"_n, eosio::const_mem_fun<scores, uint64_t, &scores::bybyed>>,
+      eosio::indexed_by<"byscores"_n, eosio::const_mem_fun<scores, uint64_t, &scores::byscores>>
+    
+    > scores_index;
     
