@@ -92,15 +92,16 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 }
 
 
-  [[eosio::action]] void nft::create(eosio::name creator, eosio::name lang, std::string title, std::string description, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta){
+  [[eosio::action]] void nft::create(eosio::name creator, eosio::name lang, std::string title, std::string description, uint64_t total_pieces, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta){
     
     require_auth(creator);
     
     objects_index objects(_me, _me.value);
 
+    uint64_t object_id = get_global_id("objects"_n);
 
     objects.emplace(_me, [&](auto &o) { 
-      o.id = get_global_id("objects"_n);
+      o.id = object_id;
       o.creator = creator;
       o.lang = lang;
       o.title = title;
@@ -108,10 +109,17 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
       o.category = category;
       o.images = images;
       o.ipns = ipns;
-      o.total_pieces = 1;
-      o.remain_pieces = 1;
+      o.total_pieces = total_pieces;
       o.creator_can_emit_new_pieces = creator_can_emit_new_pieces;
       o.meta = meta;
+    });
+
+    pieces_index pieces(_me, _me.value);
+    
+    pieces.emplace(creator, [&](auto &p) {
+      p.object_id = object_id;
+      p.owner = creator;
+      p.pieces = total_pieces;
     });
 
 
@@ -121,13 +129,20 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
   [[eosio::action]] void nft::remove(eosio::name creator, uint64_t object_id) {
     require_auth(creator);
     
-    objects_index objects(_me, creator.value);
+    objects_index objects(_me, _me.value);
 
     auto object = objects.find(object_id);
     eosio::check(object != objects.end(), "NFT is not found");
     eosio::check(object -> creator == creator, "Only creator can remove this NFT");
-    eosio::check(object -> total_pieces == object -> remain_pieces, "Cannot delete NFT after sell pieces");
+    
+    pieces_index pieces(_me, _me.value);
+    auto object_and_user = combine_ids(object_id, creator.value);
+    auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
+    auto piece = pieces_by_object_and_users.find(object_and_user);
+    
+    eosio::check(piece -> pieces == object -> total_pieces, "Cant remove NFT which already solded");
 
+    pieces_by_object_and_users.erase(piece);
     objects.erase(object);
 
   }
@@ -170,35 +185,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     
     eosio::check(object != objects.end(), "NFT is not found");
     
-    if (object -> creator != seller) {
-
-        pieces_index pieces(_me, _me.value);
-        auto object_and_user = combine_ids(object_id, seller.value);
-
-        auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
-        auto piece = pieces_by_object_and_users.find(object_and_user);
-        eosio::check(piece != pieces_by_object_and_users.end(), "You dont have pieces for sell");
-        eosio::check(piece -> pieces >= pieces_to_sell, "You dont have enought pieces for sell"); 
-
-        if (piece -> pieces == pieces_to_sell){
-          pieces_by_object_and_users.erase(piece);
-        } else {
-          pieces_by_object_and_users.modify(piece, seller, [&](auto &p){
-            p.pieces -= pieces_to_sell;
-          });  
-        };
-        
-    } else {
-
-      eosio::check(pieces_to_sell <= object -> remain_pieces, "Not enough pieces for sell");
-      
-      uint64_t remain_pieces = object -> remain_pieces - pieces_to_sell;;
-
-      objects.modify(object, seller, [&](auto &o) {
-        o.remain_pieces = remain_pieces;
-      });
-
-    }
+    sub_pieces(seller, object_id, seller, pieces_to_sell);
     
     market_index markets(_me, _me.value);
 
@@ -229,7 +216,48 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
   }
 
+  void nft::sub_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name from, uint64_t sub_pieces){
+    pieces_index pieces(_me, _me.value);
+    auto object_and_user = combine_ids(object_id, from.value);
 
+    auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
+    auto piece = pieces_by_object_and_users.find(object_and_user);
+    eosio::check(piece != pieces_by_object_and_users.end(), "You dont have pieces for sell");
+    eosio::check(piece -> pieces >= sub_pieces, "You dont have enought pieces for sell"); 
+
+    if (piece -> pieces == sub_pieces){
+      pieces_by_object_and_users.erase(piece);
+    } else {
+      pieces_by_object_and_users.modify(piece, ram_payer, [&](auto &p){
+        p.pieces -= sub_pieces;
+      });  
+    };
+  };
+
+
+  void nft::add_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name to, uint64_t add_pieces){
+    pieces_index pieces(_me, _me.value);
+    auto object_and_user = combine_ids(object_id, to.value);
+
+    auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
+    auto piece = pieces_by_object_and_users.find(object_and_user);
+
+    if (piece == pieces_by_object_and_users.end()) {
+      
+      pieces.emplace(ram_payer, [&](auto &p) {
+        p.object_id = object_id;
+        p.owner = to;
+        p.pieces = add_pieces;
+      });
+
+    } else {
+
+      pieces_by_object_and_users.modify(piece, ram_payer, [&](auto &p){
+        p.pieces += add_pieces;
+      });
+
+    }
+  }
 
   [[eosio::action]] void nft::buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset total_price, eosio::asset one_piece_price, std::string delivery_to, eosio::name delivery_method, eosio::name delivery_operator, std::string meta){
     
@@ -259,6 +287,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
     sub_balance(buyer, total_price, market -> token_contract);
 
+    //TODO check delivery method and operator for be in the market list
 
     objects_index objects(_me, _me.value);
     auto object = objects.find(market -> object_id);
@@ -283,39 +312,39 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
         r.meta = meta;
       });
 
-    } else {
-
-      pieces_index pieces(_me, _me.value);
-      auto piece = pieces.find(object -> id);
-
-      if (piece == pieces.end()) {
-        
-        pieces.emplace(buyer, [&](auto &p) {
-          p.object_id = object -> id;
-          p.pieces = requested_pieces;
-        });
-
-      } else {
-
-        pieces.modify(piece, buyer, [&](auto &p){
-          p.pieces += requested_pieces;
-        });
-
-      }
-    }
-
-
-    if (market -> requested_pieces + requested_pieces == market->remain_pieces) {
-      
-      markets.erase(market);
-
-    } else {
 
       markets.modify(market, buyer, [&](auto &o) {
         o.requested_pieces += requested_pieces;
+      
+        if (market -> buyer_can_offer_price == false) {
+          o.blocked_pieces += requested_pieces;
+        };
       });
 
+
+      
+
+    } else {
+
+      add_pieces(buyer, object -> id, buyer, requested_pieces);
+
+      if (market -> remain_pieces == requested_pieces) {
+        
+        markets.erase(market);
+
+      } else {
+
+        markets.modify(market, buyer, [&](auto &o) {
+          o.remain_pieces -= requested_pieces;
+          o.requested_pieces += requested_pieces;
+        });
+
+      }
+  
     }
+
+  
+    
   }
 
 
@@ -327,16 +356,10 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     market_index markets(_me, _me.value);
     auto market = markets.find(market_id);
 
-    eosio::check(market -> seller == seller, "Only owner of market can cancel this sell");
+    eosio::check(market -> seller == seller, "Only sell can cancel process");
     eosio::check(market -> blocked_pieces == 0, "Only markets with none blocked pieces can be canceled");
 
-    
-    objects_index objects(_me, _me.value);
-    auto object = objects.find(market -> object_id);
-
-    objects.modify(object, seller, [&](auto &o) {
-      o.remain_pieces += object -> remain_pieces + market -> remain_pieces;
-    });
+    add_pieces(seller, market -> object_id, seller, market -> remain_pieces);
 
     markets.erase(market);
 
@@ -352,8 +375,18 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     eosio::check(request != requests.end(), "Request is not found");
     eosio::check(request -> seller == seller, "Only seller can accept request");
 
+    eosio::check(request -> status == "waiting"_n, "Only requests on waiting status can be accepted");
+
+    market_index markets(_me, _me.value);
+    auto market = markets.find(request -> market_id);
+
+    markets.modify(market, seller, [&](auto &m){
+      m.remain_pieces -= request->requested_pieces;
+      m.blocked_pieces += request->requested_pieces;  
+    });
+    
     requests.modify(request, seller, [&](auto &r){
-      r.status = "accepted"_n;
+      r.status = "payed"_n;
     });
 
   }
@@ -369,9 +402,20 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
     eosio::check(request != requests.end(), "Request is not found");
     eosio::check(request -> seller == seller, "Only seller can decline request");
+      
+    market_index markets(_me, _me.value);
+    auto market = markets.find(request -> market_id);
+
+    action(
+        permission_level{ _me, "active"_n },
+        market->token_contract, "transfer"_n,
+        std::make_tuple( _me, request -> buyer, request -> total_price, std::string("Declined request")) 
+    ).send();
+
     requests.modify(request, seller, [&](auto &r){
       r.status = "declined"_n;
     });
+
 
   }
 
@@ -400,27 +444,6 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
   };
 
 
-  [[eosio::action]] void nft::payrequest(eosio::name buyer, uint64_t request_id){
-
-    require_auth(buyer);
-    requests_index requests(_me, _me.value);
-    auto request = requests.find(request_id);
-
-    eosio::check(request != requests.end(), "Request is not found");
-    eosio::check(request -> buyer == buyer, "Only buyer can pay for request");
-    eosio::check(request -> status == "accepted"_n, "Only accepted requests can be payed");
-
-    market_index markets(_me, _me.value);
-    auto market = markets.find(request -> market_id);
-
-    sub_balance(buyer, request -> total_price, market -> token_contract);
-
-    requests.modify(request, buyer, [&](auto &r){
-      r.status = "payed"_n;
-    });
-
-  }
-
 
   [[eosio::action]] void nft::setdelstatus(eosio::name delivery_operator, uint64_t request_id, eosio::name status){
 
@@ -435,9 +458,19 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     eosio::check(request -> status == "payed"_n, "Only payed requests can be delivered");
     eosio::check(status == "finish"_n, "Only finish status are accepted for now (cause self-delivery)");
 
-    requests.modify(request, delivery_operator, [&](auto &r){
-      r.status = "finish"_n;
+    
+    market_index markets(_me, _me.value);
+    auto market = markets.find(request -> market_id);
+    
+    markets.modify(market, delivery_operator, [&](auto &m){
+      m.blocked_pieces -= request -> requested_pieces;
     });
+
+
+    add_pieces(delivery_operator, market -> object_id, request -> buyer, request -> requested_pieces);
+
+    requests.erase(request);
+
 
   }
 
@@ -463,8 +496,9 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
     objects.modify(object, creator, [&](auto &o){
       o.total_pieces += pieces_for_emit;
-      o.remain_pieces += pieces_for_emit;
     });
+
+    //TODO add piece
   
   }
   
@@ -599,8 +633,6 @@ extern "C" {
             execute_action(name(receiver), name(code), &nft::declinereq);
           } else if (action == "cancelreq"_n.value) {
             execute_action(name(receiver), name(code), &nft::cancelreq);
-          } else if (action == "payrequest"_n.value) {
-            execute_action(name(receiver), name(code), &nft::payrequest);
           } else if (action == "addtowl"_n.value) {
             execute_action(name(receiver), name(code), &nft::addtowl);
           } else if (action == "delfromwl"_n.value) {

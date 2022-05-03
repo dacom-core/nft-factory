@@ -20,12 +20,14 @@ public:
     nft( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): eosio::contract(receiver, code, ds)
     {}
     void apply(uint64_t receiver, uint64_t code, uint64_t action);   
-    [[eosio::action]] void create(eosio::name creator, eosio::name lang, std::string title, std::string description, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta);
+    [[eosio::action]] void create(eosio::name creator, eosio::name lang, std::string title, std::string description, uint64_t total_pieces, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta);
     [[eosio::action]] void remove(eosio::name creator, uint64_t object_id);
     [[eosio::action]] void edit(eosio::name owner, uint64_t object_id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, bool creator_can_emit_new_pieces, std::string meta);
    
     static void add_balance(eosio::name payer, eosio::asset quantity, eosio::name contract);   
     static void sub_balance(eosio::name username, eosio::asset quantity, eosio::name contract);
+    static void add_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name to, uint64_t add_pieces);
+    static void sub_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name from, uint64_t sub_pieces);
 
     [[eosio::action]] void buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset total_price, eosio::asset one_piece_price, std::string delivery_to, eosio::name delivery_method, eosio::name delivery_operator, std::string meta);
     [[eosio::action]] void sell(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::asset one_piece_price, eosio::asset total_price, bool buyer_can_offer_price, bool with_delivery, eosio::name token_contract, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta);
@@ -40,9 +42,7 @@ public:
     static uint64_t get_global_id(eosio::name key);
     
     [[eosio::action]] void sendmessage(eosio::name username, uint64_t request_id, eosio::name lang, std::string message);
-
-    [[eosio::action]] void payrequest(eosio::name buyer, uint64_t request_id);
-
+  
     [[eosio::action]] void setdelstatus(eosio::name delivery_operator, uint64_t request_id, eosio::name status);
 
     [[eosio::action]] void addtowl(eosio::name creator, uint64_t object_id, eosio::name username);
@@ -127,7 +127,6 @@ public:
       bool creator_can_emit_new_pieces = true;
 
       uint64_t total_pieces; /*!< количество частей */
-      uint64_t remain_pieces; /*!< сколько частей осталось */
       
       std::string meta;     /*!< мета-данные объекта */
 
@@ -137,7 +136,7 @@ public:
       
       uint64_t bylang() const {return lang.value; }   /*!< return lang - secondary_key 3 */
       
-      EOSLIB_SERIALIZE(objects, (id)(creator)(lang)(title)(description)(category)(images)(ipns)(creator_can_emit_new_pieces)(total_pieces)(remain_pieces)(meta))
+      EOSLIB_SERIALIZE(objects, (id)(creator)(lang)(title)(description)(category)(images)(ipns)(creator_can_emit_new_pieces)(total_pieces)(meta))
     };
 
     typedef eosio::multi_index< "objects"_n, objects,
