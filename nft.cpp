@@ -162,15 +162,44 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
 
 
-  [[eosio::action]] void nft::sell(eosio::name creator, uint64_t object_id, uint64_t pieces_to_sell, eosio::asset one_piece_price, eosio::asset total_price, bool buyer_can_offer_price, bool with_delivery, eosio::name token_contract, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta) {
-    require_auth(creator);      
+  [[eosio::action]] void nft::sell(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::asset one_piece_price, eosio::asset total_price, bool buyer_can_offer_price, bool with_delivery, eosio::name token_contract, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta) {
+    require_auth(seller);      
 
     objects_index objects(_me, _me.value);
     auto object = objects.find(object_id);  
+    
     eosio::check(object != objects.end(), "NFT is not found");
-    eosio::check(object -> creator == creator, "Only creator can sell NFT");
-    eosio::check(pieces_to_sell <= object -> remain_pieces, "Not enough pieces for sell");
-   
+    
+    if (object -> creator != seller) {
+
+        pieces_index pieces(_me, _me.value);
+        auto object_and_user = combine_ids(object_id, seller.value);
+
+        auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
+        auto piece = pieces_by_object_and_users.find(object_and_user);
+        eosio::check(piece != pieces_by_object_and_users.end(), "You dont have pieces for sell");
+        eosio::check(piece -> pieces >= pieces_to_sell, "You dont have enought pieces for sell"); 
+
+        if (piece -> pieces == pieces_to_sell){
+          pieces_by_object_and_users.erase(piece);
+        } else {
+          pieces_by_object_and_users.modify(piece, seller, [&](auto &p){
+            p.pieces -= pieces_to_sell;
+          });  
+        };
+        
+    } else {
+
+      eosio::check(pieces_to_sell <= object -> remain_pieces, "Not enough pieces for sell");
+      
+      uint64_t remain_pieces = object -> remain_pieces - pieces_to_sell;;
+
+      objects.modify(object, seller, [&](auto &o) {
+        o.remain_pieces = remain_pieces;
+      });
+
+    }
+    
     market_index markets(_me, _me.value);
 
     auto itr = std::find(delivery_methods.begin(), delivery_methods.end(), "selfdelivery"_n);
@@ -178,10 +207,10 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     eosio::check(itr != delivery_methods.end(), "Now only self-delivery method is possible");
     eosio::check(delivery_operators.size() == 0, "Now delivery operators is not accepted");
 
-    markets.emplace(creator, [&](auto &o) {
+    markets.emplace(seller, [&](auto &o) {
       o.id = get_global_id("markets"_n);
       o.object_id = object_id;
-      o.seller = creator;
+      o.seller = seller;
       o.lang = object -> lang;
       o.status = "waiting"_n;
       o.remain_pieces = pieces_to_sell;
@@ -196,11 +225,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
       o.meta = meta;
     });
 
-    uint64_t remain_pieces = object -> remain_pieces - pieces_to_sell;;
-
-    objects.modify(object, creator, [&](auto &o) {
-      o.remain_pieces = remain_pieces;
-    });
+    
 
   }
 
@@ -218,6 +243,8 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     eosio::check(market -> total_price.symbol == total_price.symbol, "Symbols is not equal");
     eosio::check(market -> one_piece_price.symbol == one_piece_price.symbol, "Symbols is not equal");
     
+    eosio::check(market -> seller != buyer, "Seller cannot be buyer");
+
     eosio::check(market -> status != "pause"_n, "Market on pause");
 
     if (market -> buyer_can_offer_price == false) {
@@ -293,21 +320,21 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
 
 
-  [[eosio::action]] void nft::cancelsell(eosio::name creator, uint64_t market_id){
+  [[eosio::action]] void nft::cancelsell(eosio::name seller, uint64_t market_id){
     
-    require_auth(creator);
+    require_auth(seller);
 
     market_index markets(_me, _me.value);
     auto market = markets.find(market_id);
 
-    eosio::check(market -> seller == creator, "Only owner of market can cancel this sell");
+    eosio::check(market -> seller == seller, "Only owner of market can cancel this sell");
     eosio::check(market -> blocked_pieces == 0, "Only markets with none blocked pieces can be canceled");
 
     
     objects_index objects(_me, _me.value);
     auto object = objects.find(market -> object_id);
 
-    objects.modify(object, creator, [&](auto &o) {
+    objects.modify(object, seller, [&](auto &o) {
       o.remain_pieces += object -> remain_pieces + market -> remain_pieces;
     });
 
@@ -417,9 +444,9 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
   
 
 
-  [[eosio::action]] void nft::emit(eosio::name username, uint64_t object_id, uint64_t pieces_for_emit){
+  [[eosio::action]] void nft::emit(eosio::name creator, uint64_t object_id, uint64_t pieces_for_emit){
   
-    require_auth(username);
+    require_auth(creator);
     
     objects_index objects(_me, _me.value);
     auto object = objects.find(object_id);
@@ -429,12 +456,12 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
 
     whitelist_index whitelist(_me, _me.value);
     auto whitelist_by_object_and_users = whitelist.template get_index<"byobjanduser"_n>();
-    auto object_and_user = combine_ids(object_id, username.value);
+    auto object_and_user = combine_ids(object_id, creator.value);
     auto wl = whitelist_by_object_and_users.find(object_and_user);
 
-    eosio::check(wl != whitelist_by_object_and_users.end() || object -> creator == username, "Only users from whitelist or creator can emit new pieces");
+    eosio::check(wl != whitelist_by_object_and_users.end() || object -> creator == creator, "Only users from whitelist or creator can emit new pieces");
 
-    objects.modify(object, username, [&](auto &o){
+    objects.modify(object, creator, [&](auto &o){
       o.total_pieces += pieces_for_emit;
       o.remain_pieces += pieces_for_emit;
     });
