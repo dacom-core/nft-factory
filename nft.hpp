@@ -22,7 +22,7 @@ public:
     void apply(uint64_t receiver, uint64_t code, uint64_t action);   
     [[eosio::action]] void create(eosio::name creator, eosio::name lang, std::string title, std::string description, uint64_t total_pieces, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta);
     [[eosio::action]] void remove(eosio::name creator, uint64_t object_id);
-    [[eosio::action]] void edit(eosio::name owner, uint64_t object_id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, bool creator_can_emit_new_pieces, std::string meta);
+    [[eosio::action]] void edit(eosio::name creator, uint64_t object_id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, bool creator_can_emit_new_pieces, std::string meta);
    
     static void add_balance(eosio::name payer, eosio::asset quantity, eosio::name contract);   
     static void sub_balance(eosio::name username, eosio::asset quantity, eosio::name contract);
@@ -69,7 +69,7 @@ public:
     * @{ 
     */
     static constexpr eosio::name _me = "nft"_n;   
-    static constexpr bool _anyone_can_create = false;
+    static constexpr bool _anyone_can_create = true;
 
     /**
     * @}
@@ -172,13 +172,13 @@ public:
 
       bool buyer_can_offer_price = false; /*!< может ли покупатель предлагать свою цену */
       bool with_delivery = false;         /*!< флаг физической поставки */
-      std::string delivery_from;
+      std::string delivery_from;          /*!< точка нахождения физического эквивалента */
       
       std::vector<eosio::name> delivery_methods;        /*!< метод физической поставки */
       std::vector<eosio::name> delivery_operators;        /*!< оператор физической поставки */
       
-      eosio::time_point_sec sales_start_at;
-      eosio::time_point_sec sales_closed_at;
+      eosio::time_point_sec sales_start_at;           /*!< резервное поле для аукциона */
+      eosio::time_point_sec sales_closed_at;          /*!< резервное поле для аукциона */
       
       std::string meta;     /*!< мета-данные объекта */
 
@@ -208,7 +208,7 @@ public:
      * @scope nft | buyer
      * @table objects
      * @ingroup public_tables
-     * @details Таблица хранит запросы на производство NFT
+     * @details Таблица хранит запросы на покупку NFT
      */
     struct [[eosio::table, eosio::contract("nft")]] requests {
       uint64_t id;
@@ -263,7 +263,7 @@ public:
      * @scope nft | buyer
      * @table objects
      * @ingroup public_tables
-     * @details Таблица хранит запросы на производство NFT
+     * @details Таблица хранит части NFT
      */
     struct [[eosio::table, eosio::contract("nft")]] pieces {
       uint64_t id;
@@ -295,7 +295,7 @@ public:
      * @scope nft | buyer
      * @table messages
      * @ingroup public_tables
-     * @details Таблица хранит категории событий хоста. 
+     * @details Таблица хранит сообщения, которыми покупатель и продавец обмениваются на блокчейне при сделке
      */
     struct [[eosio::table, eosio::contract("nft")]] messages {
       uint64_t id;
@@ -328,7 +328,7 @@ public:
      * @scope _me | _me
      * @table whitelist
      * @ingroup public_tables
-     * @details Таблица хранит категории событий хоста. 
+     * @details Таблица хранит пользователей, которые могут осуществлять действие эмиссии частей NFT
      */
     struct [[eosio::table, eosio::contract("nft")]] whitelist {
       uint64_t id;

@@ -91,156 +91,7 @@ void nft::sub_balance(eosio::name username, eosio::asset quantity, eosio::name c
     
 }
 
-void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solded_pieces, uint64_t new_buyed_pieces, uint64_t new_score){
 
-  scores_index scores(_me, _me.value);
-  auto score = scores.find(username.value);
-  
-  if (score == scores.end()) {
-    scores.emplace(payer, [&](auto &s) {
-      s.username = username;
-      s.solded_pieces = new_solded_pieces;
-      s.buyed_pieces = new_buyed_pieces;
-      s.scores = new_score;
-    });
-
-  } else {
-    scores.modify(score, payer, [&](auto &s){
-      s.solded_pieces += new_solded_pieces;
-      s.buyed_pieces += new_buyed_pieces;
-      s.scores += new_score;
-    });
-  }
- 
-}
-
-  [[eosio::action]] void nft::create(eosio::name creator, eosio::name lang, std::string title, std::string description, uint64_t total_pieces, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta){
-    
-    require_auth(creator);
-    
-    objects_index objects(_me, _me.value);
-
-    uint64_t object_id = get_global_id("objects"_n);
-
-    objects.emplace(_me, [&](auto &o) { 
-      o.id = object_id;
-      o.creator = creator;
-      o.lang = lang;
-      o.title = title;
-      o.description = description;
-      o.category = category;
-      o.images = images;
-      o.ipns = ipns;
-      o.total_pieces = total_pieces;
-      o.creator_can_emit_new_pieces = creator_can_emit_new_pieces;
-      o.meta = meta;
-    });
-
-    pieces_index pieces(_me, _me.value);
-    
-    pieces.emplace(creator, [&](auto &p) {
-      p.id = get_global_id("pieces"_n);
-      p.object_id = object_id;
-      p.owner = creator;
-      p.pieces = total_pieces;
-    });
-
-
-  }
-
-
-  [[eosio::action]] void nft::remove(eosio::name creator, uint64_t object_id) {
-    require_auth(creator);
-    
-    objects_index objects(_me, _me.value);
-
-    auto object = objects.find(object_id);
-    eosio::check(object != objects.end(), "NFT is not found");
-    eosio::check(object -> creator == creator, "Only creator can remove this NFT");
-    
-    pieces_index pieces(_me, _me.value);
-    auto object_and_user = combine_ids(object_id, creator.value);
-    auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
-    auto piece = pieces_by_object_and_users.find(object_and_user);
-    
-    eosio::check(piece -> pieces == object -> total_pieces, "Cant remove NFT which already solded");
-
-    pieces_by_object_and_users.erase(piece);
-    objects.erase(object);
-
-  }
-
-
-  [[eosio::action]] void nft::edit(eosio::name owner, uint64_t object_id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, bool creator_can_emit_new_pieces, std::string meta) {
-    require_auth(owner);
-    
-    objects_index objects(_me, _me.value);
-    
-    auto object = objects.find(object_id);  
-    eosio::check(object != objects.end(), "NFT is not found");
-    eosio::check(owner == object -> creator, "Only owner can edit NFT for now");
-    
-    
-    //creator CAN only disable emitting | after disable cant enable
-    if (creator_can_emit_new_pieces == true ) {
-      eosio::check(object -> creator_can_emit_new_pieces == true, "This NFT already prohibit emitting pieces for creators");  
-    };
-
-    objects.modify(object, owner, [&](auto &o) {
-      o.title = title;
-      o.description = description;
-      o.images = images;
-      o.ipns = ipns;
-      o.category = category;
-      o.creator_can_emit_new_pieces = creator_can_emit_new_pieces;
-    });
-
-  }
-
-
-
-
-  [[eosio::action]] void nft::sell(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::name token_contract, eosio::asset one_piece_price, bool buyer_can_offer_price, bool with_delivery, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta) {
-    require_auth(seller);      
-
-    objects_index objects(_me, _me.value);
-    auto object = objects.find(object_id);  
-    
-    eosio::check(object != objects.end(), "NFT is not found");
-    
-    sub_pieces(seller, object_id, seller, pieces_to_sell);
-    
-    market_index markets(_me, _me.value);
-
-    auto itr = std::find(delivery_methods.begin(), delivery_methods.end(), "selfdelivery"_n);
-
-    eosio::check(itr != delivery_methods.end(), "Now only self-delivery method is possible");
-    eosio::check(delivery_operators.size() == 0, "Now delivery operators is not accepted");
-
-    markets.emplace(seller, [&](auto &o) {
-      o.id = get_global_id("markets"_n);
-      o.object_id = object_id;
-      o.seller = seller;
-      o.is_auction = false;
-      o.lang = object -> lang;
-      o.status = "waiting"_n;
-      o.remain_pieces = pieces_to_sell;
-      o.one_piece_price = one_piece_price;
-      o.total_price = one_piece_price * pieces_to_sell;
-      o.buyer_can_offer_price = buyer_can_offer_price;
-      o.with_delivery = with_delivery;
-      o.token_contract = token_contract;
-      o.delivery_from = delivery_from;
-      o.delivery_methods = delivery_methods;
-      o.delivery_operators = delivery_operators;     
-      o.sales_start_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-      o.sales_closed_at = eosio::time_point_sec (-1); 
-      o.meta = meta;
-    });
-
-    
-
-  }
 
   void nft::sub_pieces(eosio::name ram_payer, uint64_t object_id, eosio::name from, uint64_t sub_pieces){
     pieces_index pieces(_me, _me.value);
@@ -285,6 +136,244 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
 
     }
   }
+
+
+void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solded_pieces, uint64_t new_buyed_pieces, uint64_t new_score){
+
+  scores_index scores(_me, _me.value);
+  auto score = scores.find(username.value);
+  
+  if (score == scores.end()) {
+    scores.emplace(payer, [&](auto &s) {
+      s.username = username;
+      s.solded_pieces = new_solded_pieces;
+      s.buyed_pieces = new_buyed_pieces;
+      s.scores = new_score;
+    });
+
+  } else {
+    scores.modify(score, payer, [&](auto &s){
+      s.solded_pieces += new_solded_pieces;
+      s.buyed_pieces += new_buyed_pieces;
+      s.scores += new_score;
+    });
+  }
+ 
+}
+
+
+  /**
+   * @brief      Метод создания NFT-объекта
+   * @auth creator
+   * @details Метод создаёт NFT-объект с указанием количества частей. 
+   * 
+   * @ingroup public_actions
+   * 
+   * @param[in]  creator                      создатель NFT
+   * @param[in]  lang                         язык описания NFT
+   * @param[in]  title                        заголовок NFT
+   * @param[in]  description                  детальное описание NFT
+   * @param[in]  total_pieces                 общее количество частей NFT
+   * @param[in]  category                     категория NFT
+   * @param[in]  images                       картинки NFT
+   * @param[in]  ipns                         ссылка на пространство IPNS
+   * @param[in]  creator_can_emit_new_pieces  флаг указывает на то, может ли создатель NFT выпускать новые части к ней
+   * @param[in]  meta                         мета-данные NFT
+   */
+
+  [[eosio::action]] void nft::create(eosio::name creator, eosio::name lang, std::string title, std::string description, uint64_t total_pieces, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta){
+    
+    require_auth(creator);
+    
+    objects_index objects(_me, _me.value);
+
+    uint64_t object_id = get_global_id("objects"_n);
+
+    objects.emplace(_me, [&](auto &o) { 
+      o.id = object_id;
+      o.creator = creator;
+      o.lang = lang;
+      o.title = title;
+      o.description = description;
+      o.category = category;
+      o.images = images;
+      o.ipns = ipns;
+      o.total_pieces = total_pieces;
+      o.creator_can_emit_new_pieces = creator_can_emit_new_pieces;
+      o.meta = meta;
+    });
+
+    pieces_index pieces(_me, _me.value);
+    
+    pieces.emplace(creator, [&](auto &p) {
+      p.id = get_global_id("pieces"_n);
+      p.object_id = object_id;
+      p.owner = creator;
+      p.pieces = total_pieces;
+    });
+
+
+  }
+
+
+  
+  /**
+   * @brief      Метод удаления NFT-объекта
+   * @auth creator
+   * @details Метод удаляет NFT, если ни одна из частей ещё не была продана. 
+   * 
+   * @ingroup public_actions
+   * 
+   * @param[in]  creator    создатель NFT
+   * @param[in]  object_id  идентификатор объекта
+   */
+
+  [[eosio::action]] void nft::remove(eosio::name creator, uint64_t object_id) {
+    require_auth(creator);
+    
+    objects_index objects(_me, _me.value);
+
+    auto object = objects.find(object_id);
+    eosio::check(object != objects.end(), "NFT is not found");
+    eosio::check(object -> creator == creator, "Only creator can remove this NFT");
+    
+    pieces_index pieces(_me, _me.value);
+    auto object_and_user = combine_ids(object_id, creator.value);
+    auto pieces_by_object_and_users = pieces.template get_index<"byobjanduser"_n>();    
+    auto piece = pieces_by_object_and_users.find(object_and_user);
+    
+    eosio::check(piece -> pieces == object -> total_pieces, "Cant remove NFT which already solded");
+
+    pieces_by_object_and_users.erase(piece);
+    objects.erase(object);
+
+  }
+
+  
+  /**
+   * @brief      Метод редактирования NFT-объекта
+   * @auth creator
+   * @details Метод позволяет отредактировать описание NFT объекта, картинки, категории и т.д.
+   * 
+   * @ingroup public_actions
+   * 
+   * @param[in]  creator                        создатель NFT
+   * @param[in]  object_id                    идентификатор объекта
+   * @param[in]  title                        заголовок NFT
+   * @param[in]  description                  детальное описание NFT
+   * @param[in]  category                     категория NFT
+   * @param[in]  images                       картинки NFT
+   * @param[in]  ipns                         ссылка на пространство IPNS
+   * @param[in]  creator_can_emit_new_pieces  флаг указывает на то, может ли создатель NFT выпускать новые части к ней
+   * @param[in]  meta                         мета-данные NFT
+   */
+  [[eosio::action]] void nft::edit(eosio::name creator, uint64_t object_id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, bool creator_can_emit_new_pieces, std::string meta) {
+    require_auth(creator);
+    
+    objects_index objects(_me, _me.value);
+    
+    auto object = objects.find(object_id);  
+    eosio::check(object != objects.end(), "NFT is not found");
+    eosio::check(creator == object -> creator, "Only creator can edit NFT for now");
+    
+    
+    //creator CAN only disable emitting | after disable cant enable
+    if (creator_can_emit_new_pieces == true ) {
+      eosio::check(object -> creator_can_emit_new_pieces == true, "This NFT already prohibit emitting pieces for creators");  
+    };
+
+    objects.modify(object, creator, [&](auto &o) {
+      o.title = title;
+      o.description = description;
+      o.images = images;
+      o.ipns = ipns;
+      o.category = category;
+      o.creator_can_emit_new_pieces = creator_can_emit_new_pieces;
+    });
+
+  }
+
+
+
+  /**
+   * @brief      Метод редактирования NFT-объекта
+   * @auth seller
+   * @details Метод позволяет отредактировать описание NFT объекта, картинки, категории и т.д.
+   * @ingroup public_actions
+   
+   * @param[in]  seller                 Продавец
+   * @param[in]  object_id              идентификатор объекта
+   * @param[in]  pieces_to_sell         сколько частей выставляем на продажу
+   * @param[in]  token_contract         контракт токена для оплаты
+   * @param[in]  one_piece_price        цена одной части
+   * @param[in]  buyer_can_offer_price  флаг доступности торгов - если true, покупатель может предлагать свою цену
+   * @param[in]  with_delivery          флаг физической поставки
+   * @param[in]  delivery_from          локация, откуда осуществляется доставки
+   * @param[in]  delivery_methods       метод доставки
+   * @param[in]  delivery_operators     оператор доставки
+   * @param[in]  meta                   мета-данные
+   */
+  [[eosio::action]] void nft::sell(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::name token_contract, eosio::asset one_piece_price, bool buyer_can_offer_price, bool with_delivery, std::string delivery_from, std::vector<eosio::name> delivery_methods, std::vector<eosio::name> delivery_operators, std::string meta) {
+    require_auth(seller);      
+
+    objects_index objects(_me, _me.value);
+    auto object = objects.find(object_id);  
+    
+    eosio::check(object != objects.end(), "NFT is not found");
+    
+    sub_pieces(seller, object_id, seller, pieces_to_sell);
+    
+    market_index markets(_me, _me.value);
+
+    auto itr = std::find(delivery_methods.begin(), delivery_methods.end(), "selfdelivery"_n);
+
+    eosio::check(itr != delivery_methods.end(), "Now only self-delivery method is possible");
+    eosio::check(delivery_operators.size() == 0, "Now delivery operators is not accepted");
+
+    markets.emplace(seller, [&](auto &o) {
+      o.id = get_global_id("markets"_n);
+      o.object_id = object_id;
+      o.seller = seller;
+      o.is_auction = false;
+      o.lang = object -> lang;
+      o.status = "waiting"_n;
+      o.remain_pieces = pieces_to_sell;
+      o.one_piece_price = one_piece_price;
+      o.total_price = one_piece_price * pieces_to_sell;
+      o.buyer_can_offer_price = buyer_can_offer_price;
+      o.with_delivery = with_delivery;
+      o.token_contract = token_contract;
+      o.delivery_from = delivery_from;
+      o.delivery_methods = delivery_methods;
+      o.delivery_operators = delivery_operators;     
+      o.sales_start_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      o.sales_closed_at = eosio::time_point_sec (-1); 
+      o.meta = meta;
+    });
+
+    
+
+  }
+
+
+
+  /**
+   * @brief      Метод покупки NFT
+   * @auth buyer
+   * @details Метод позволяет отредактировать описание NFT объекта, картинки, категории и т.д.
+   
+   * @ingroup public_actions
+   
+   * @param[in]  buyer              покупатель
+   * @param[in]  market_id          идентификатор объекта
+   * @param[in]  lang               язык проведения сделки
+   * @param[in]  requested_pieces   количество запрашиваемых частей
+   * @param[in]  one_piece_price    цена одной части
+   * @param[in]  delivery_to        куда осуществить доставку
+   * @param[in]  delivery_method    метод доставки
+   * @param[in]  delivery_operator  оператор доставки
+   * @param[in]  meta               мета-данные
+   */
 
   [[eosio::action]] void nft::buy(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset one_piece_price, std::string delivery_to, eosio::name delivery_method, eosio::name delivery_operator, std::string meta){
     
@@ -342,7 +431,7 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
 
 
       markets.modify(market, buyer, [&](auto &o) {
-        if (market -> buyer_can_offer_price == false) {
+        if (market -> buyer_can_offer_price == false || market -> with_delivery == true) {
           o.blocked_pieces += requested_pieces;
         };
       });
@@ -376,6 +465,15 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
   }
 
 
+  /**
+   * @brief      Метод отмены продажи NFT
+   * @auth seller
+   * @details Метод совершает отмену продажи NFT-объекта
+   * @ingroup public_actions
+   
+   * @param[in]  seller     Продавец
+   * @param[in]  market_id  Идентификатор объекта на рынке
+   */
 
   [[eosio::action]] void nft::cancelsell(eosio::name seller, uint64_t market_id){
     
@@ -392,6 +490,19 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
     markets.erase(market);
 
   }
+
+   /**
+   * @brief      Метод принятия запроса на покупку
+   * @auth seller
+   * @details Продавец должен вызвать этот метод для начала сделки обмена, если:
+   * - установлен флаг доступности торгов по NFT
+   * - установлен флаг физической поставки (для ручного подтверждения адреса и введенных пользователем полей)
+   * Если флаги не установлены, вызов этого метода не требуется - обмен токен/NFT произойдёт автоматически. 
+   * @ingroup public_actions
+   
+   * @param[in]  seller     Продавец
+   * @param[in]  request_id  Идентификатор запроса на покупку
+   */
 
   [[eosio::action]] void nft::acceptreq(eosio::name seller, uint64_t request_id) {
 
@@ -438,6 +549,16 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
   }
     
 
+   /**
+   * @brief      Метод отклонения сделки
+   * @auth seller
+   * @details Продавец вызывает этот метод, если отклоняет запрос на покупку
+   * @ingroup public_actions
+   
+   * @param[in]  seller     Продавец
+   * @param[in]  request_id  Идентификатор запроса на покупку
+   */
+
 
   [[eosio::action]] void nft::declinereq(eosio::name seller, uint64_t request_id) {
 
@@ -448,9 +569,18 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
 
     eosio::check(request != requests.end(), "Request is not found");
     eosio::check(request -> seller == seller, "Only seller can decline request");
-      
+    eosio::check(request -> status == "waiting"_n, "Only requests on waiting status can be declined");
+
     market_index markets(_me, _me.value);
     auto market = markets.find(request -> market_id);
+
+    if (market -> buyer_can_offer_price == false || market -> with_delivery == true){
+
+      markets.modify(market, seller, [&](auto &o) {
+          o.blocked_pieces -= request -> requested_pieces;
+      });
+
+    };
 
     action(
         permission_level{ _me, "active"_n },
@@ -466,6 +596,17 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
 
   }
 
+
+  
+   /**
+   * @brief      Метод отмены запроса на покупку
+   * @auth buyer
+   * @details Покупатель вызывает этот метод, если отменяет свой запрос на покупку NFT
+   * @ingroup public_actions
+   
+   * @param[in]  buyer     Покупатель
+   * @param[in]  request_id  Идентификатор запроса на покупку
+   */
   [[eosio::action]] void nft::cancelreq(eosio::name buyer, uint64_t request_id){
 
     require_auth(buyer);
@@ -494,7 +635,17 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
   };
 
 
-
+  /**
+   * @brief      Метод установки статуса доставки
+   * @auth delivery_operator
+   * @details После того, как сделка на покупку NFT с доставкой оплачена, подключается оператор доставки, который изменяет статус доставки. 
+   * Сейчас доступен только статус finish, что означает, что объект выдан покупателю на пункте самовывоза. Оператором доставки, при этом, выступает продавец. 
+   * @ingroup public_actions
+   
+   * @param[in]  delivery_operator     Оператор доставки
+   * @param[in]  request_id  Идентификатор запроса на покупку
+   * @param[in]  status  Статус доставки
+   */
   [[eosio::action]] void nft::setdelstatus(eosio::name delivery_operator, uint64_t request_id, eosio::name status){
 
     require_auth(delivery_operator);
@@ -535,7 +686,16 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
   }
 
   
-
+  /**
+   * @brief      Метод выпуска частей
+   * @auth emitter
+   * @details Если объект предусматривает выпуск частей, то пользователи из белого списка или сам создатель NFT могут выпускать новые части NFT.
+   * @ingroup public_actions
+   
+   * @param[in]  emitter     Имя пользователя, осуществляющего выпуск NFT
+   * @param[in]  object_id  Идентификатор объекта
+   * @param[in]  pieces_for_emit  Количество единиц к выпуску
+   */
 
   [[eosio::action]] void nft::emit(eosio::name emitter, uint64_t object_id, uint64_t pieces_for_emit){
   
@@ -562,6 +722,17 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
     
   }
   
+   /**
+   * @brief      Метод добавления пользователя в белый список для выпуска частей NFT
+   * @auth creator
+   * @details Создатель NFT может сам выпускать части или добавить подрядчиков, которые поставляют части NFT в его объект. Для этого, создатель добавляет подрядчика в белый лист с помощью этого метода.
+   * @ingroup public_actions
+   
+   * @param[in]  creator    Владелец NFT
+   * @param[in]  object_id  Идентификатор объекта
+   * @param[in]  username  Имя пользователя для добавления в белый лист
+   */
+
 
   [[eosio::action]] void nft::addtowl(eosio::name creator, uint64_t object_id, eosio::name username){
     require_auth(creator);
@@ -587,6 +758,18 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
     });
   }
   
+  /**
+   * @brief      Метод удаления пользователя из белого листа
+   * @auth creator
+   * @details Метод удаляет пользователя из белого листа
+   * @ingroup public_actions
+   
+   * @param[in]  creator    Владелец NFT
+   * @param[in]  object_id  Идентификатор объекта
+   * @param[in]  username  Имя пользователя для удаления
+   */
+
+
 
   [[eosio::action]] void nft::delfromwl(eosio::name creator, uint64_t object_id, eosio::name username){
     require_auth(creator);
@@ -610,6 +793,19 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
 
   }
     
+  
+  /**
+   * @brief      Метод установки отзыва на NFT
+   * @auth buyer
+   * @details Метод позволяет покупателю установить отзыв с указанием очков качества продукта
+   * @ingroup public_actions
+   
+   * @param[in]  buyer    Владелец NFT
+   * @param[in]  object_id  Идентификатор объекта
+   * @param[in]  message  Сообщение отзыва
+   * @param[in]  score  Сообщение отзыва
+   * @param[in]  meta  Мета-данные
+   */
 
 
   [[eosio::action]] void nft::setreview(eosio::name buyer, uint64_t object_id, std::string message, uint64_t score, std::string meta){
@@ -655,6 +851,17 @@ void nft::add_scores(eosio::name payer, eosio::name username, uint64_t new_solde
   }
 
 
+  /**
+   * @brief      Метод создания сообщения
+   * @auth username
+   * @details Метод позволяет участникам сделки общаться друг с другом в чате через блокчейн
+   * @ingroup public_actions
+   
+   * @param[in]  username    имя пользователя покупателя или продавца
+   * @param[in]  request_id  Идентификатор запроса
+   * @param[in]  lang  Идентификатор языка
+   * @param[in]  message Сообщение
+   */
 
   [[eosio::action]] void nft::sendmessage(eosio::name username, uint64_t request_id, eosio::name lang, std::string message){
     

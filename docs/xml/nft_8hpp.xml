@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="nft_8hpp" kind="file" language="C++">
+    <compoundname>nft.hpp</compoundname>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">eosio/eosio.hpp</includes>
+    <includes local="no">eosio/asset.hpp</includes>
+    <includes local="no">eosio/time.hpp</includes>
+    <includes local="no">eosio/multi_index.hpp</includes>
+    <includes local="no">eosio/contract.hpp</includes>
+    <includes local="no">eosio/action.hpp</includes>
+    <includes local="no">eosio/system.hpp</includes>
+    <includes local="no">eosio/print.hpp</includes>
+    <includes local="no">eosio/datastream.hpp</includes>
+    <includedby refid="nft_8cpp" local="yes">nft.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>nft.hpp</label>
+        <link refid="nft_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithm</label>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="9">
+        <label>eosio/action.hpp</label>
+      </node>
+      <node id="5">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="8">
+        <label>eosio/contract.hpp</label>
+      </node>
+      <node id="12">
+        <label>eosio/datastream.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="7">
+        <label>eosio/multi_index.hpp</label>
+      </node>
+      <node id="11">
+        <label>eosio/print.hpp</label>
+      </node>
+      <node id="10">
+        <label>eosio/system.hpp</label>
+      </node>
+      <node id="6">
+        <label>eosio/time.hpp</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classnft" prot="public">nft</innerclass>
+    <innerclass refid="structbalance" prot="public">balance</innerclass>
+    <innerclass refid="structobjects" prot="public">objects</innerclass>
+    <innerclass refid="structmarket" prot="public">market</innerclass>
+    <innerclass refid="structrequests" prot="public">requests</innerclass>
+    <innerclass refid="structpieces" prot="public">pieces</innerclass>
+    <innerclass refid="structmessages" prot="public">messages</innerclass>
+    <innerclass refid="structwhitelist" prot="public">whitelist</innerclass>
+    <innerclass refid="structreviews" prot="public">reviews</innerclass>
+    <innerclass refid="structcounts" prot="public">counts</innerclass>
+    <innerclass refid="structscores" prot="public">scores</innerclass>
+    <innernamespace refid="namespaceeosio">eosio</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="nft_8hpp_1a18bfbc2eeaeae3a481efd6c9369819b7" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;balance&quot;_n, <ref refid="structbalance" kindref="compound">balance</ref>, eosio::indexed_by&lt; &quot;byconsym&quot;_n, eosio::const_mem_fun&lt; <ref refid="structbalance" kindref="compound">balance</ref>, uint128_t, &amp;<ref refid="structbalance_1a4771c877668bfc884ae2c00833defbf2" kindref="member">balance::byconsym</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;balance&quot;_n, balance, eosio::indexed_by&lt; &quot;byconsym&quot;_n, eosio::const_mem_fun&lt;balance, uint128_t, &amp;balance::byconsym&gt; &gt; &gt; balances_index</definition>
+        <argsstring></argsstring>
+        <name>balances_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="107" column="2" bodyfile="nft.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a82d1ca8e1e8f40a00b3bae9f92a210dc" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;objects&quot;_n, <ref refid="structobjects" kindref="compound">objects</ref>, eosio::indexed_by&lt;&quot;bycreator&quot;_n, eosio::const_mem_fun&lt; <ref refid="structobjects" kindref="compound">objects</ref>, uint64_t, &amp;<ref refid="structobjects_1aa451fb8a617d942b811fc200a53f7f31" kindref="member">objects::bycreator</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bycategory&quot;_n, eosio::const_mem_fun&lt; <ref refid="structobjects" kindref="compound">objects</ref>, uint64_t, &amp;<ref refid="structobjects_1a014834eb207f1d07802d2483ae93d366" kindref="member">objects::bycategory</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bylang&quot;_n, eosio::const_mem_fun&lt; <ref refid="structobjects" kindref="compound">objects</ref>, uint64_t, &amp;<ref refid="structobjects_1a44562427467c4db707c41b3430158055" kindref="member">objects::bylang</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;objects&quot;_n, objects, eosio::indexed_by&lt;&quot;bycreator&quot;_n, eosio::const_mem_fun&lt;objects, uint64_t, &amp;objects::bycreator&gt; &gt;, eosio::indexed_by&lt;&quot;bycategory&quot;_n, eosio::const_mem_fun&lt;objects, uint64_t, &amp;objects::bycategory&gt; &gt;, eosio::indexed_by&lt;&quot;bylang&quot;_n, eosio::const_mem_fun&lt;objects, uint64_t, &amp;objects::bylang&gt; &gt; &gt; objects_index</definition>
+        <argsstring></argsstring>
+        <name>objects_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="148" column="2" bodyfile="nft.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a901e74b55861151372031390e0ff6575" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;market&quot;_n, <ref refid="structmarket" kindref="compound">market</ref>, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmarket" kindref="compound">market</ref>, uint64_t, &amp;<ref refid="structmarket_1aec4d4e3fb7290a024dd63215205c1946" kindref="member">market::byobject</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bylang&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmarket" kindref="compound">market</ref>, uint64_t, &amp;<ref refid="structmarket_1a3971ed35d3a25db2093c3ccb6b1a3b2a" kindref="member">market::bylang</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byseller&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmarket" kindref="compound">market</ref>, uint64_t, &amp;<ref refid="structmarket_1a53576755ab437401bbfab4c85ba6d452" kindref="member">market::byseller</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bycon&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmarket" kindref="compound">market</ref>, uint64_t, &amp;<ref refid="structmarket_1a769151962562f67801c8458edb16594b" kindref="member">market::bycon</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;market&quot;_n, market, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt;market, uint64_t, &amp;market::byobject&gt; &gt;, eosio::indexed_by&lt;&quot;bylang&quot;_n, eosio::const_mem_fun&lt;market, uint64_t, &amp;market::bylang&gt; &gt;, eosio::indexed_by&lt;&quot;byseller&quot;_n, eosio::const_mem_fun&lt;market, uint64_t, &amp;market::byseller&gt; &gt;, eosio::indexed_by&lt;&quot;bycon&quot;_n, eosio::const_mem_fun&lt;market, uint64_t, &amp;market::bycon&gt; &gt; &gt; market_index</definition>
+        <argsstring></argsstring>
+        <name>market_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="201" column="2" bodyfile="nft.hpp" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a7fad86387c2c82db023120ab9d5bace0" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;requests&quot;_n, <ref refid="structrequests" kindref="compound">requests</ref>, eosio::indexed_by&lt;&quot;bybuyer&quot;_n, eosio::const_mem_fun&lt; <ref refid="structrequests" kindref="compound">requests</ref>, uint64_t, &amp;<ref refid="structrequests_1a3fbf988c7ed237252c3ebf80007c157c" kindref="member">requests::bybuyer</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byseller&quot;_n, eosio::const_mem_fun&lt; <ref refid="structrequests" kindref="compound">requests</ref>, uint64_t, &amp;<ref refid="structrequests_1a5a55a24a342196949280477a81abf094" kindref="member">requests::byseller</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bymarket&quot;_n, eosio::const_mem_fun&lt; <ref refid="structrequests" kindref="compound">requests</ref>, uint64_t, &amp;requests::bymarket &gt; &gt;, eosio::indexed_by&lt;&quot;bydop&quot;_n, eosio::const_mem_fun&lt; <ref refid="structrequests" kindref="compound">requests</ref>, uint64_t, &amp;<ref refid="structrequests_1a024be27bc42df835cfdb995a0d9d69b4" kindref="member">requests::bydop</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bydmethod&quot;_n, eosio::const_mem_fun&lt; <ref refid="structrequests" kindref="compound">requests</ref>, uint64_t, &amp;<ref refid="structrequests_1a6d33d3188032ce14066e7d45a846a72a" kindref="member">requests::bydmethod</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;requests&quot;_n, requests, eosio::indexed_by&lt;&quot;bybuyer&quot;_n, eosio::const_mem_fun&lt;requests, uint64_t, &amp;requests::bybuyer&gt; &gt;, eosio::indexed_by&lt;&quot;byseller&quot;_n, eosio::const_mem_fun&lt;requests, uint64_t, &amp;requests::byseller&gt; &gt;, eosio::indexed_by&lt;&quot;bymarket&quot;_n, eosio::const_mem_fun&lt;requests, uint64_t, &amp;requests::bymarket&gt; &gt;, eosio::indexed_by&lt;&quot;bydop&quot;_n, eosio::const_mem_fun&lt;requests, uint64_t, &amp;requests::bydop&gt; &gt;, eosio::indexed_by&lt;&quot;bydmethod&quot;_n, eosio::const_mem_fun&lt;requests, uint64_t, &amp;requests::bydmethod&gt; &gt; &gt; requests_index</definition>
+        <argsstring></argsstring>
+        <name>requests_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="255" column="2" bodyfile="nft.hpp" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1adcf178cfa08f78f3240cd671db783a83" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;pieces&quot;_n, <ref refid="structpieces" kindref="compound">pieces</ref>, eosio::indexed_by&lt;&quot;byowner&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpieces" kindref="compound">pieces</ref>, uint64_t, &amp;<ref refid="structpieces_1a986e2bd8535473615977d3d0e621c50d" kindref="member">pieces::byowner</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpieces" kindref="compound">pieces</ref>, uint64_t, &amp;<ref refid="structpieces_1aaa1da5fdf3e2ee08704abab29d7e93ea" kindref="member">pieces::byobject</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byobjanduser&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpieces" kindref="compound">pieces</ref>, uint128_t, &amp;<ref refid="structpieces_1a534758315e1a85c8f9ee75f278128587" kindref="member">pieces::byobjanduser</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;pieces&quot;_n, pieces, eosio::indexed_by&lt;&quot;byowner&quot;_n, eosio::const_mem_fun&lt;pieces, uint64_t, &amp;pieces::byowner&gt; &gt;, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt;pieces, uint64_t, &amp;pieces::byobject&gt; &gt;, eosio::indexed_by&lt;&quot;byobjanduser&quot;_n, eosio::const_mem_fun&lt;pieces, uint128_t, &amp;pieces::byobjanduser&gt; &gt; &gt; pieces_index</definition>
+        <argsstring></argsstring>
+        <name>pieces_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="289" column="2" bodyfile="nft.hpp" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a6198d3d92915303918a72de3de0e4c69" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;messages&quot;_n, <ref refid="structmessages" kindref="compound">messages</ref>, eosio::indexed_by&lt;&quot;byreq&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmessages" kindref="compound">messages</ref>, uint64_t, &amp;<ref refid="structmessages_1a6461ef47d9c28a23d5148870abe022ff" kindref="member">messages::byreq</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmessages" kindref="compound">messages</ref>, uint64_t, &amp;<ref refid="structmessages_1aac3fe25be8c441259fd0e258f19e329c" kindref="member">messages::byusername</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bylang&quot;_n, eosio::const_mem_fun&lt; <ref refid="structmessages" kindref="compound">messages</ref>, uint64_t, &amp;<ref refid="structmessages_1a3079ddd4d230be1182c6d60fd52ef37f" kindref="member">messages::bylang</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;messages&quot;_n, messages, eosio::indexed_by&lt;&quot;byreq&quot;_n, eosio::const_mem_fun&lt;messages, uint64_t, &amp;messages::byreq&gt; &gt;, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;messages, uint64_t, &amp;messages::byusername&gt; &gt;, eosio::indexed_by&lt;&quot;bylang&quot;_n, eosio::const_mem_fun&lt;messages, uint64_t, &amp;messages::bylang&gt; &gt; &gt; messages_index</definition>
+        <argsstring></argsstring>
+        <name>messages_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="321" column="2" bodyfile="nft.hpp" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a8e7f6013eafb844d11eac97d7f75cbca" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;whitelist&quot;_n, <ref refid="structwhitelist" kindref="compound">whitelist</ref>, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwhitelist" kindref="compound">whitelist</ref>, uint64_t, &amp;<ref refid="structwhitelist_1af753178ddeae72f6fc89a611868b01f8" kindref="member">whitelist::byobject</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwhitelist" kindref="compound">whitelist</ref>, uint64_t, &amp;<ref refid="structwhitelist_1abfa3c9003e82e9b6a36429c2e2d5555e" kindref="member">whitelist::byusername</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byobjanduser&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwhitelist" kindref="compound">whitelist</ref>, uint128_t, &amp;<ref refid="structwhitelist_1ac188226e00f9ca2eef797c833b5f0e32" kindref="member">whitelist::byobjanduser</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;whitelist&quot;_n, whitelist, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt;whitelist, uint64_t, &amp;whitelist::byobject&gt; &gt;, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;whitelist, uint64_t, &amp;whitelist::byusername&gt; &gt;, eosio::indexed_by&lt;&quot;byobjanduser&quot;_n, eosio::const_mem_fun&lt;whitelist, uint128_t, &amp;whitelist::byobjanduser&gt; &gt; &gt; whitelist_index</definition>
+        <argsstring></argsstring>
+        <name>whitelist_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="351" column="2" bodyfile="nft.hpp" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a9e7b1fd833feb13c24b4a273af23c8d3" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;reviews&quot;_n, <ref refid="structreviews" kindref="compound">reviews</ref>, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt; <ref refid="structreviews" kindref="compound">reviews</ref>, uint64_t, &amp;<ref refid="structreviews_1ad57ccd0f3280dde33b2815530c2937b8" kindref="member">reviews::byobject</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bybuyer&quot;_n, eosio::const_mem_fun&lt; <ref refid="structreviews" kindref="compound">reviews</ref>, uint64_t, &amp;<ref refid="structreviews_1aad5e4eef05888968e5ad7facf2307b86" kindref="member">reviews::bybuyer</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byobjanduser&quot;_n, eosio::const_mem_fun&lt; <ref refid="structreviews" kindref="compound">reviews</ref>, uint128_t, &amp;<ref refid="structreviews_1a24f33d4b7cb47e528d6f0c48e9f32939" kindref="member">reviews::byobjanduser</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;reviews&quot;_n, reviews, eosio::indexed_by&lt;&quot;byobject&quot;_n, eosio::const_mem_fun&lt;reviews, uint64_t, &amp;reviews::byobject&gt; &gt;, eosio::indexed_by&lt;&quot;bybuyer&quot;_n, eosio::const_mem_fun&lt;reviews, uint64_t, &amp;reviews::bybuyer&gt; &gt;, eosio::indexed_by&lt;&quot;byobjanduser&quot;_n, eosio::const_mem_fun&lt;reviews, uint128_t, &amp;reviews::byobjanduser&gt; &gt; &gt; review_index</definition>
+        <argsstring></argsstring>
+        <name>review_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="385" column="2" bodyfile="nft.hpp" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a977571ddafb85841c941160c5bd7946a" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;counts&quot;_n, <ref refid="structcounts" kindref="compound">counts</ref>, eosio::indexed_by&lt;&quot;keyskey&quot;_n, eosio::const_mem_fun&lt; <ref refid="structcounts" kindref="compound">counts</ref>, uint128_t, &amp;<ref refid="structcounts_1aa11cd18d5dafe5d4fbc21a89b3a20aa2" kindref="member">counts::keyskey</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;keyvalue&quot;_n, eosio::const_mem_fun&lt; <ref refid="structcounts" kindref="compound">counts</ref>, uint128_t, &amp;<ref refid="structcounts_1a31343922bf3e266ed43f3db640fcf5e0" kindref="member">counts::keyvalue</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;counts&quot;_n, counts, eosio::indexed_by&lt;&quot;keyskey&quot;_n, eosio::const_mem_fun&lt;counts, uint128_t, &amp;counts::keyskey&gt; &gt;, eosio::indexed_by&lt;&quot;keyvalue&quot;_n, eosio::const_mem_fun&lt;counts, uint128_t, &amp;counts::keyvalue&gt; &gt; &gt; counts_index</definition>
+        <argsstring></argsstring>
+        <name>counts_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="413" column="2" bodyfile="nft.hpp" bodystart="413" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="nft_8hpp_1a071993e8b4d91be117fcc73ad72ec153" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;scores&quot;_n, <ref refid="structscores" kindref="compound">scores</ref>, eosio::indexed_by&lt;&quot;bysolded&quot;_n, eosio::const_mem_fun&lt; <ref refid="structscores" kindref="compound">scores</ref>, uint64_t, &amp;<ref refid="structscores_1a222ce9d2a44f050785403dd9eb66fe85" kindref="member">scores::bysolded</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bybyed&quot;_n, eosio::const_mem_fun&lt; <ref refid="structscores" kindref="compound">scores</ref>, uint64_t, &amp;<ref refid="structscores_1a2041881be42b3eb1383fdd308e62e0e8" kindref="member">scores::bybyed</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byscores&quot;_n, eosio::const_mem_fun&lt; <ref refid="structscores" kindref="compound">scores</ref>, uint64_t, &amp;<ref refid="structscores_1ae86bd54b93f579f0bc7117e9a65e860b" kindref="member">scores::byscores</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;scores&quot;_n, scores, eosio::indexed_by&lt;&quot;bysolded&quot;_n, eosio::const_mem_fun&lt;scores, uint64_t, &amp;scores::bysolded&gt; &gt;, eosio::indexed_by&lt;&quot;bybyed&quot;_n, eosio::const_mem_fun&lt;scores, uint64_t, &amp;scores::bybyed&gt; &gt;, eosio::indexed_by&lt;&quot;byscores&quot;_n, eosio::const_mem_fun&lt;scores, uint64_t, &amp;scores::byscores&gt; &gt; &gt; scores_index</definition>
+        <argsstring></argsstring>
+        <name>scores_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="444" column="2" bodyfile="nft.hpp" bodystart="444" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/eosio.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/asset.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/time.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/multi_index.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/contract.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/action.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/system.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/print.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/datastream.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">eosio;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classnft" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">[[eosio::contract]]<sp/><ref refid="classnft" kindref="compound">nft</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>eosio::contract<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnft" kindref="compound">nft</ref>(<sp/>eosio::name<sp/>receiver,<sp/>eosio::name<sp/>code,<sp/>eosio::datastream&lt;const<sp/>char*&gt;<sp/>ds<sp/>):<sp/>eosio::contract(receiver,<sp/>code,<sp/>ds)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>apply(uint64_t<sp/>receiver,<sp/>uint64_t<sp/>code,<sp/>uint64_t<sp/>action);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>create(eosio::name<sp/>creator,<sp/>eosio::name<sp/>lang,<sp/>std::string<sp/>title,<sp/>std::string<sp/>description,<sp/>uint64_t<sp/>total_pieces,<sp/>eosio::name<sp/>category,<sp/>std::string<sp/>images,<sp/>std::string<sp/>ipns,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>creator_can_emit_new_pieces,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>remove(eosio::name<sp/>creator,<sp/>uint64_t<sp/>object_id);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>edit(eosio::name<sp/>creator,<sp/>uint64_t<sp/>object_id,<sp/>std::string<sp/>title,<sp/>std::string<sp/>description,<sp/>std::string<sp/>images,<sp/>std::string<sp/>ipns,<sp/>eosio::name<sp/>category,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>creator_can_emit_new_pieces,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_balance(eosio::name<sp/>payer,<sp/>eosio::asset<sp/>quantity,<sp/>eosio::name<sp/>contract);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_balance(eosio::name<sp/>username,<sp/>eosio::asset<sp/>quantity,<sp/>eosio::name<sp/>contract);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_pieces(eosio::name<sp/>ram_payer,<sp/>uint64_t<sp/>object_id,<sp/>eosio::name<sp/>to,<sp/>uint64_t<sp/>add_pieces);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_pieces(eosio::name<sp/>ram_payer,<sp/>uint64_t<sp/>object_id,<sp/>eosio::name<sp/>from,<sp/>uint64_t<sp/>sub_pieces);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_scores(eosio::name<sp/>payer,<sp/>eosio::name<sp/>username,<sp/>uint64_t<sp/>new_solded_pieces,<sp/>uint64_t<sp/>new_buyed_pieces,<sp/>uint64_t<sp/>new_score);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buy(eosio::name<sp/>buyer,<sp/>uint64_t<sp/>market_id,<sp/>eosio::name<sp/>lang,<sp/>uint64_t<sp/>requested_pieces,<sp/>eosio::asset<sp/>one_piece_price,<sp/>std::string<sp/>delivery_to,<sp/>eosio::name<sp/>delivery_method,<sp/>eosio::name<sp/>delivery_operator,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sell(eosio::name<sp/>seller,<sp/>uint64_t<sp/>object_id,<sp/>uint64_t<sp/>pieces_to_sell,<sp/>eosio::name<sp/>token_contract,<sp/>eosio::asset<sp/>one_piece_price,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>buyer_can_offer_price,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>with_delivery,<sp/>std::string<sp/>delivery_from,<sp/>std::vector&lt;eosio::name&gt;<sp/>delivery_methods,<sp/>std::vector&lt;eosio::name&gt;<sp/>delivery_operators,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cancelsell(eosio::name<sp/>seller,<sp/>uint64_t<sp/>market_id);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>emit(eosio::name<sp/>emitter,<sp/>uint64_t<sp/>object_id,<sp/>uint64_t<sp/>pieces_for_emit);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>acceptreq(eosio::name<sp/>seller,<sp/>uint64_t<sp/>request_id);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>declinereq(eosio::name<sp/>seller,<sp/>uint64_t<sp/>request_id);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cancelreq(eosio::name<sp/>buyer,<sp/>uint64_t<sp/>request_id);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint64_t<sp/>get_global_id(eosio::name<sp/>key);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sendmessage(eosio::name<sp/>username,<sp/>uint64_t<sp/>request_id,<sp/>eosio::name<sp/>lang,<sp/>std::string<sp/>message);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setdelstatus(eosio::name<sp/>delivery_operator,<sp/>uint64_t<sp/>request_id,<sp/>eosio::name<sp/>status);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addtowl(eosio::name<sp/>creator,<sp/>uint64_t<sp/>object_id,<sp/>eosio::name<sp/>username);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>delfromwl(eosio::name<sp/>creator,<sp/>uint64_t<sp/>object_id,<sp/>eosio::name<sp/>username);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setreview(eosio::name<sp/>buyer,<sp/>uint64_t<sp/>object_id,<sp/>std::string<sp/>message,<sp/>uint64_t<sp/>score,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint128_t<sp/>combine_ids(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;y)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(uint128_t{x}<sp/>&lt;&lt;<sp/>64)<sp/>|<sp/>y;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//[[eosio::action]]<sp/>void<sp/>resell()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="group__public__consts_1gaef729aa8d7b1644b5d2dd70306863231" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/>_me<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;nft&quot;</highlight><highlight class="normal">_n;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_anyone_can_create<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="structbalance" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structbalance" kindref="compound">balance</ref><sp/>{</highlight></codeline>
+<codeline lineno="92" refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93" refid="structbalance_1ace918f48aa28659bb919678e40bf675f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structbalance_1ace918f48aa28659bb919678e40bf675f" kindref="member">contract</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="structbalance_1a72c6866c6d3a7b5cef340b0d511e9265" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structbalance_1a72c6866c6d3a7b5cef340b0d511e9265" kindref="member">quantity</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96" refid="structbalance_1a748ad87c69d0195c26a690857b427cc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a748ad87c69d0195c26a690857b427cc9" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/></highlight></codeline>
+<codeline lineno="97" refid="structbalance_1a4771c877668bfc884ae2c00833defbf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structbalance_1a4771c877668bfc884ae2c00833defbf2" kindref="member">byconsym</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nft::combine_ids(contract.value,<sp/>quantity.symbol.code().raw());}<sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structbalance" kindref="compound">balance</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(contract)(quantity))</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;balance&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structbalance" kindref="compound">balance</ref>,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;<sp/></highlight><highlight class="stringliteral">&quot;byconsym&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;balance,<sp/>uint128_t,<sp/>&amp;balance::byconsym&gt;&gt;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>balances_index;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="structobjects" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structobjects" kindref="compound">objects</ref><sp/>{</highlight></codeline>
+<codeline lineno="120" refid="structobjects_1a75178c421a76593ae35d0af8591f7249" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structobjects_1a75178c421a76593ae35d0af8591f7249" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="121" refid="structobjects_1affd3e74508f3389523f2ec59597575bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structobjects_1affd3e74508f3389523f2ec59597575bd" kindref="member">creator</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122" refid="structobjects_1a0822ed92203929b9413670dbef2059bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structobjects_1a0822ed92203929b9413670dbef2059bb" kindref="member">lang</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123" refid="structobjects_1aa06aea57138984efbddcb285432a7793" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structobjects_1aa06aea57138984efbddcb285432a7793" kindref="member">title</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124" refid="structobjects_1a9af54eefe0312e3f59daece358bc3750" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structobjects_1a9af54eefe0312e3f59daece358bc3750" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="125" refid="structobjects_1a74992b2925546c775d5a09591edcd936" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structobjects_1a74992b2925546c775d5a09591edcd936" kindref="member">category</ref>;<sp/></highlight></codeline>
+<codeline lineno="126" refid="structobjects_1ab59bf14e1570ad355aabf6b6a3e4a607" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structobjects_1ab59bf14e1570ad355aabf6b6a3e4a607" kindref="member">images</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="127" refid="structobjects_1af4c53d11bc55c992c5887d916c918c2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structobjects_1af4c53d11bc55c992c5887d916c918c2d" kindref="member">ipns</ref>;<sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>creator_can_emit_new_pieces<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="structobjects_1afc0ace5bde6abc6bb7d636dca65bf9e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structobjects_1afc0ace5bde6abc6bb7d636dca65bf9e9" kindref="member">total_pieces</ref>;<sp/></highlight></codeline>
+<codeline lineno="132" refid="structobjects_1a02914f82fc0b2484884a6a61b755c1ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structobjects_1a02914f82fc0b2484884a6a61b755c1ee" kindref="member">meta</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134" refid="structobjects_1a6f41cc1e072c89e960d35e95246ee702" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structobjects_1a6f41cc1e072c89e960d35e95246ee702" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135" refid="structobjects_1aa451fb8a617d942b811fc200a53f7f31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structobjects_1aa451fb8a617d942b811fc200a53f7f31" kindref="member">bycreator</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>creator.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136" refid="structobjects_1a014834eb207f1d07802d2483ae93d366" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structobjects_1a014834eb207f1d07802d2483ae93d366" kindref="member">bycategory</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>category.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138" refid="structobjects_1a44562427467c4db707c41b3430158055" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structobjects_1a44562427467c4db707c41b3430158055" kindref="member">bylang</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lang.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structobjects" kindref="compound">objects</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(creator)(lang)(title)(description)(category)(images)(ipns)(creator_can_emit_new_pieces)(total_pieces)(meta))</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;objects&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structobjects" kindref="compound">objects</ref>,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycreator&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;objects,<sp/>uint64_t,<sp/>&amp;objects::bycreator&gt;&gt;,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycategory&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;objects,<sp/>uint64_t,<sp/>&amp;objects::bycategory&gt;&gt;,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bylang&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;objects,<sp/>uint64_t,<sp/>&amp;objects::bylang&gt;&gt;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>objects_index;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="structmarket" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structmarket" kindref="compound">market</ref><sp/>{</highlight></codeline>
+<codeline lineno="161" refid="structmarket_1ae532d3fe0cf32f7ce146ac8dc471193d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1ae532d3fe0cf32f7ce146ac8dc471193d" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162" refid="structmarket_1a689d16b1e14bff56aef7c38da92419dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1a689d16b1e14bff56aef7c38da92419dd" kindref="member">object_id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163" refid="structmarket_1a566e0dc0c21b7cf57f8e9a005d91ee65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structmarket_1a566e0dc0c21b7cf57f8e9a005d91ee65" kindref="member">seller</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_auction<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165" refid="structmarket_1a76827b0c4006f50a200a70cdfa8009f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structmarket_1a76827b0c4006f50a200a70cdfa8009f4" kindref="member">lang</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;waiting&quot;</highlight><highlight class="normal">_n;<sp/></highlight><highlight class="comment">//or<sp/>pause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>remain_pieces;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>blocked_pieces;</highlight></codeline>
+<codeline lineno="169" refid="structmarket_1a2d0fc4fffe1e28833615acacad39201f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structmarket_1a2d0fc4fffe1e28833615acacad39201f" kindref="member">token_contract</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="170" refid="structmarket_1a50e8b9260677b44667b85a3e7bb4f8db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structmarket_1a50e8b9260677b44667b85a3e7bb4f8db" kindref="member">one_piece_price</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171" refid="structmarket_1a30304aaf389c43d7bea115e0eb9e329e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structmarket_1a30304aaf389c43d7bea115e0eb9e329e" kindref="member">total_price</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="173" refid="structmarket_1a3c192f136aee1033c3cfbf7fb329130d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>buyer_can_offer_price<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="174" refid="structmarket_1a036767444c3524d00836cff2b569b5bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>with_delivery<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="175" refid="structmarket_1a78d8b5de11ee00c72b99edb40eab1782" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structmarket_1a78d8b5de11ee00c72b99edb40eab1782" kindref="member">delivery_from</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="177" refid="structmarket_1ad0409fddbc7e1313e5e86bb6a24deb42" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;eosio::name&gt;<sp/><ref refid="structmarket_1ad0409fddbc7e1313e5e86bb6a24deb42" kindref="member">delivery_methods</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="178" refid="structmarket_1a8b2da82e70889a7323fa7acf34c6e898" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;eosio::name&gt;<sp/><ref refid="structmarket_1a8b2da82e70889a7323fa7acf34c6e898" kindref="member">delivery_operators</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="180" refid="structmarket_1a07bca9207b9a494add46ef5761e7bbc0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structmarket_1a07bca9207b9a494add46ef5761e7bbc0" kindref="member">sales_start_at</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="181" refid="structmarket_1a2107c26a159822590207fb43b18b9ccf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structmarket_1a2107c26a159822590207fb43b18b9ccf" kindref="member">sales_closed_at</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="183" refid="structmarket_1a002f3b71b9e0cff2cc552f38230c7f93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structmarket_1a002f3b71b9e0cff2cc552f38230c7f93" kindref="member">meta</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="185" refid="structmarket_1a927be547fb7499a82fc5a717e133a7b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1a927be547fb7499a82fc5a717e133a7b4" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186" refid="structmarket_1aec4d4e3fb7290a024dd63215205c1946" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1aec4d4e3fb7290a024dd63215205c1946" kindref="member">byobject</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>object_id;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="187" refid="structmarket_1a3971ed35d3a25db2093c3ccb6b1a3b2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1a3971ed35d3a25db2093c3ccb6b1a3b2a" kindref="member">bylang</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lang.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="189" refid="structmarket_1a53576755ab437401bbfab4c85ba6d452" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1a53576755ab437401bbfab4c85ba6d452" kindref="member">byseller</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>seller.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="190" refid="structmarket_1a769151962562f67801c8458edb16594b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmarket_1a769151962562f67801c8458edb16594b" kindref="member">bycon</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>token_contract.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structmarket" kindref="compound">market</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(object_id)(seller)(is_auction)(lang)(status)(remain_pieces)(blocked_pieces)(token_contract)(one_piece_price)(total_price)(buyer_can_offer_price)(with_delivery)(delivery_from)(delivery_methods)(delivery_operators)(sales_start_at)(sales_closed_at)(meta))</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;market&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structmarket" kindref="compound">market</ref>,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobject&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;market,<sp/>uint64_t,<sp/>&amp;market::byobject&gt;&gt;,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bylang&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;market,<sp/>uint64_t,<sp/>&amp;market::bylang&gt;&gt;,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byseller&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;market,<sp/>uint64_t,<sp/>&amp;market::byseller&gt;&gt;,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycon&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;market,<sp/>uint64_t,<sp/>&amp;market::bycon&gt;&gt;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>market_index;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213" refid="structrequests" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structrequests" kindref="compound">requests</ref><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>market_id;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>buyer;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>seller;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>lang;</highlight></codeline>
+<codeline lineno="219" refid="structrequests_1a76e8430229db67edb4d888fbde1e2600" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structrequests_1a76e8430229db67edb4d888fbde1e2600" kindref="member">requested_pieces</ref>;<sp/></highlight></codeline>
+<codeline lineno="221" refid="structrequests_1acca5f5a903e95110269df1f4078826d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structrequests_1acca5f5a903e95110269df1f4078826d7" kindref="member">total_price</ref>;<sp/></highlight></codeline>
+<codeline lineno="222" refid="structrequests_1a6585f99404f163b7e3ecffb2afe74a10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structrequests_1a6585f99404f163b7e3ecffb2afe74a10" kindref="member">one_piece_price</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="223" refid="structrequests_1a9d1356590d42bfc0a4abbaed86956b26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structrequests_1a9d1356590d42bfc0a4abbaed86956b26" kindref="member">total_payed</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="224" refid="structrequests_1a11a7010c68dd5189ed5a2cdc838bd996" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structrequests_1a11a7010c68dd5189ed5a2cdc838bd996" kindref="member">status</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>delivery_to;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="structrequests_1a97cbf0e74eaf61965edfb34c1ec1d073" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structrequests_1a97cbf0e74eaf61965edfb34c1ec1d073" kindref="member">delivery_method</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="229" refid="structrequests_1a88a75754fa70aa4a741a69064a811ca4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structrequests_1a88a75754fa70aa4a741a69064a811ca4" kindref="member">delivery_operator</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="230" refid="structrequests_1ad493658864d378493a9cbb7bb1670251" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structrequests_1ad493658864d378493a9cbb7bb1670251" kindref="member">delivery_fee</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="231" refid="structrequests_1aca8dde319725957376fcab18939aa0e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structrequests_1aca8dde319725957376fcab18939aa0e8" kindref="member">delivery_meta</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>meta;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="235" refid="structrequests_1a88b6954ce6d93bcd3dfe2d44f3342a23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structrequests_1a88b6954ce6d93bcd3dfe2d44f3342a23" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="236" refid="structrequests_1a3fbf988c7ed237252c3ebf80007c157c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structrequests_1a3fbf988c7ed237252c3ebf80007c157c" kindref="member">bybuyer</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buyer.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="237" refid="structrequests_1a5a55a24a342196949280477a81abf094" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structrequests_1a5a55a24a342196949280477a81abf094" kindref="member">byseller</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>seller.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>bymarket()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>market_id;}</highlight></codeline>
+<codeline lineno="240" refid="structrequests_1a024be27bc42df835cfdb995a0d9d69b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structrequests_1a024be27bc42df835cfdb995a0d9d69b4" kindref="member">bydop</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>delivery_operator.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="241" refid="structrequests_1a6d33d3188032ce14066e7d45a846a72a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structrequests_1a6d33d3188032ce14066e7d45a846a72a" kindref="member">bydmethod</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>delivery_method.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structrequests" kindref="compound">requests</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(market_id)(buyer)(seller)(lang)(requested_pieces)(total_price)(one_piece_price)(total_payed)(status)(delivery_to)(delivery_method)(delivery_operator)(delivery_fee)(delivery_meta)(meta))</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;requests&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structrequests" kindref="compound">requests</ref>,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bybuyer&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;requests,<sp/>uint64_t,<sp/>&amp;requests::bybuyer&gt;&gt;,</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byseller&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;requests,<sp/>uint64_t,<sp/>&amp;requests::byseller&gt;&gt;,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bymarket&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;requests,<sp/>uint64_t,<sp/>&amp;requests::bymarket&gt;&gt;,</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bydop&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;requests,<sp/>uint64_t,<sp/>&amp;requests::bydop&gt;&gt;,</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bydmethod&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;requests,<sp/>uint64_t,<sp/>&amp;requests::bydmethod&gt;&gt;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>requests_index;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268" refid="structpieces" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structpieces" kindref="compound">pieces</ref><sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="270" refid="structpieces_1a6760b37782f28ab969e738cc2b887e1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpieces_1a6760b37782f28ab969e738cc2b887e1f" kindref="member">object_id</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>owner;</highlight></codeline>
+<codeline lineno="272" refid="structpieces_1af92f25588f899e5dda1d3973e73a0b0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpieces_1af92f25588f899e5dda1d3973e73a0b0a" kindref="member">pieces</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="274" refid="structpieces_1a57fd8afa5b9c8c812e15db0c52c99503" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpieces_1a57fd8afa5b9c8c812e15db0c52c99503" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="275" refid="structpieces_1aaa1da5fdf3e2ee08704abab29d7e93ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpieces_1aaa1da5fdf3e2ee08704abab29d7e93ea" kindref="member">byobject</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>object_id;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="277" refid="structpieces_1a986e2bd8535473615977d3d0e621c50d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpieces_1a986e2bd8535473615977d3d0e621c50d" kindref="member">byowner</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>owner.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="279" refid="structpieces_1a534758315e1a85c8f9ee75f278128587" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structpieces_1a534758315e1a85c8f9ee75f278128587" kindref="member">byobjanduser</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nft::combine_ids(object_id,<sp/>owner.value);}<sp/></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structpieces" kindref="compound">pieces</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(object_id)(owner)(<ref refid="structpieces" kindref="compound">pieces</ref>))</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;pieces&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structpieces" kindref="compound">pieces</ref>,</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byowner&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;pieces,<sp/>uint64_t,<sp/>&amp;pieces::byowner&gt;&gt;,</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobject&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;pieces,<sp/>uint64_t,<sp/>&amp;pieces::byobject&gt;&gt;,</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobjanduser&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;pieces,<sp/>uint128_t,<sp/>&amp;pieces::byobjanduser&gt;&gt;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>pieces_index;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300" refid="structmessages" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structmessages" kindref="compound">messages</ref><sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="302" refid="structmessages_1a4646f4307bb6dca4ea37a9fa44495b80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmessages_1a4646f4307bb6dca4ea37a9fa44495b80" kindref="member">request_id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="303" refid="structmessages_1a9f00ec755b956994afd604edcfda4300" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structmessages_1a9f00ec755b956994afd604edcfda4300" kindref="member">lang</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>message;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307" refid="structmessages_1a79bf9aefd7794c0cc603abb2e5b3c38c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmessages_1a79bf9aefd7794c0cc603abb2e5b3c38c" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="308" refid="structmessages_1a6461ef47d9c28a23d5148870abe022ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmessages_1a6461ef47d9c28a23d5148870abe022ff" kindref="member">byreq</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>request_id;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="309" refid="structmessages_1aac3fe25be8c441259fd0e258f19e329c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmessages_1aac3fe25be8c441259fd0e258f19e329c" kindref="member">byusername</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="311" refid="structmessages_1a3079ddd4d230be1182c6d60fd52ef37f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structmessages_1a3079ddd4d230be1182c6d60fd52ef37f" kindref="member">bylang</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lang.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structmessages" kindref="compound">messages</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(request_id)(lang)(username)(message))</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;messages&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structmessages" kindref="compound">messages</ref>,</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byreq&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;messages,<sp/>uint64_t,<sp/>&amp;messages::byreq&gt;&gt;,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;messages,<sp/>uint64_t,<sp/>&amp;messages::byusername&gt;&gt;,</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bylang&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;messages,<sp/>uint64_t,<sp/>&amp;messages::bylang&gt;&gt;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>messages_index;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="333" refid="structwhitelist" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structwhitelist" kindref="compound">whitelist</ref><sp/>{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="335" refid="structwhitelist_1abf1a6fc20a6e1756bcf083e432ba64c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwhitelist_1abf1a6fc20a6e1756bcf083e432ba64c6" kindref="member">object_id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="338" refid="structwhitelist_1a007f73a3166a02b749740fd3ecd856e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwhitelist_1a007f73a3166a02b749740fd3ecd856e5" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="339" refid="structwhitelist_1af753178ddeae72f6fc89a611868b01f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwhitelist_1af753178ddeae72f6fc89a611868b01f8" kindref="member">byobject</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>object_id;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="340" refid="structwhitelist_1abfa3c9003e82e9b6a36429c2e2d5555e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwhitelist_1abfa3c9003e82e9b6a36429c2e2d5555e" kindref="member">byusername</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="342" refid="structwhitelist_1ac188226e00f9ca2eef797c833b5f0e32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structwhitelist_1ac188226e00f9ca2eef797c833b5f0e32" kindref="member">byobjanduser</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nft::combine_ids(object_id,<sp/>username.value);}<sp/></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structwhitelist" kindref="compound">whitelist</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(object_id)(username))</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;whitelist&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structwhitelist" kindref="compound">whitelist</ref>,</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobject&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;whitelist,<sp/>uint64_t,<sp/>&amp;whitelist::byobject&gt;&gt;,</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;whitelist,<sp/>uint64_t,<sp/>&amp;whitelist::byusername&gt;&gt;,</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobjanduser&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;whitelist,<sp/>uint128_t,<sp/>&amp;whitelist::byobjanduser&gt;&gt;</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>whitelist_index;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362" refid="structreviews" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structreviews" kindref="compound">reviews</ref><sp/>{</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="364" refid="structreviews_1acaed930b335c1112b73f05beb790b470" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structreviews_1acaed930b335c1112b73f05beb790b470" kindref="member">object_id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>buyer;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpieces" kindref="compound">pieces</ref>;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>review;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>score;</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>meta;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight></codeline>
+<codeline lineno="372" refid="structreviews_1ac4629f47a75a4df2e4567a8e5515a1e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structreviews_1ac4629f47a75a4df2e4567a8e5515a1e3" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kindref="member">id</ref>;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="373" refid="structreviews_1ad57ccd0f3280dde33b2815530c2937b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structreviews_1ad57ccd0f3280dde33b2815530c2937b8" kindref="member">byobject</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>object_id;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="374" refid="structreviews_1aad5e4eef05888968e5ad7facf2307b86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structreviews_1aad5e4eef05888968e5ad7facf2307b86" kindref="member">bybuyer</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buyer.value;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="376" refid="structreviews_1a24f33d4b7cb47e528d6f0c48e9f32939" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structreviews_1a24f33d4b7cb47e528d6f0c48e9f32939" kindref="member">byobjanduser</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nft::combine_ids(object_id,<sp/>buyer.value);}<sp/></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structreviews" kindref="compound">reviews</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(object_id)(buyer)(<ref refid="structpieces" kindref="compound">pieces</ref>)(review)(score)(meta))</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;reviews&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structreviews" kindref="compound">reviews</ref>,</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobject&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;reviews,<sp/>uint64_t,<sp/>&amp;reviews::byobject&gt;&gt;,</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bybuyer&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;reviews,<sp/>uint64_t,<sp/>&amp;reviews::bybuyer&gt;&gt;,</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byobjanduser&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;reviews,<sp/>uint128_t,<sp/>&amp;reviews::byobjanduser&gt;&gt;</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>review_index;</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="396" refid="structcounts" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structcounts" kindref="compound">counts</ref><sp/>{</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>key;</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>secondary_key;</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>value;</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/>double_value;</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"></highlight></codeline>
+<codeline lineno="402" refid="structcounts_1a541e185e1f5e763b257a196d86538597" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structcounts_1a541e185e1f5e763b257a196d86538597" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>key.value;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="403" refid="structcounts_1aa11cd18d5dafe5d4fbc21a89b3a20aa2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structcounts_1aa11cd18d5dafe5d4fbc21a89b3a20aa2" kindref="member">keyskey</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nft::combine_ids(key.value,<sp/>secondary_key.value);}<sp/></highlight></codeline>
+<codeline lineno="404" refid="structcounts_1a31343922bf3e266ed43f3db640fcf5e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/><ref refid="structcounts_1a31343922bf3e266ed43f3db640fcf5e0" kindref="member">keyvalue</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nft::combine_ids(key.value,<sp/>value);}<sp/></highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structcounts" kindref="compound">counts</ref>,<sp/>(key)(secondary_key)(value)(double_value))</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;counts&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structcounts" kindref="compound">counts</ref>,</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;keyskey&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;counts,<sp/>uint128_t,<sp/>&amp;counts::keyskey&gt;&gt;,</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;keyvalue&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;counts,<sp/>uint128_t,<sp/>&amp;counts::keyvalue&gt;&gt;</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>counts_index;</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight></codeline>
+<codeline lineno="423" refid="structscores" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/>eosio::contract(&quot;nft&quot;)]]<sp/><ref refid="structscores" kindref="compound">scores</ref><sp/>{</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username;</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>solded_pieces;</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>buyed_pieces;</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structscores" kindref="compound">scores</ref>;</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"></highlight></codeline>
+<codeline lineno="429" refid="structscores_1ab23be0449f468387f2486118d0e1c92d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structscores_1ab23be0449f468387f2486118d0e1c92d" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="430" refid="structscores_1a222ce9d2a44f050785403dd9eb66fe85" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structscores_1a222ce9d2a44f050785403dd9eb66fe85" kindref="member">bysolded</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>solded_pieces;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="431" refid="structscores_1a2041881be42b3eb1383fdd308e62e0e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structscores_1a2041881be42b3eb1383fdd308e62e0e8" kindref="member">bybyed</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buyed_pieces;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="433" refid="structscores_1ae86bd54b93f579f0bc7117e9a65e860b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structscores_1ae86bd54b93f579f0bc7117e9a65e860b" kindref="member">byscores</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structscores" kindref="compound">scores</ref>;<sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structscores" kindref="compound">scores</ref>,<sp/>(username)(solded_pieces)(buyed_pieces)(<ref refid="structscores" kindref="compound">scores</ref>))</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;scores&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structscores" kindref="compound">scores</ref>,</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bysolded&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;scores,<sp/>uint64_t,<sp/>&amp;scores::bysolded&gt;&gt;,</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bybyed&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;scores,<sp/>uint64_t,<sp/>&amp;scores::bybyed&gt;&gt;,</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byscores&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;scores,<sp/>uint64_t,<sp/>&amp;scores::byscores&gt;&gt;</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>scores_index;</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+    </programlisting>
+    <location file="nft.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="structbalance" kind="struct"><name>balance</name>
+    <member refid="structbalance_1a3077d63cadc45e37ad1c5dcc5e94ccfd" kind="variable"><name>id</name></member>
+    <member refid="structbalance_1ace918f48aa28659bb919678e40bf675f" kind="variable"><name>contract</name></member>
+    <member refid="structbalance_1a72c6866c6d3a7b5cef340b0d511e9265" kind="variable"><name>quantity</name></member>
+    <member refid="structbalance_1a748ad87c69d0195c26a690857b427cc9" kind="function"><name>primary_key</name></member>
+    <member refid="structbalance_1a4771c877668bfc884ae2c00833defbf2" kind="function"><name>byconsym</name></member>
+  </compound>
+  <compound refid="structcounts" kind="struct"><name>counts</name>
+    <member refid="structcounts_1abb0a4ba564917c262c6a5fbd10134c3e" kind="variable"><name>key</name></member>
+    <member refid="structcounts_1a1d634f6cc442797b55520f4e86e1cd4f" kind="variable"><name>secondary_key</name></member>
+    <member refid="structcounts_1a97b0d7a1f98cdf29ac0e4420651fb7ef" kind="variable"><name>value</name></member>
+    <member refid="structcounts_1a025bbb14817ee83da9a0af58e755a794" kind="variable"><name>double_value</name></member>
+    <member refid="structcounts_1a541e185e1f5e763b257a196d86538597" kind="function"><name>primary_key</name></member>
+    <member refid="structcounts_1aa11cd18d5dafe5d4fbc21a89b3a20aa2" kind="function"><name>keyskey</name></member>
+    <member refid="structcounts_1a31343922bf3e266ed43f3db640fcf5e0" kind="function"><name>keyvalue</name></member>
+  </compound>
+  <compound refid="structmarket" kind="struct"><name>market</name>
+    <member refid="structmarket_1ae532d3fe0cf32f7ce146ac8dc471193d" kind="variable"><name>id</name></member>
+    <member refid="structmarket_1a689d16b1e14bff56aef7c38da92419dd" kind="variable"><name>object_id</name></member>
+    <member refid="structmarket_1a566e0dc0c21b7cf57f8e9a005d91ee65" kind="variable"><name>seller</name></member>
+    <member refid="structmarket_1a1a525a7a7d471cd53b2260c6bd870e53" kind="variable"><name>is_auction</name></member>
+    <member refid="structmarket_1a76827b0c4006f50a200a70cdfa8009f4" kind="variable"><name>lang</name></member>
+    <member refid="structmarket_1a4544fe17534bb4a666652de41c4ba9a7" kind="variable"><name>status</name></member>
+    <member refid="structmarket_1a7662149844341cd1db77dd35e471d0cc" kind="variable"><name>remain_pieces</name></member>
+    <member refid="structmarket_1a0a79a6104ad6ebce9bac4c02d536aa94" kind="variable"><name>blocked_pieces</name></member>
+    <member refid="structmarket_1a2d0fc4fffe1e28833615acacad39201f" kind="variable"><name>token_contract</name></member>
+    <member refid="structmarket_1a50e8b9260677b44667b85a3e7bb4f8db" kind="variable"><name>one_piece_price</name></member>
+    <member refid="structmarket_1a30304aaf389c43d7bea115e0eb9e329e" kind="variable"><name>total_price</name></member>
+    <member refid="structmarket_1a3c192f136aee1033c3cfbf7fb329130d" kind="variable"><name>buyer_can_offer_price</name></member>
+    <member refid="structmarket_1a036767444c3524d00836cff2b569b5bd" kind="variable"><name>with_delivery</name></member>
+    <member refid="structmarket_1a78d8b5de11ee00c72b99edb40eab1782" kind="variable"><name>delivery_from</name></member>
+    <member refid="structmarket_1ad0409fddbc7e1313e5e86bb6a24deb42" kind="variable"><name>delivery_methods</name></member>
+    <member refid="structmarket_1a8b2da82e70889a7323fa7acf34c6e898" kind="variable"><name>delivery_operators</name></member>
+    <member refid="structmarket_1a07bca9207b9a494add46ef5761e7bbc0" kind="variable"><name>sales_start_at</name></member>
+    <member refid="structmarket_1a2107c26a159822590207fb43b18b9ccf" kind="variable"><name>sales_closed_at</name></member>
+    <member refid="structmarket_1a002f3b71b9e0cff2cc552f38230c7f93" kind="variable"><name>meta</name></member>
+    <member refid="structmarket_1a927be547fb7499a82fc5a717e133a7b4" kind="function"><name>primary_key</name></member>
+    <member refid="structmarket_1aec4d4e3fb7290a024dd63215205c1946" kind="function"><name>byobject</name></member>
+    <member refid="structmarket_1a3971ed35d3a25db2093c3ccb6b1a3b2a" kind="function"><name>bylang</name></member>
+    <member refid="structmarket_1a53576755ab437401bbfab4c85ba6d452" kind="function"><name>byseller</name></member>
+    <member refid="structmarket_1a769151962562f67801c8458edb16594b" kind="function"><name>bycon</name></member>
+  </compound>
+  <compound refid="structmessages" kind="struct"><name>messages</name>
+    <member refid="structmessages_1ad1fb050d62b055494b28ae727c203e15" kind="variable"><name>id</name></member>
+    <member refid="structmessages_1a4646f4307bb6dca4ea37a9fa44495b80" kind="variable"><name>request_id</name></member>
+    <member refid="structmessages_1a9f00ec755b956994afd604edcfda4300" kind="variable"><name>lang</name></member>
+    <member refid="structmessages_1a6805c32be4dafa859a8f1cda4ad5b95e" kind="variable"><name>username</name></member>
+    <member refid="structmessages_1a7a4d4fa7cedbcfc979f348674e671d25" kind="variable"><name>message</name></member>
+    <member refid="structmessages_1a79bf9aefd7794c0cc603abb2e5b3c38c" kind="function"><name>primary_key</name></member>
+    <member refid="structmessages_1a6461ef47d9c28a23d5148870abe022ff" kind="function"><name>byreq</name></member>
+    <member refid="structmessages_1aac3fe25be8c441259fd0e258f19e329c" kind="function"><name>byusername</name></member>
+    <member refid="structmessages_1a3079ddd4d230be1182c6d60fd52ef37f" kind="function"><name>bylang</name></member>
+  </compound>
+  <compound refid="classnft" kind="class"><name>nft</name>
+    <member refid="group__public__consts_1gaef729aa8d7b1644b5d2dd70306863231" kind="variable"><name>_me</name></member>
+    <member refid="group__public__consts_1gae73c60628bd62558849315ddbd4e540e" kind="variable"><name>_anyone_can_create</name></member>
+    <member refid="classnft_1a5ee8ecdcdc1339b5aacb72f386b4daef" kind="function"><name>nft</name></member>
+    <member refid="classnft_1a5645b71d1e241a7110154688d2cdfc36" kind="function"><name>apply</name></member>
+    <member refid="group__public__actions_1ga5f9f2d754e00c38d3df25b85052ae782" kind="function"><name>create</name></member>
+    <member refid="group__public__actions_1gaacf79d90d466fa01b5d48235f234bf7e" kind="function"><name>remove</name></member>
+    <member refid="group__public__actions_1gad81581a9b320f394b41f7ca5e7d361cd" kind="function"><name>edit</name></member>
+    <member refid="group__public__actions_1ga8c5ecb40e30b9eb6b9119894c4273cff" kind="function"><name>buy</name></member>
+    <member refid="group__public__actions_1ga2001b87b1817d59568c89895ff01b115" kind="function"><name>sell</name></member>
+    <member refid="group__public__actions_1gad4df61b42ae7cb4c662ecc75c5a3897a" kind="function"><name>cancelsell</name></member>
+    <member refid="group__public__actions_1ga2ad33fcad6d3dd98dc91d14f381807b0" kind="function"><name>emit</name></member>
+    <member refid="group__public__actions_1ga83a1e293c4324f06c2462e4091883ade" kind="function"><name>acceptreq</name></member>
+    <member refid="group__public__actions_1ga053222099a3c56a45c5c3b4edabd9096" kind="function"><name>declinereq</name></member>
+    <member refid="group__public__actions_1gabfcdcab948de423e9f38cbd713561a97" kind="function"><name>cancelreq</name></member>
+    <member refid="group__public__actions_1ga89e5e85bcdc4fa92eec9eef882dffdce" kind="function"><name>sendmessage</name></member>
+    <member refid="group__public__actions_1ga3e1209994e92fcb1a84d0b830ffa4fb8" kind="function"><name>setdelstatus</name></member>
+    <member refid="group__public__actions_1ga35aa30744ed57b5512ff6d03d85ce77c" kind="function"><name>addtowl</name></member>
+    <member refid="group__public__actions_1ga1340b486a1b568d2f1f67239c33b3a18" kind="function"><name>delfromwl</name></member>
+    <member refid="group__public__actions_1ga3ec5cb2f8cbd31ef1b3e466569579fdc" kind="function"><name>setreview</name></member>
+    <member refid="classnft_1ada906b3acb140b48073199a170abd66d" kind="function"><name>add_balance</name></member>
+    <member refid="classnft_1aa39fb90a30f0cab2eb2611b505e70454" kind="function"><name>sub_balance</name></member>
+    <member refid="classnft_1a5bb340253aab6eceb950f8e8a34280cf" kind="function"><name>add_pieces</name></member>
+    <member refid="classnft_1a7c8617a46cb3e965de26553b3de28418" kind="function"><name>sub_pieces</name></member>
+    <member refid="classnft_1a1be1eedbe6388fc48960e1c46085ea5f" kind="function"><name>add_scores</name></member>
+    <member refid="classnft_1a698ce8a60262c49197861a9c775b416a" kind="function"><name>get_global_id</name></member>
+    <member refid="classnft_1adac93d91fa1e28e054ad8c3acbc4442f" kind="function"><name>combine_ids</name></member>
+  </compound>
+  <compound refid="structobjects" kind="struct"><name>objects</name>
+    <member refid="structobjects_1a75178c421a76593ae35d0af8591f7249" kind="variable"><name>id</name></member>
+    <member refid="structobjects_1affd3e74508f3389523f2ec59597575bd" kind="variable"><name>creator</name></member>
+    <member refid="structobjects_1a0822ed92203929b9413670dbef2059bb" kind="variable"><name>lang</name></member>
+    <member refid="structobjects_1aa06aea57138984efbddcb285432a7793" kind="variable"><name>title</name></member>
+    <member refid="structobjects_1a9af54eefe0312e3f59daece358bc3750" kind="variable"><name>description</name></member>
+    <member refid="structobjects_1a74992b2925546c775d5a09591edcd936" kind="variable"><name>category</name></member>
+    <member refid="structobjects_1ab59bf14e1570ad355aabf6b6a3e4a607" kind="variable"><name>images</name></member>
+    <member refid="structobjects_1af4c53d11bc55c992c5887d916c918c2d" kind="variable"><name>ipns</name></member>
+    <member refid="structobjects_1a600d19b389c5b9c7dd226f2e236f4893" kind="variable"><name>creator_can_emit_new_pieces</name></member>
+    <member refid="structobjects_1afc0ace5bde6abc6bb7d636dca65bf9e9" kind="variable"><name>total_pieces</name></member>
+    <member refid="structobjects_1a02914f82fc0b2484884a6a61b755c1ee" kind="variable"><name>meta</name></member>
+    <member refid="structobjects_1a6f41cc1e072c89e960d35e95246ee702" kind="function"><name>primary_key</name></member>
+    <member refid="structobjects_1aa451fb8a617d942b811fc200a53f7f31" kind="function"><name>bycreator</name></member>
+    <member refid="structobjects_1a014834eb207f1d07802d2483ae93d366" kind="function"><name>bycategory</name></member>
+    <member refid="structobjects_1a44562427467c4db707c41b3430158055" kind="function"><name>bylang</name></member>
+  </compound>
+  <compound refid="structpieces" kind="struct"><name>pieces</name>
+    <member refid="structpieces_1a5a7244fa568aa4b1c43e0a70f06979f1" kind="variable"><name>id</name></member>
+    <member refid="structpieces_1a6760b37782f28ab969e738cc2b887e1f" kind="variable"><name>object_id</name></member>
+    <member refid="structpieces_1ac7fc52b3d986d2ccd278e9efcc325dd9" kind="variable"><name>owner</name></member>
+    <member refid="structpieces_1af92f25588f899e5dda1d3973e73a0b0a" kind="variable"><name>pieces</name></member>
+    <member refid="structpieces_1a57fd8afa5b9c8c812e15db0c52c99503" kind="function"><name>primary_key</name></member>
+    <member refid="structpieces_1aaa1da5fdf3e2ee08704abab29d7e93ea" kind="function"><name>byobject</name></member>
+    <member refid="structpieces_1a986e2bd8535473615977d3d0e621c50d" kind="function"><name>byowner</name></member>
+    <member refid="structpieces_1a534758315e1a85c8f9ee75f278128587" kind="function"><name>byobjanduser</name></member>
+  </compound>
+  <compound refid="structrequests" kind="struct"><name>requests</name>
+    <member refid="structrequests_1a6bb73c4fb574d1b39d345babba5ac5e8" kind="variable"><name>id</name></member>
+    <member refid="structrequests_1aef8b9051d7d38f58f5e029582e620486" kind="variable"><name>market_id</name></member>
+    <member refid="structrequests_1ace8e471a93269edae06690d1580d8a4a" kind="variable"><name>buyer</name></member>
+    <member refid="structrequests_1adfb1fd1b49e534892257b04aa8b0db92" kind="variable"><name>seller</name></member>
+    <member refid="structrequests_1a62827ffc21ab1259ab41e49b4b067003" kind="variable"><name>lang</name></member>
+    <member refid="structrequests_1a76e8430229db67edb4d888fbde1e2600" kind="variable"><name>requested_pieces</name></member>
+    <member refid="structrequests_1acca5f5a903e95110269df1f4078826d7" kind="variable"><name>total_price</name></member>
+    <member refid="structrequests_1a6585f99404f163b7e3ecffb2afe74a10" kind="variable"><name>one_piece_price</name></member>
+    <member refid="structrequests_1a9d1356590d42bfc0a4abbaed86956b26" kind="variable"><name>total_payed</name></member>
+    <member refid="structrequests_1a11a7010c68dd5189ed5a2cdc838bd996" kind="variable"><name>status</name></member>
+    <member refid="structrequests_1aa8bf217f06f48ba6bae177fee8d44c69" kind="variable"><name>delivery_to</name></member>
+    <member refid="structrequests_1a97cbf0e74eaf61965edfb34c1ec1d073" kind="variable"><name>delivery_method</name></member>
+    <member refid="structrequests_1a88a75754fa70aa4a741a69064a811ca4" kind="variable"><name>delivery_operator</name></member>
+    <member refid="structrequests_1ad493658864d378493a9cbb7bb1670251" kind="variable"><name>delivery_fee</name></member>
+    <member refid="structrequests_1aca8dde319725957376fcab18939aa0e8" kind="variable"><name>delivery_meta</name></member>
+    <member refid="structrequests_1af5dfabfdcbc68167b7bf39ffc6451d26" kind="variable"><name>meta</name></member>
+    <member refid="structrequests_1a88b6954ce6d93bcd3dfe2d44f3342a23" kind="function"><name>primary_key</name></member>
+    <member refid="structrequests_1a3fbf988c7ed237252c3ebf80007c157c" kind="function"><name>bybuyer</name></member>
+    <member refid="structrequests_1a5a55a24a342196949280477a81abf094" kind="function"><name>byseller</name></member>
+    <member refid="structrequests_1a081cbfb1081bd8ea7ac128c1ab802880" kind="function"><name>bymarket</name></member>
+    <member refid="structrequests_1a024be27bc42df835cfdb995a0d9d69b4" kind="function"><name>bydop</name></member>
+    <member refid="structrequests_1a6d33d3188032ce14066e7d45a846a72a" kind="function"><name>bydmethod</name></member>
+  </compound>
+  <compound refid="structreviews" kind="struct"><name>reviews</name>
+    <member refid="structreviews_1ae3e4454b79787037d985e4d6de47a802" kind="variable"><name>id</name></member>
+    <member refid="structreviews_1acaed930b335c1112b73f05beb790b470" kind="variable"><name>object_id</name></member>
+    <member refid="structreviews_1a7ad2f9651c2b718d2c6ea9fca6ad5a4b" kind="variable"><name>buyer</name></member>
+    <member refid="structreviews_1aa157b9df77af60e915be177b6a2780fa" kind="variable"><name>pieces</name></member>
+    <member refid="structreviews_1a109fdb3563de55fd4d266b27937576e8" kind="variable"><name>review</name></member>
+    <member refid="structreviews_1a7ca888544873ae278f408dd39c2104a2" kind="variable"><name>score</name></member>
+    <member refid="structreviews_1a9dfbece4cf955d637a452ceb50c7f119" kind="variable"><name>meta</name></member>
+    <member refid="structreviews_1ac4629f47a75a4df2e4567a8e5515a1e3" kind="function"><name>primary_key</name></member>
+    <member refid="structreviews_1ad57ccd0f3280dde33b2815530c2937b8" kind="function"><name>byobject</name></member>
+    <member refid="structreviews_1aad5e4eef05888968e5ad7facf2307b86" kind="function"><name>bybuyer</name></member>
+    <member refid="structreviews_1a24f33d4b7cb47e528d6f0c48e9f32939" kind="function"><name>byobjanduser</name></member>
+  </compound>
+  <compound refid="structscores" kind="struct"><name>scores</name>
+    <member refid="structscores_1afa12a0782a74ebbe0cd5ab9505f2da19" kind="variable"><name>username</name></member>
+    <member refid="structscores_1aee9a4293cfae9b31e3cb57ddc4e5c0a4" kind="variable"><name>solded_pieces</name></member>
+    <member refid="structscores_1a9b8b0edcf48c8eb9024b628e071c0b6f" kind="variable"><name>buyed_pieces</name></member>
+    <member refid="structscores_1aafbf274045b4c87608dbc8476c46c0f3" kind="variable"><name>scores</name></member>
+    <member refid="structscores_1ab23be0449f468387f2486118d0e1c92d" kind="function"><name>primary_key</name></member>
+    <member refid="structscores_1a222ce9d2a44f050785403dd9eb66fe85" kind="function"><name>bysolded</name></member>
+    <member refid="structscores_1a2041881be42b3eb1383fdd308e62e0e8" kind="function"><name>bybyed</name></member>
+    <member refid="structscores_1ae86bd54b93f579f0bc7117e9a65e860b" kind="function"><name>byscores</name></member>
+  </compound>
+  <compound refid="structwhitelist" kind="struct"><name>whitelist</name>
+    <member refid="structwhitelist_1ade663f800c6bf704ff7092c4fa11608f" kind="variable"><name>id</name></member>
+    <member refid="structwhitelist_1abf1a6fc20a6e1756bcf083e432ba64c6" kind="variable"><name>object_id</name></member>
+    <member refid="structwhitelist_1af2d04d423409683d04331c2fd85b085d" kind="variable"><name>username</name></member>
+    <member refid="structwhitelist_1a007f73a3166a02b749740fd3ecd856e5" kind="function"><name>primary_key</name></member>
+    <member refid="structwhitelist_1af753178ddeae72f6fc89a611868b01f8" kind="function"><name>byobject</name></member>
+    <member refid="structwhitelist_1abfa3c9003e82e9b6a36429c2e2d5555e" kind="function"><name>byusername</name></member>
+    <member refid="structwhitelist_1ac188226e00f9ca2eef797c833b5f0e32" kind="function"><name>byobjanduser</name></member>
+  </compound>
+  <compound refid="namespaceeosio" kind="namespace"><name>eosio</name>
+  </compound>
+  <compound refid="nft_8cpp" kind="file"><name>nft.cpp</name>
+    <member refid="nft_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="nft_8hpp" kind="file"><name>nft.hpp</name>
+    <member refid="nft_8hpp_1a18bfbc2eeaeae3a481efd6c9369819b7" kind="typedef"><name>balances_index</name></member>
+    <member refid="nft_8hpp_1a82d1ca8e1e8f40a00b3bae9f92a210dc" kind="typedef"><name>objects_index</name></member>
+    <member refid="nft_8hpp_1a901e74b55861151372031390e0ff6575" kind="typedef"><name>market_index</name></member>
+    <member refid="nft_8hpp_1a7fad86387c2c82db023120ab9d5bace0" kind="typedef"><name>requests_index</name></member>
+    <member refid="nft_8hpp_1adcf178cfa08f78f3240cd671db783a83" kind="typedef"><name>pieces_index</name></member>
+    <member refid="nft_8hpp_1a6198d3d92915303918a72de3de0e4c69" kind="typedef"><name>messages_index</name></member>
+    <member refid="nft_8hpp_1a8e7f6013eafb844d11eac97d7f75cbca" kind="typedef"><name>whitelist_index</name></member>
+    <member refid="nft_8hpp_1a9e7b1fd833feb13c24b4a273af23c8d3" kind="typedef"><name>review_index</name></member>
+    <member refid="nft_8hpp_1a977571ddafb85841c941160c5bd7946a" kind="typedef"><name>counts_index</name></member>
+    <member refid="nft_8hpp_1a071993e8b4d91be117fcc73ad72ec153" kind="typedef"><name>scores_index</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="group__public__consts" kind="group"><name>public_consts</name>
+    <member refid="group__public__consts_1gaef729aa8d7b1644b5d2dd70306863231" kind="variable"><name>_me</name></member>
+    <member refid="group__public__consts_1gae73c60628bd62558849315ddbd4e540e" kind="variable"><name>_anyone_can_create</name></member>
+  </compound>
+  <compound refid="group__public__actions" kind="group"><name>public_actions</name>
+    <member refid="group__public__actions_1ga5f9f2d754e00c38d3df25b85052ae782" kind="function"><name>create</name></member>
+    <member refid="group__public__actions_1gaacf79d90d466fa01b5d48235f234bf7e" kind="function"><name>remove</name></member>
+    <member refid="group__public__actions_1gad81581a9b320f394b41f7ca5e7d361cd" kind="function"><name>edit</name></member>
+    <member refid="group__public__actions_1ga2001b87b1817d59568c89895ff01b115" kind="function"><name>sell</name></member>
+    <member refid="group__public__actions_1ga8c5ecb40e30b9eb6b9119894c4273cff" kind="function"><name>buy</name></member>
+    <member refid="group__public__actions_1gad4df61b42ae7cb4c662ecc75c5a3897a" kind="function"><name>cancelsell</name></member>
+    <member refid="group__public__actions_1ga83a1e293c4324f06c2462e4091883ade" kind="function"><name>acceptreq</name></member>
+    <member refid="group__public__actions_1ga053222099a3c56a45c5c3b4edabd9096" kind="function"><name>declinereq</name></member>
+    <member refid="group__public__actions_1gabfcdcab948de423e9f38cbd713561a97" kind="function"><name>cancelreq</name></member>
+    <member refid="group__public__actions_1ga3e1209994e92fcb1a84d0b830ffa4fb8" kind="function"><name>setdelstatus</name></member>
+    <member refid="group__public__actions_1ga2ad33fcad6d3dd98dc91d14f381807b0" kind="function"><name>emit</name></member>
+    <member refid="group__public__actions_1ga35aa30744ed57b5512ff6d03d85ce77c" kind="function"><name>addtowl</name></member>
+    <member refid="group__public__actions_1ga1340b486a1b568d2f1f67239c33b3a18" kind="function"><name>delfromwl</name></member>
+    <member refid="group__public__actions_1ga3ec5cb2f8cbd31ef1b3e466569579fdc" kind="function"><name>setreview</name></member>
+    <member refid="group__public__actions_1ga89e5e85bcdc4fa92eec9eef882dffdce" kind="function"><name>sendmessage</name></member>
+  </compound>
+  <compound refid="group__public__tables" kind="group"><name>public_tables</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

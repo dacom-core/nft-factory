@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structmessages" kind="struct" language="C++" prot="public">
+    <compoundname>messages</compoundname>
+    <includes refid="nft_8hpp" local="no">nft.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmessages_1ad1fb050d62b055494b28ae727c203e15" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t messages::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>messages::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="301" column="16" bodyfile="nft.hpp" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmessages_1a4646f4307bb6dca4ea37a9fa44495b80" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t messages::request_id</definition>
+        <argsstring></argsstring>
+        <name>request_id</name>
+        <qualifiedname>messages::request_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификатор предложения </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="302" column="16" bodyfile="nft.hpp" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmessages_1a9f00ec755b956994afd604edcfda4300" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name messages::lang</definition>
+        <argsstring></argsstring>
+        <name>lang</name>
+        <qualifiedname>messages::lang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>языковой код ветки </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="303" column="19" bodyfile="nft.hpp" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmessages_1a6805c32be4dafa859a8f1cda4ad5b95e" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name messages::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>messages::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="304" column="19" bodyfile="nft.hpp" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmessages_1a7a4d4fa7cedbcfc979f348674e671d25" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string messages::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <qualifiedname>messages::message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="305" column="19" bodyfile="nft.hpp" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmessages_1a79bf9aefd7794c0cc603abb2e5b3c38c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t messages::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>messages::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return id - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="307" column="16" bodyfile="nft.hpp" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structmessages_1a6461ef47d9c28a23d5148870abe022ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t messages::byreq</definition>
+        <argsstring>() const</argsstring>
+        <name>byreq</name>
+        <qualifiedname>messages::byreq</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return market_id - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="308" column="16" bodyfile="nft.hpp" bodystart="308" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="structmessages_1aac3fe25be8c441259fd0e258f19e329c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t messages::byusername</definition>
+        <argsstring>() const</argsstring>
+        <name>byusername</name>
+        <qualifiedname>messages::byusername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return username - secondary_key 3 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="309" column="16" bodyfile="nft.hpp" bodystart="309" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="structmessages_1a3079ddd4d230be1182c6d60fd52ef37f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t messages::bylang</definition>
+        <argsstring>() const</argsstring>
+        <name>bylang</name>
+        <qualifiedname>messages::bylang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - secondary_key 4 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="311" column="16" bodyfile="nft.hpp" bodystart="311" bodyend="309"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения зашифрованного общения между покупателем и продавцом </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: nft | buyer</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Table: messages</title><para></para>
+</simplesect>
+Таблица хранит сообщения, которыми покупатель и продавец обмениваются на блокчейне при сделке </para>
+    </detaileddescription>
+    <location file="nft.hpp" line="300" column="5" bodyfile="nft.hpp" bodystart="300" bodyend="314"/>
+    <listofallmembers>
+      <member refid="structmessages_1a3079ddd4d230be1182c6d60fd52ef37f" prot="public" virt="non-virtual"><scope>messages</scope><name>bylang</name></member>
+      <member refid="structmessages_1a6461ef47d9c28a23d5148870abe022ff" prot="public" virt="non-virtual"><scope>messages</scope><name>byreq</name></member>
+      <member refid="structmessages_1aac3fe25be8c441259fd0e258f19e329c" prot="public" virt="non-virtual"><scope>messages</scope><name>byusername</name></member>
+      <member refid="structmessages_1ad1fb050d62b055494b28ae727c203e15" prot="public" virt="non-virtual"><scope>messages</scope><name>id</name></member>
+      <member refid="structmessages_1a9f00ec755b956994afd604edcfda4300" prot="public" virt="non-virtual"><scope>messages</scope><name>lang</name></member>
+      <member refid="structmessages_1a7a4d4fa7cedbcfc979f348674e671d25" prot="public" virt="non-virtual"><scope>messages</scope><name>message</name></member>
+      <member refid="structmessages_1a79bf9aefd7794c0cc603abb2e5b3c38c" prot="public" virt="non-virtual"><scope>messages</scope><name>primary_key</name></member>
+      <member refid="structmessages_1a4646f4307bb6dca4ea37a9fa44495b80" prot="public" virt="non-virtual"><scope>messages</scope><name>request_id</name></member>
+      <member refid="structmessages_1a6805c32be4dafa859a8f1cda4ad5b95e" prot="public" virt="non-virtual"><scope>messages</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

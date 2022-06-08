@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="group__public__tables" kind="group">
+    <compoundname>public_tables</compoundname>
+    <title>TABLES</title>
+    <innerclass refid="structbalance" prot="public">balance</innerclass>
+    <innerclass refid="structobjects" prot="public">objects</innerclass>
+    <innerclass refid="structmarket" prot="public">market</innerclass>
+    <innerclass refid="structrequests" prot="public">requests</innerclass>
+    <innerclass refid="structpieces" prot="public">pieces</innerclass>
+    <innerclass refid="structmessages" prot="public">messages</innerclass>
+    <innerclass refid="structwhitelist" prot="public">whitelist</innerclass>
+    <innerclass refid="structreviews" prot="public">reviews</innerclass>
+    <innerclass refid="structcounts" prot="public">counts</innerclass>
+    <innerclass refid="structscores" prot="public">scores</innerclass>
+    <briefdescription>
+<para>Структуры таблиц контракта </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

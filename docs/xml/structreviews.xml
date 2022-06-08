@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structreviews" kind="struct" language="C++" prot="public">
+    <compoundname>reviews</compoundname>
+    <includes refid="nft_8hpp" local="no">nft.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structreviews_1ae3e4454b79787037d985e4d6de47a802" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>reviews::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="363" column="16" bodyfile="nft.hpp" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreviews_1acaed930b335c1112b73f05beb790b470" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::object_id</definition>
+        <argsstring></argsstring>
+        <name>object_id</name>
+        <qualifiedname>reviews::object_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификатор объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="364" column="16" bodyfile="nft.hpp" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreviews_1a7ad2f9651c2b718d2c6ea9fca6ad5a4b" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name reviews::buyer</definition>
+        <argsstring></argsstring>
+        <name>buyer</name>
+        <qualifiedname>reviews::buyer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="365" column="19" bodyfile="nft.hpp" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreviews_1aa157b9df77af60e915be177b6a2780fa" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::pieces</definition>
+        <argsstring></argsstring>
+        <name>pieces</name>
+        <qualifiedname>reviews::pieces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="366" column="16" bodyfile="nft.hpp" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreviews_1a109fdb3563de55fd4d266b27937576e8" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string reviews::review</definition>
+        <argsstring></argsstring>
+        <name>review</name>
+        <qualifiedname>reviews::review</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="367" column="19" bodyfile="nft.hpp" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreviews_1a7ca888544873ae278f408dd39c2104a2" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::score</definition>
+        <argsstring></argsstring>
+        <name>score</name>
+        <qualifiedname>reviews::score</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="368" column="16" bodyfile="nft.hpp" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structreviews_1a9dfbece4cf955d637a452ceb50c7f119" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string reviews::meta</definition>
+        <argsstring></argsstring>
+        <name>meta</name>
+        <qualifiedname>reviews::meta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="369" column="19" bodyfile="nft.hpp" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structreviews_1ac4629f47a75a4df2e4567a8e5515a1e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>reviews::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return id - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="372" column="16" bodyfile="nft.hpp" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structreviews_1ad57ccd0f3280dde33b2815530c2937b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::byobject</definition>
+        <argsstring>() const</argsstring>
+        <name>byobject</name>
+        <qualifiedname>reviews::byobject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return market_id - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="373" column="16" bodyfile="nft.hpp" bodystart="373" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="structreviews_1aad5e4eef05888968e5ad7facf2307b86" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t reviews::bybuyer</definition>
+        <argsstring>() const</argsstring>
+        <name>bybuyer</name>
+        <qualifiedname>reviews::bybuyer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return username - secondary_key 3 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="374" column="16" bodyfile="nft.hpp" bodystart="374" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="structreviews_1a24f33d4b7cb47e528d6f0c48e9f32939" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>uint128_t reviews::byobjanduser</definition>
+        <argsstring>() const</argsstring>
+        <name>byobjanduser</name>
+        <qualifiedname>reviews::byobjanduser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>(contract, blocked_now.symbol) - комбинированный secondary_key для получения курса по имени выходного контракта и символу </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="376" column="17" bodyfile="nft.hpp" bodystart="376" bodyend="374"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица отзывов </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: _me | _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Table: whitelist</title><para></para>
+</simplesect>
+Таблица хранит отзывы на объекты от покупателей </para>
+    </detaileddescription>
+    <location file="nft.hpp" line="362" column="5" bodyfile="nft.hpp" bodystart="362" bodyend="379"/>
+    <listofallmembers>
+      <member refid="structreviews_1a7ad2f9651c2b718d2c6ea9fca6ad5a4b" prot="public" virt="non-virtual"><scope>reviews</scope><name>buyer</name></member>
+      <member refid="structreviews_1aad5e4eef05888968e5ad7facf2307b86" prot="public" virt="non-virtual"><scope>reviews</scope><name>bybuyer</name></member>
+      <member refid="structreviews_1a24f33d4b7cb47e528d6f0c48e9f32939" prot="public" virt="non-virtual"><scope>reviews</scope><name>byobjanduser</name></member>
+      <member refid="structreviews_1ad57ccd0f3280dde33b2815530c2937b8" prot="public" virt="non-virtual"><scope>reviews</scope><name>byobject</name></member>
+      <member refid="structreviews_1ae3e4454b79787037d985e4d6de47a802" prot="public" virt="non-virtual"><scope>reviews</scope><name>id</name></member>
+      <member refid="structreviews_1a9dfbece4cf955d637a452ceb50c7f119" prot="public" virt="non-virtual"><scope>reviews</scope><name>meta</name></member>
+      <member refid="structreviews_1acaed930b335c1112b73f05beb790b470" prot="public" virt="non-virtual"><scope>reviews</scope><name>object_id</name></member>
+      <member refid="structreviews_1aa157b9df77af60e915be177b6a2780fa" prot="public" virt="non-virtual"><scope>reviews</scope><name>pieces</name></member>
+      <member refid="structreviews_1ac4629f47a75a4df2e4567a8e5515a1e3" prot="public" virt="non-virtual"><scope>reviews</scope><name>primary_key</name></member>
+      <member refid="structreviews_1a109fdb3563de55fd4d266b27937576e8" prot="public" virt="non-virtual"><scope>reviews</scope><name>review</name></member>
+      <member refid="structreviews_1a7ca888544873ae278f408dd39c2104a2" prot="public" virt="non-virtual"><scope>reviews</scope><name>score</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

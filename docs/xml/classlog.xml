@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classlog" kind="class" language="C++" prot="public">
+    <compoundname>log</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+    <innerclass refid="structlog_1_1comments" prot="public">log::comments</innerclass>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="group__public__consts_1gaf276fa07b1affd33d4b823e2ba51cc69" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name log::_me</definition>
+        <argsstring></argsstring>
+        <name>_me</name>
+        <qualifiedname>log::_me</qualifiedname>
+        <initializer>= &quot;log&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>собственное имя аккаунта контракта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="22" column="34" bodyfile="log.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gaafc269ed5e4c22e6fa0ed79e744ebd7b" prot="public" static="yes" mutable="no">
+        <type>const uint64_t</type>
+        <definition>const uint64_t log::MIN_PERMLINK_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>MIN_PERMLINK_LENGTH</name>
+        <qualifiedname>log::MIN_PERMLINK_LENGTH</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>минимальное количество символов в прямой ссылке </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="23" column="27" bodyfile="log.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gacf95aa9d7aa3c83c92526f7e9f43b022" prot="public" static="yes" mutable="no">
+        <type>const uint64_t</type>
+        <definition>const uint64_t log::MAX_PERMLINK_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>MAX_PERMLINK_LENGTH</name>
+        <qualifiedname>log::MAX_PERMLINK_LENGTH</qualifiedname>
+        <initializer>= 256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>максимальное количество символов в прямой ссылке </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="24" column="27" bodyfile="log.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classlog_1a131176b2a527d221cf3e820a8282d1bb" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;comments&quot;_n, <ref refid="structlog_1_1comments" kindref="compound">comments</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;comments&quot;_n, comments&gt; log::comments_index</definition>
+        <argsstring></argsstring>
+        <name>comments_index</name>
+        <qualifiedname>log::comments_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="71" column="32" bodyfile="log.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlog_1a3513bdaa78fafe2a389d78914bbc6e1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>log::log</definition>
+        <argsstring>(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</argsstring>
+        <name>log</name>
+        <qualifiedname>log::log</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>eosio::datastream&lt; const char * &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="9" column="5" bodyfile="log.hpp" bodystart="9" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga6bde994fdc6dec338a07ac007605a500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void log::post</definition>
+        <argsstring>(eosio::name owner, eosio::name author, std::string permlink, eosio::name parent_author, std::string parent_permlink, std::string title, std::string body, std::string meta, bool comments_is_enabled, int64_t priority, bool is_encrypted, std::string public_key)</argsstring>
+        <name>post</name>
+        <qualifiedname>log::post</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>author</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>permlink</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>parent_author</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>parent_permlink</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>comments_is_enabled</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_encrypted</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>public_key</declname>
+        </param>
+        <briefdescription>
+<para>Метод публикации поста </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: author</title><para></para>
+</simplesect>
+Метод публикует пост от автора в пространстве памяти хоста. Каждый пользователь может использовать своё пространство в памяти для хранения постов.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Пространство в памяти для хранения поста (хост) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">author</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Автор поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">permlink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Строковая прямая ссылка </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">parent_author</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Автор родительского поста (не обязательно) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">parent_permlink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Строковая прямая ссылка родительского поста (не обязательно) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заголовок поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тело поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Мета-данные поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">comments_is_enabled</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Индикатор режима комментирования (вкл/вкл) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Приоритет поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">is_encrypted</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Указатель шифрованного поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">public_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Публичный ключ для дешифровки поста </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="11" column="11" bodyfile="log.cpp" bodystart="65" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gac7ad5c8dfbb613aefe5efaa12849403e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void log::del</definition>
+        <argsstring>(eosio::name owner, eosio::name author, std::string permlink)</argsstring>
+        <name>del</name>
+        <qualifiedname>log::del</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>author</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>permlink</declname>
+        </param>
+        <briefdescription>
+<para>Метод удаления поста </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: author</title><para></para>
+</simplesect>
+Удаляет пост из оперативной памяти <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Пространство памяти хранения поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">author</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Автор поста </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">permlink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Прямая ссылка на пост </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="12" column="11" bodyfile="log.cpp" bodystart="144" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classlog_1adc9eac7a444fc9adc4d47e222dab794d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void log::apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <qualifiedname>log::apply</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="14" column="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlog_1ad26e52a22654dfa466153ca018ac2a61" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>static uint128_t log::combine_ids</definition>
+        <argsstring>(const uint64_t &amp;x, const uint64_t &amp;y)</argsstring>
+        <name>combine_ids</name>
+        <qualifiedname>log::combine_ids</qualifiedname>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="32" column="22" bodyfile="log.hpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>log</label>
+        <link refid="classlog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>log</label>
+        <link refid="classlog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="log.hpp" line="6" column="1" bodyfile="log.hpp" bodystart="6" bodyend="75"/>
+    <listofallmembers>
+      <member refid="group__public__consts_1gaf276fa07b1affd33d4b823e2ba51cc69" prot="public" virt="non-virtual"><scope>log</scope><name>_me</name></member>
+      <member refid="classlog_1adc9eac7a444fc9adc4d47e222dab794d" prot="public" virt="non-virtual"><scope>log</scope><name>apply</name></member>
+      <member refid="classlog_1ad26e52a22654dfa466153ca018ac2a61" prot="public" virt="non-virtual"><scope>log</scope><name>combine_ids</name></member>
+      <member refid="classlog_1a131176b2a527d221cf3e820a8282d1bb" prot="public" virt="non-virtual"><scope>log</scope><name>comments_index</name></member>
+      <member refid="group__public__actions_1gac7ad5c8dfbb613aefe5efaa12849403e" prot="public" virt="non-virtual"><scope>log</scope><name>del</name></member>
+      <member refid="classlog_1a3513bdaa78fafe2a389d78914bbc6e1e" prot="public" virt="non-virtual"><scope>log</scope><name>log</name></member>
+      <member refid="group__public__consts_1gacf95aa9d7aa3c83c92526f7e9f43b022" prot="public" virt="non-virtual"><scope>log</scope><name>MAX_PERMLINK_LENGTH</name></member>
+      <member refid="group__public__consts_1gaafc269ed5e4c22e6fa0ed79e744ebd7b" prot="public" virt="non-virtual"><scope>log</scope><name>MIN_PERMLINK_LENGTH</name></member>
+      <member refid="group__public__actions_1ga6bde994fdc6dec338a07ac007605a500" prot="public" virt="non-virtual"><scope>log</scope><name>post</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

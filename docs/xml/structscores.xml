@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structscores" kind="struct" language="C++" prot="public">
+    <compoundname>scores</compoundname>
+    <includes refid="nft_8hpp" local="no">nft.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structscores_1afa12a0782a74ebbe0cd5ab9505f2da19" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name scores::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>scores::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="424" column="19" bodyfile="nft.hpp" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structscores_1aee9a4293cfae9b31e3cb57ddc4e5c0a4" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::solded_pieces</definition>
+        <argsstring></argsstring>
+        <name>solded_pieces</name>
+        <qualifiedname>scores::solded_pieces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="425" column="16" bodyfile="nft.hpp" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structscores_1a9b8b0edcf48c8eb9024b628e071c0b6f" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::buyed_pieces</definition>
+        <argsstring></argsstring>
+        <name>buyed_pieces</name>
+        <qualifiedname>scores::buyed_pieces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="426" column="16" bodyfile="nft.hpp" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structscores_1aafbf274045b4c87608dbc8476c46c0f3" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::scores</definition>
+        <argsstring></argsstring>
+        <name>scores</name>
+        <qualifiedname>scores::scores</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="427" column="16" bodyfile="nft.hpp" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structscores_1ab23be0449f468387f2486118d0e1c92d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>scores::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return id - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="429" column="16" bodyfile="nft.hpp" bodystart="429" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structscores_1a222ce9d2a44f050785403dd9eb66fe85" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::bysolded</definition>
+        <argsstring>() const</argsstring>
+        <name>bysolded</name>
+        <qualifiedname>scores::bysolded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return market_id - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="430" column="16" bodyfile="nft.hpp" bodystart="430" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="structscores_1a2041881be42b3eb1383fdd308e62e0e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::bybyed</definition>
+        <argsstring>() const</argsstring>
+        <name>bybyed</name>
+        <qualifiedname>scores::bybyed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return market_id - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="431" column="16" bodyfile="nft.hpp" bodystart="431" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="structscores_1ae86bd54b93f579f0bc7117e9a65e860b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t scores::byscores</definition>
+        <argsstring>() const</argsstring>
+        <name>byscores</name>
+        <qualifiedname>scores::byscores</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return username - secondary_key 3 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="433" column="16" bodyfile="nft.hpp" bodystart="433" bodyend="431"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения поверхностной статистики для упрощения анализа системами ML. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: nft | _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Table: counts</title><para></para>
+</simplesect>
+Таблица хранит сборную статистику по сделкам и оценкам пользователя </para>
+    </detaileddescription>
+    <location file="nft.hpp" line="423" column="5" bodyfile="nft.hpp" bodystart="423" bodyend="437"/>
+    <listofallmembers>
+      <member refid="structscores_1a9b8b0edcf48c8eb9024b628e071c0b6f" prot="public" virt="non-virtual"><scope>scores</scope><name>buyed_pieces</name></member>
+      <member refid="structscores_1a2041881be42b3eb1383fdd308e62e0e8" prot="public" virt="non-virtual"><scope>scores</scope><name>bybyed</name></member>
+      <member refid="structscores_1ae86bd54b93f579f0bc7117e9a65e860b" prot="public" virt="non-virtual"><scope>scores</scope><name>byscores</name></member>
+      <member refid="structscores_1a222ce9d2a44f050785403dd9eb66fe85" prot="public" virt="non-virtual"><scope>scores</scope><name>bysolded</name></member>
+      <member refid="structscores_1ab23be0449f468387f2486118d0e1c92d" prot="public" virt="non-virtual"><scope>scores</scope><name>primary_key</name></member>
+      <member refid="structscores_1aafbf274045b4c87608dbc8476c46c0f3" prot="public" virt="non-virtual"><scope>scores</scope><name>scores</name></member>
+      <member refid="structscores_1aee9a4293cfae9b31e3cb57ddc4e5c0a4" prot="public" virt="non-virtual"><scope>scores</scope><name>solded_pieces</name></member>
+      <member refid="structscores_1afa12a0782a74ebbe0cd5ab9505f2da19" prot="public" virt="non-virtual"><scope>scores</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

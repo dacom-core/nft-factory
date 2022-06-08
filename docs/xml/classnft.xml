@@ -1,0 +1,1481 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classnft" kind="class" language="C++" prot="public">
+    <compoundname>nft</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="group__public__consts_1gaef729aa8d7b1644b5d2dd70306863231" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name nft::_me</definition>
+        <argsstring></argsstring>
+        <name>_me</name>
+        <qualifiedname>nft::_me</qualifiedname>
+        <initializer>= &quot;nft&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Статусы NFT на продаже: waiting | payed | accepted | delivery | finish </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="71" column="34" bodyfile="nft.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gae73c60628bd62558849315ddbd4e540e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nft::_anyone_can_create</definition>
+        <argsstring></argsstring>
+        <name>_anyone_can_create</name>
+        <qualifiedname>nft::_anyone_can_create</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="72" column="27" bodyfile="nft.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnft_1a5ee8ecdcdc1339b5aacb72f386b4daef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nft::nft</definition>
+        <argsstring>(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</argsstring>
+        <name>nft</name>
+        <qualifiedname>nft::nft</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>eosio::datastream&lt; const char * &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="20" column="5" bodyfile="nft.hpp" bodystart="20" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1a5645b71d1e241a7110154688d2cdfc36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <qualifiedname>nft::apply</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="22" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga5f9f2d754e00c38d3df25b85052ae782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::create</definition>
+        <argsstring>(eosio::name creator, eosio::name lang, std::string title, std::string description, uint64_t total_pieces, eosio::name category, std::string images, std::string ipns, bool creator_can_emit_new_pieces, std::string meta)</argsstring>
+        <name>create</name>
+        <qualifiedname>nft::create</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>lang</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>total_pieces</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>category</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>images</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>ipns</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>creator_can_emit_new_pieces</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод создания NFT-объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: creator</title><para></para>
+</simplesect>
+Метод создаёт NFT-объект с указанием количества частей.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">creator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>создатель NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lang</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>язык описания NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>заголовок NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>детальное описание NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">total_pieces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>общее количество частей NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">category</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>категория NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>картинки NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ipns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ссылка на пространство IPNS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">creator_can_emit_new_pieces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>флаг указывает на то, может ли создатель NFT выпускать новые части к ней </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>мета-данные NFT </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="23" column="11" bodyfile="nft.cpp" bodystart="184" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaacf79d90d466fa01b5d48235f234bf7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::remove</definition>
+        <argsstring>(eosio::name creator, uint64_t object_id)</argsstring>
+        <name>remove</name>
+        <qualifiedname>nft::remove</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <briefdescription>
+<para>Метод удаления NFT-объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: creator</title><para></para>
+</simplesect>
+Метод удаляет NFT, если ни одна из частей ещё не была продана.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">creator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>создатель NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="24" column="11" bodyfile="nft.cpp" bodystart="231" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad81581a9b320f394b41f7ca5e7d361cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::edit</definition>
+        <argsstring>(eosio::name creator, uint64_t object_id, std::string title, std::string description, std::string images, std::string ipns, eosio::name category, bool creator_can_emit_new_pieces, std::string meta)</argsstring>
+        <name>edit</name>
+        <qualifiedname>nft::edit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>images</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>ipns</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>category</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>creator_can_emit_new_pieces</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод редактирования NFT-объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: creator</title><para></para>
+</simplesect>
+Метод позволяет отредактировать описание NFT объекта, картинки, категории и т.д.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">creator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>создатель NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>заголовок NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>детальное описание NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">category</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>категория NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>картинки NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ipns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ссылка на пространство IPNS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">creator_can_emit_new_pieces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>флаг указывает на то, может ли создатель NFT выпускать новые части к ней </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>мета-данные NFT </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="25" column="11" bodyfile="nft.cpp" bodystart="270" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga8c5ecb40e30b9eb6b9119894c4273cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::buy</definition>
+        <argsstring>(eosio::name buyer, uint64_t market_id, eosio::name lang, uint64_t requested_pieces, eosio::asset one_piece_price, std::string delivery_to, eosio::name delivery_method, eosio::name delivery_operator, std::string meta)</argsstring>
+        <name>buy</name>
+        <qualifiedname>nft::buy</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>buyer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>market_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>lang</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>requested_pieces</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>one_piece_price</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>delivery_to</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>delivery_method</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>delivery_operator</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод покупки NFT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: buyer</title><para></para>
+</simplesect>
+Метод позволяет отредактировать описание NFT объекта, картинки, категории и т.д.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buyer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>покупатель </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">market_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lang</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>язык проведения сделки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">requested_pieces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>количество запрашиваемых частей </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">one_piece_price</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>цена одной части </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>куда осуществить доставку </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>метод доставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_operator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>оператор доставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>мета-данные </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="33" column="11" bodyfile="nft.cpp" bodystart="378" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2001b87b1817d59568c89895ff01b115" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::sell</definition>
+        <argsstring>(eosio::name seller, uint64_t object_id, uint64_t pieces_to_sell, eosio::name token_contract, eosio::asset one_piece_price, bool buyer_can_offer_price, bool with_delivery, std::string delivery_from, std::vector&lt; eosio::name &gt; delivery_methods, std::vector&lt; eosio::name &gt; delivery_operators, std::string meta)</argsstring>
+        <name>sell</name>
+        <qualifiedname>nft::sell</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>seller</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>pieces_to_sell</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>token_contract</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>one_piece_price</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>buyer_can_offer_price</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>with_delivery</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>delivery_from</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; eosio::name &gt;</type>
+          <declname>delivery_methods</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; eosio::name &gt;</type>
+          <declname>delivery_operators</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод редактирования NFT-объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: seller</title><para></para>
+</simplesect>
+Метод позволяет отредактировать описание NFT объекта, картинки, категории и т.д.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Продавец </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pieces_to_sell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>сколько частей выставляем на продажу </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">token_contract</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>контракт токена для оплаты </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">one_piece_price</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>цена одной части </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buyer_can_offer_price</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>флаг доступности торгов - если true, покупатель может предлагать свою цену </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">with_delivery</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>флаг физической поставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>локация, откуда осуществляется доставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_methods</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>метод доставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_operators</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>оператор доставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>мета-данные </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="34" column="11" bodyfile="nft.cpp" bodystart="316" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad4df61b42ae7cb4c662ecc75c5a3897a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::cancelsell</definition>
+        <argsstring>(eosio::name seller, uint64_t market_id)</argsstring>
+        <name>cancelsell</name>
+        <qualifiedname>nft::cancelsell</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>seller</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>market_id</declname>
+        </param>
+        <briefdescription>
+<para>Метод отмены продажи NFT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: seller</title><para></para>
+</simplesect>
+Метод совершает отмену продажи NFT-объекта</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Продавец </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">market_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор объекта на рынке </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="35" column="11" bodyfile="nft.cpp" bodystart="478" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2ad33fcad6d3dd98dc91d14f381807b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::emit</definition>
+        <argsstring>(eosio::name emitter, uint64_t object_id, uint64_t pieces_for_emit)</argsstring>
+        <name>emit</name>
+        <qualifiedname>nft::emit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>emitter</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>pieces_for_emit</declname>
+        </param>
+        <briefdescription>
+<para>Метод выпуска частей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: emitter</title><para></para>
+</simplesect>
+Если объект предусматривает выпуск частей, то пользователи из белого списка или сам создатель NFT могут выпускать новые части NFT.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">emitter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, осуществляющего выпуск NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pieces_for_emit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество единиц к выпуску </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="37" column="11" bodyfile="nft.cpp" bodystart="700" bodyend="723"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga83a1e293c4324f06c2462e4091883ade" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::acceptreq</definition>
+        <argsstring>(eosio::name seller, uint64_t request_id)</argsstring>
+        <name>acceptreq</name>
+        <qualifiedname>nft::acceptreq</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>seller</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>request_id</declname>
+        </param>
+        <briefdescription>
+<para>Метод принятия запроса на покупку </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: seller</title><para></para>
+</simplesect>
+Продавец должен вызвать этот метод для начала сделки обмена, если:<itemizedlist>
+<listitem><para>установлен флаг доступности торгов по NFT</para>
+</listitem><listitem><para>установлен флаг физической поставки (для ручного подтверждения адреса и введенных пользователем полей) Если флаги не установлены, вызов этого метода не требуется - обмен токен/NFT произойдёт автоматически.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Продавец </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">request_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор запроса на покупку </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="39" column="11" bodyfile="nft.cpp" bodystart="507" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga053222099a3c56a45c5c3b4edabd9096" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::declinereq</definition>
+        <argsstring>(eosio::name seller, uint64_t request_id)</argsstring>
+        <name>declinereq</name>
+        <qualifiedname>nft::declinereq</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>seller</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>request_id</declname>
+        </param>
+        <briefdescription>
+<para>Метод отклонения сделки </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: seller</title><para></para>
+</simplesect>
+Продавец вызывает этот метод, если отклоняет запрос на покупку</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Продавец </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">request_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор запроса на покупку </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="40" column="11" bodyfile="nft.cpp" bodystart="563" bodyend="597"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gabfcdcab948de423e9f38cbd713561a97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::cancelreq</definition>
+        <argsstring>(eosio::name buyer, uint64_t request_id)</argsstring>
+        <name>cancelreq</name>
+        <qualifiedname>nft::cancelreq</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>buyer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>request_id</declname>
+        </param>
+        <briefdescription>
+<para>Метод отмены запроса на покупку </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: buyer</title><para></para>
+</simplesect>
+Покупатель вызывает этот метод, если отменяет свой запрос на покупку NFT</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buyer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Покупатель </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">request_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор запроса на покупку </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="41" column="11" bodyfile="nft.cpp" bodystart="610" bodyend="635"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga89e5e85bcdc4fa92eec9eef882dffdce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::sendmessage</definition>
+        <argsstring>(eosio::name username, uint64_t request_id, eosio::name lang, std::string message)</argsstring>
+        <name>sendmessage</name>
+        <qualifiedname>nft::sendmessage</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>request_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>lang</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Метод создания сообщения </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: username</title><para></para>
+</simplesect>
+Метод позволяет участникам сделки общаться друг с другом в чате через блокчейн</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя пользователя покупателя или продавца </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">request_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор запроса </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lang</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор языка </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="45" column="11" bodyfile="nft.cpp" bodystart="866" bodyend="886"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga3e1209994e92fcb1a84d0b830ffa4fb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::setdelstatus</definition>
+        <argsstring>(eosio::name delivery_operator, uint64_t request_id, eosio::name status)</argsstring>
+        <name>setdelstatus</name>
+        <qualifiedname>nft::setdelstatus</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>delivery_operator</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>request_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Метод установки статуса доставки </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: delivery_operator</title><para></para>
+</simplesect>
+После того, как сделка на покупку NFT с доставкой оплачена, подключается оператор доставки, который изменяет статус доставки. Сейчас доступен только статус finish, что означает, что объект выдан покупателю на пункте самовывоза. Оператором доставки, при этом, выступает продавец.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">delivery_operator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Оператор доставки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">request_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор запроса на покупку </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Статус доставки </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="47" column="11" bodyfile="nft.cpp" bodystart="649" bodyend="686"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga35aa30744ed57b5512ff6d03d85ce77c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::addtowl</definition>
+        <argsstring>(eosio::name creator, uint64_t object_id, eosio::name username)</argsstring>
+        <name>addtowl</name>
+        <qualifiedname>nft::addtowl</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Метод добавления пользователя в белый список для выпуска частей NFT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: creator</title><para></para>
+</simplesect>
+Создатель NFT может сам выпускать части или добавить подрядчиков, которые поставляют части NFT в его объект. Для этого, создатель добавляет подрядчика в белый лист с помощью этого метода.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">creator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Владелец NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя для добавления в белый лист </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="49" column="11" bodyfile="nft.cpp" bodystart="737" bodyend="759"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga1340b486a1b568d2f1f67239c33b3a18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::delfromwl</definition>
+        <argsstring>(eosio::name creator, uint64_t object_id, eosio::name username)</argsstring>
+        <name>delfromwl</name>
+        <qualifiedname>nft::delfromwl</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Метод удаления пользователя из белого листа </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: creator</title><para></para>
+</simplesect>
+Метод удаляет пользователя из белого листа</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">creator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Владелец NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя для удаления </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="50" column="11" bodyfile="nft.cpp" bodystart="774" bodyend="794"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga3ec5cb2f8cbd31ef1b3e466569579fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::setreview</definition>
+        <argsstring>(eosio::name buyer, uint64_t object_id, std::string message, uint64_t score, std::string meta)</argsstring>
+        <name>setreview</name>
+        <qualifiedname>nft::setreview</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>buyer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод установки отзыва на NFT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: buyer</title><para></para>
+</simplesect>
+Метод позволяет покупателю установить отзыв с указанием очков качества продукта</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buyer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Владелец NFT </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">object_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение отзыва </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">score</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение отзыва </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Мета-данные </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="52" column="11" bodyfile="nft.cpp" bodystart="811" bodyend="851"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classnft_1ada906b3acb140b48073199a170abd66d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::add_balance</definition>
+        <argsstring>(eosio::name payer, eosio::asset quantity, eosio::name contract)</argsstring>
+        <name>add_balance</name>
+        <qualifiedname>nft::add_balance</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="27" column="17" bodyfile="nft.cpp" bodystart="42" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1aa39fb90a30f0cab2eb2611b505e70454" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::sub_balance</definition>
+        <argsstring>(eosio::name username, eosio::asset quantity, eosio::name contract)</argsstring>
+        <name>sub_balance</name>
+        <qualifiedname>nft::sub_balance</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="28" column="17" bodyfile="nft.cpp" bodystart="68" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1a5bb340253aab6eceb950f8e8a34280cf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::add_pieces</definition>
+        <argsstring>(eosio::name ram_payer, uint64_t object_id, eosio::name to, uint64_t add_pieces)</argsstring>
+        <name>add_pieces</name>
+        <qualifiedname>nft::add_pieces</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>ram_payer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>add_pieces</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="29" column="17" bodyfile="nft.cpp" bodystart="115" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1a7c8617a46cb3e965de26553b3de28418" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::sub_pieces</definition>
+        <argsstring>(eosio::name ram_payer, uint64_t object_id, eosio::name from, uint64_t sub_pieces)</argsstring>
+        <name>sub_pieces</name>
+        <qualifiedname>nft::sub_pieces</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>ram_payer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>object_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>sub_pieces</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="30" column="17" bodyfile="nft.cpp" bodystart="96" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1a1be1eedbe6388fc48960e1c46085ea5f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nft::add_scores</definition>
+        <argsstring>(eosio::name payer, eosio::name username, uint64_t new_solded_pieces, uint64_t new_buyed_pieces, uint64_t new_score)</argsstring>
+        <name>add_scores</name>
+        <qualifiedname>nft::add_scores</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>payer</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>new_solded_pieces</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>new_buyed_pieces</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>new_score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="31" column="17" bodyfile="nft.cpp" bodystart="141" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1a698ce8a60262c49197861a9c775b416a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t nft::get_global_id</definition>
+        <argsstring>(eosio::name key)</argsstring>
+        <name>get_global_id</name>
+        <qualifiedname>nft::get_global_id</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="43" column="21" bodyfile="nft.cpp" bodystart="19" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classnft_1adac93d91fa1e28e054ad8c3acbc4442f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>static uint128_t nft::combine_ids</definition>
+        <argsstring>(const uint64_t &amp;x, const uint64_t &amp;y)</argsstring>
+        <name>combine_ids</name>
+        <qualifiedname>nft::combine_ids</qualifiedname>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="55" column="22" bodyfile="nft.hpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>nft</label>
+        <link refid="classnft"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>nft</label>
+        <link refid="classnft"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="nft.hpp" line="17" column="1" bodyfile="nft.hpp" bodystart="17" bodyend="78"/>
+    <listofallmembers>
+      <member refid="group__public__consts_1gae73c60628bd62558849315ddbd4e540e" prot="public" virt="non-virtual"><scope>nft</scope><name>_anyone_can_create</name></member>
+      <member refid="group__public__consts_1gaef729aa8d7b1644b5d2dd70306863231" prot="public" virt="non-virtual"><scope>nft</scope><name>_me</name></member>
+      <member refid="group__public__actions_1ga83a1e293c4324f06c2462e4091883ade" prot="public" virt="non-virtual"><scope>nft</scope><name>acceptreq</name></member>
+      <member refid="classnft_1ada906b3acb140b48073199a170abd66d" prot="public" virt="non-virtual"><scope>nft</scope><name>add_balance</name></member>
+      <member refid="classnft_1a5bb340253aab6eceb950f8e8a34280cf" prot="public" virt="non-virtual"><scope>nft</scope><name>add_pieces</name></member>
+      <member refid="classnft_1a1be1eedbe6388fc48960e1c46085ea5f" prot="public" virt="non-virtual"><scope>nft</scope><name>add_scores</name></member>
+      <member refid="group__public__actions_1ga35aa30744ed57b5512ff6d03d85ce77c" prot="public" virt="non-virtual"><scope>nft</scope><name>addtowl</name></member>
+      <member refid="classnft_1a5645b71d1e241a7110154688d2cdfc36" prot="public" virt="non-virtual"><scope>nft</scope><name>apply</name></member>
+      <member refid="group__public__actions_1ga8c5ecb40e30b9eb6b9119894c4273cff" prot="public" virt="non-virtual"><scope>nft</scope><name>buy</name></member>
+      <member refid="group__public__actions_1gabfcdcab948de423e9f38cbd713561a97" prot="public" virt="non-virtual"><scope>nft</scope><name>cancelreq</name></member>
+      <member refid="group__public__actions_1gad4df61b42ae7cb4c662ecc75c5a3897a" prot="public" virt="non-virtual"><scope>nft</scope><name>cancelsell</name></member>
+      <member refid="classnft_1adac93d91fa1e28e054ad8c3acbc4442f" prot="public" virt="non-virtual"><scope>nft</scope><name>combine_ids</name></member>
+      <member refid="group__public__actions_1ga5f9f2d754e00c38d3df25b85052ae782" prot="public" virt="non-virtual"><scope>nft</scope><name>create</name></member>
+      <member refid="group__public__actions_1ga053222099a3c56a45c5c3b4edabd9096" prot="public" virt="non-virtual"><scope>nft</scope><name>declinereq</name></member>
+      <member refid="group__public__actions_1ga1340b486a1b568d2f1f67239c33b3a18" prot="public" virt="non-virtual"><scope>nft</scope><name>delfromwl</name></member>
+      <member refid="group__public__actions_1gad81581a9b320f394b41f7ca5e7d361cd" prot="public" virt="non-virtual"><scope>nft</scope><name>edit</name></member>
+      <member refid="group__public__actions_1ga2ad33fcad6d3dd98dc91d14f381807b0" prot="public" virt="non-virtual"><scope>nft</scope><name>emit</name></member>
+      <member refid="classnft_1a698ce8a60262c49197861a9c775b416a" prot="public" virt="non-virtual"><scope>nft</scope><name>get_global_id</name></member>
+      <member refid="classnft_1a5ee8ecdcdc1339b5aacb72f386b4daef" prot="public" virt="non-virtual"><scope>nft</scope><name>nft</name></member>
+      <member refid="group__public__actions_1gaacf79d90d466fa01b5d48235f234bf7e" prot="public" virt="non-virtual"><scope>nft</scope><name>remove</name></member>
+      <member refid="group__public__actions_1ga2001b87b1817d59568c89895ff01b115" prot="public" virt="non-virtual"><scope>nft</scope><name>sell</name></member>
+      <member refid="group__public__actions_1ga89e5e85bcdc4fa92eec9eef882dffdce" prot="public" virt="non-virtual"><scope>nft</scope><name>sendmessage</name></member>
+      <member refid="group__public__actions_1ga3e1209994e92fcb1a84d0b830ffa4fb8" prot="public" virt="non-virtual"><scope>nft</scope><name>setdelstatus</name></member>
+      <member refid="group__public__actions_1ga3ec5cb2f8cbd31ef1b3e466569579fdc" prot="public" virt="non-virtual"><scope>nft</scope><name>setreview</name></member>
+      <member refid="classnft_1aa39fb90a30f0cab2eb2611b505e70454" prot="public" virt="non-virtual"><scope>nft</scope><name>sub_balance</name></member>
+      <member refid="classnft_1a7c8617a46cb3e965de26553b3de28418" prot="public" virt="non-virtual"><scope>nft</scope><name>sub_pieces</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

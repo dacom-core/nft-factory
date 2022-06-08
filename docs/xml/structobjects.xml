@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structobjects" kind="struct" language="C++" prot="public">
+    <compoundname>objects</compoundname>
+    <includes refid="nft_8hpp" local="no">nft.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structobjects_1a75178c421a76593ae35d0af8591f7249" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t objects::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>objects::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификатор объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="120" column="16" bodyfile="nft.hpp" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1affd3e74508f3389523f2ec59597575bd" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name objects::creator</definition>
+        <argsstring></argsstring>
+        <name>creator</name>
+        <qualifiedname>objects::creator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>создатель </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="121" column="19" bodyfile="nft.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1a0822ed92203929b9413670dbef2059bb" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name objects::lang</definition>
+        <argsstring></argsstring>
+        <name>lang</name>
+        <qualifiedname>objects::lang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>языковой код объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="122" column="19" bodyfile="nft.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1aa06aea57138984efbddcb285432a7793" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string objects::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>objects::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>название объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="123" column="19" bodyfile="nft.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1a9af54eefe0312e3f59daece358bc3750" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string objects::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>objects::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>краткое описание объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="124" column="19" bodyfile="nft.hpp" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1a74992b2925546c775d5a09591edcd936" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name objects::category</definition>
+        <argsstring></argsstring>
+        <name>category</name>
+        <qualifiedname>objects::category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>категория объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="125" column="19" bodyfile="nft.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1ab59bf14e1570ad355aabf6b6a3e4a607" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string objects::images</definition>
+        <argsstring></argsstring>
+        <name>images</name>
+        <qualifiedname>objects::images</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>изображения объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="126" column="19" bodyfile="nft.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1af4c53d11bc55c992c5887d916c918c2d" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string objects::ipns</definition>
+        <argsstring></argsstring>
+        <name>ipns</name>
+        <qualifiedname>objects::ipns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>контейнер объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="127" column="19" bodyfile="nft.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1a600d19b389c5b9c7dd226f2e236f4893" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool objects::creator_can_emit_new_pieces</definition>
+        <argsstring></argsstring>
+        <name>creator_can_emit_new_pieces</name>
+        <qualifiedname>objects::creator_can_emit_new_pieces</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="128" column="12" bodyfile="nft.hpp" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1afc0ace5bde6abc6bb7d636dca65bf9e9" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t objects::total_pieces</definition>
+        <argsstring></argsstring>
+        <name>total_pieces</name>
+        <qualifiedname>objects::total_pieces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>количество частей </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="130" column="16" bodyfile="nft.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structobjects_1a02914f82fc0b2484884a6a61b755c1ee" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string objects::meta</definition>
+        <argsstring></argsstring>
+        <name>meta</name>
+        <qualifiedname>objects::meta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>мета-данные объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="132" column="19" bodyfile="nft.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structobjects_1a6f41cc1e072c89e960d35e95246ee702" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t objects::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>objects::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return id - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="134" column="16" bodyfile="nft.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structobjects_1aa451fb8a617d942b811fc200a53f7f31" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t objects::bycreator</definition>
+        <argsstring>() const</argsstring>
+        <name>bycreator</name>
+        <qualifiedname>objects::bycreator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="135" column="16" bodyfile="nft.hpp" bodystart="135" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="structobjects_1a014834eb207f1d07802d2483ae93d366" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t objects::bycategory</definition>
+        <argsstring>() const</argsstring>
+        <name>bycategory</name>
+        <qualifiedname>objects::bycategory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="136" column="16" bodyfile="nft.hpp" bodystart="136" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="structobjects_1a44562427467c4db707c41b3430158055" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t objects::bylang</definition>
+        <argsstring>() const</argsstring>
+        <name>bylang</name>
+        <qualifiedname>objects::bylang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - secondary_key 3 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="138" column="16" bodyfile="nft.hpp" bodystart="138" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения NFT. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: nft | buyer</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Table: objects</title><para></para>
+</simplesect>
+Таблица хранит объекты </para>
+    </detaileddescription>
+    <location file="nft.hpp" line="119" column="5" bodyfile="nft.hpp" bodystart="119" bodyend="141"/>
+    <listofallmembers>
+      <member refid="structobjects_1a014834eb207f1d07802d2483ae93d366" prot="public" virt="non-virtual"><scope>objects</scope><name>bycategory</name></member>
+      <member refid="structobjects_1aa451fb8a617d942b811fc200a53f7f31" prot="public" virt="non-virtual"><scope>objects</scope><name>bycreator</name></member>
+      <member refid="structobjects_1a44562427467c4db707c41b3430158055" prot="public" virt="non-virtual"><scope>objects</scope><name>bylang</name></member>
+      <member refid="structobjects_1a74992b2925546c775d5a09591edcd936" prot="public" virt="non-virtual"><scope>objects</scope><name>category</name></member>
+      <member refid="structobjects_1affd3e74508f3389523f2ec59597575bd" prot="public" virt="non-virtual"><scope>objects</scope><name>creator</name></member>
+      <member refid="structobjects_1a600d19b389c5b9c7dd226f2e236f4893" prot="public" virt="non-virtual"><scope>objects</scope><name>creator_can_emit_new_pieces</name></member>
+      <member refid="structobjects_1a9af54eefe0312e3f59daece358bc3750" prot="public" virt="non-virtual"><scope>objects</scope><name>description</name></member>
+      <member refid="structobjects_1a75178c421a76593ae35d0af8591f7249" prot="public" virt="non-virtual"><scope>objects</scope><name>id</name></member>
+      <member refid="structobjects_1ab59bf14e1570ad355aabf6b6a3e4a607" prot="public" virt="non-virtual"><scope>objects</scope><name>images</name></member>
+      <member refid="structobjects_1af4c53d11bc55c992c5887d916c918c2d" prot="public" virt="non-virtual"><scope>objects</scope><name>ipns</name></member>
+      <member refid="structobjects_1a0822ed92203929b9413670dbef2059bb" prot="public" virt="non-virtual"><scope>objects</scope><name>lang</name></member>
+      <member refid="structobjects_1a02914f82fc0b2484884a6a61b755c1ee" prot="public" virt="non-virtual"><scope>objects</scope><name>meta</name></member>
+      <member refid="structobjects_1a6f41cc1e072c89e960d35e95246ee702" prot="public" virt="non-virtual"><scope>objects</scope><name>primary_key</name></member>
+      <member refid="structobjects_1aa06aea57138984efbddcb285432a7793" prot="public" virt="non-virtual"><scope>objects</scope><name>title</name></member>
+      <member refid="structobjects_1afc0ace5bde6abc6bb7d636dca65bf9e9" prot="public" virt="non-virtual"><scope>objects</scope><name>total_pieces</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

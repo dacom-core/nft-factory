@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="group__public__consts" kind="group">
+    <compoundname>public_consts</compoundname>
+    <title>CONSTS</title>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="group__public__consts_1gaef729aa8d7b1644b5d2dd70306863231" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name nft::_me</definition>
+        <argsstring></argsstring>
+        <name>_me</name>
+        <qualifiedname>nft::_me</qualifiedname>
+        <initializer>= &quot;nft&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Статусы NFT на продаже: waiting | payed | accepted | delivery | finish </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="71" column="34" bodyfile="nft.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gae73c60628bd62558849315ddbd4e540e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nft::_anyone_can_create</definition>
+        <argsstring></argsstring>
+        <name>_anyone_can_create</name>
+        <qualifiedname>nft::_anyone_can_create</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="72" column="27" bodyfile="nft.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Константы контракта </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structmarket" kind="struct" language="C++" prot="public">
+    <compoundname>market</compoundname>
+    <includes refid="nft_8hpp" local="no">nft.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmarket_1ae532d3fe0cf32f7ce146ac8dc471193d" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t market::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>market::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификатор предложения </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="161" column="16" bodyfile="nft.hpp" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a689d16b1e14bff56aef7c38da92419dd" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t market::object_id</definition>
+        <argsstring></argsstring>
+        <name>object_id</name>
+        <qualifiedname>market::object_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификатор объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="162" column="16" bodyfile="nft.hpp" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a566e0dc0c21b7cf57f8e9a005d91ee65" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name market::seller</definition>
+        <argsstring></argsstring>
+        <name>seller</name>
+        <qualifiedname>market::seller</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>продавец </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="163" column="19" bodyfile="nft.hpp" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a1a525a7a7d471cd53b2260c6bd870e53" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool market::is_auction</definition>
+        <argsstring></argsstring>
+        <name>is_auction</name>
+        <qualifiedname>market::is_auction</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="164" column="12" bodyfile="nft.hpp" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a76827b0c4006f50a200a70cdfa8009f4" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name market::lang</definition>
+        <argsstring></argsstring>
+        <name>lang</name>
+        <qualifiedname>market::lang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>языковой код покупателя </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="165" column="19" bodyfile="nft.hpp" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a4544fe17534bb4a666652de41c4ba9a7" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name market::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>market::status</qualifiedname>
+        <initializer>= &quot;waiting&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="166" column="19" bodyfile="nft.hpp" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a7662149844341cd1db77dd35e471d0cc" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t market::remain_pieces</definition>
+        <argsstring></argsstring>
+        <name>remain_pieces</name>
+        <qualifiedname>market::remain_pieces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="167" column="16" bodyfile="nft.hpp" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a0a79a6104ad6ebce9bac4c02d536aa94" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t market::blocked_pieces</definition>
+        <argsstring></argsstring>
+        <name>blocked_pieces</name>
+        <qualifiedname>market::blocked_pieces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="168" column="16" bodyfile="nft.hpp" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a2d0fc4fffe1e28833615acacad39201f" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name market::token_contract</definition>
+        <argsstring></argsstring>
+        <name>token_contract</name>
+        <qualifiedname>market::token_contract</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>контракт токена обмена </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="169" column="19" bodyfile="nft.hpp" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a50e8b9260677b44667b85a3e7bb4f8db" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset market::one_piece_price</definition>
+        <argsstring></argsstring>
+        <name>one_piece_price</name>
+        <qualifiedname>market::one_piece_price</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>цена за одну часть </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="170" column="20" bodyfile="nft.hpp" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a30304aaf389c43d7bea115e0eb9e329e" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset market::total_price</definition>
+        <argsstring></argsstring>
+        <name>total_price</name>
+        <qualifiedname>market::total_price</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>цена нового владельца за одну часть </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="171" column="20" bodyfile="nft.hpp" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a3c192f136aee1033c3cfbf7fb329130d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool market::buyer_can_offer_price</definition>
+        <argsstring></argsstring>
+        <name>buyer_can_offer_price</name>
+        <qualifiedname>market::buyer_can_offer_price</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>может ли покупатель предлагать свою цену </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="173" column="12" bodyfile="nft.hpp" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a036767444c3524d00836cff2b569b5bd" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool market::with_delivery</definition>
+        <argsstring></argsstring>
+        <name>with_delivery</name>
+        <qualifiedname>market::with_delivery</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>флаг физической поставки </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="174" column="12" bodyfile="nft.hpp" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a78d8b5de11ee00c72b99edb40eab1782" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string market::delivery_from</definition>
+        <argsstring></argsstring>
+        <name>delivery_from</name>
+        <qualifiedname>market::delivery_from</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>точка нахождения физического эквивалента </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="175" column="19" bodyfile="nft.hpp" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1ad0409fddbc7e1313e5e86bb6a24deb42" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; eosio::name &gt;</type>
+        <definition>std::vector&lt;eosio::name&gt; market::delivery_methods</definition>
+        <argsstring></argsstring>
+        <name>delivery_methods</name>
+        <qualifiedname>market::delivery_methods</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>метод физической поставки </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="177" column="19" bodyfile="nft.hpp" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a8b2da82e70889a7323fa7acf34c6e898" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; eosio::name &gt;</type>
+        <definition>std::vector&lt;eosio::name&gt; market::delivery_operators</definition>
+        <argsstring></argsstring>
+        <name>delivery_operators</name>
+        <qualifiedname>market::delivery_operators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>оператор физической поставки </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="178" column="19" bodyfile="nft.hpp" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a07bca9207b9a494add46ef5761e7bbc0" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec market::sales_start_at</definition>
+        <argsstring></argsstring>
+        <name>sales_start_at</name>
+        <qualifiedname>market::sales_start_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>резервное поле для аукциона </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="180" column="29" bodyfile="nft.hpp" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a2107c26a159822590207fb43b18b9ccf" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec market::sales_closed_at</definition>
+        <argsstring></argsstring>
+        <name>sales_closed_at</name>
+        <qualifiedname>market::sales_closed_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>резервное поле для аукциона </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="181" column="29" bodyfile="nft.hpp" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmarket_1a002f3b71b9e0cff2cc552f38230c7f93" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string market::meta</definition>
+        <argsstring></argsstring>
+        <name>meta</name>
+        <qualifiedname>market::meta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>мета-данные объекта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="183" column="19" bodyfile="nft.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmarket_1a927be547fb7499a82fc5a717e133a7b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t market::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>market::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return id - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="185" column="16" bodyfile="nft.hpp" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structmarket_1aec4d4e3fb7290a024dd63215205c1946" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t market::byobject</definition>
+        <argsstring>() const</argsstring>
+        <name>byobject</name>
+        <qualifiedname>market::byobject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return nft_id - secondary_key 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="186" column="16" bodyfile="nft.hpp" bodystart="186" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="structmarket_1a3971ed35d3a25db2093c3ccb6b1a3b2a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t market::bylang</definition>
+        <argsstring>() const</argsstring>
+        <name>bylang</name>
+        <qualifiedname>market::bylang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - secondary_key 3 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="187" column="16" bodyfile="nft.hpp" bodystart="187" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="structmarket_1a53576755ab437401bbfab4c85ba6d452" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t market::byseller</definition>
+        <argsstring>() const</argsstring>
+        <name>byseller</name>
+        <qualifiedname>market::byseller</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return lang - secondary_key 4 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="189" column="16" bodyfile="nft.hpp" bodystart="189" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="structmarket_1a769151962562f67801c8458edb16594b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t market::bycon</definition>
+        <argsstring>() const</argsstring>
+        <name>bycon</name>
+        <qualifiedname>market::bycon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return contract - secondary_key 6 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nft.hpp" line="190" column="16" bodyfile="nft.hpp" bodystart="190" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения предложения </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: nft | buyer</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Table: objects</title><para></para>
+</simplesect>
+Таблица хранит предложения на продажу NFT </para>
+    </detaileddescription>
+    <location file="nft.hpp" line="160" column="5" bodyfile="nft.hpp" bodystart="160" bodyend="193"/>
+    <listofallmembers>
+      <member refid="structmarket_1a0a79a6104ad6ebce9bac4c02d536aa94" prot="public" virt="non-virtual"><scope>market</scope><name>blocked_pieces</name></member>
+      <member refid="structmarket_1a3c192f136aee1033c3cfbf7fb329130d" prot="public" virt="non-virtual"><scope>market</scope><name>buyer_can_offer_price</name></member>
+      <member refid="structmarket_1a769151962562f67801c8458edb16594b" prot="public" virt="non-virtual"><scope>market</scope><name>bycon</name></member>
+      <member refid="structmarket_1a3971ed35d3a25db2093c3ccb6b1a3b2a" prot="public" virt="non-virtual"><scope>market</scope><name>bylang</name></member>
+      <member refid="structmarket_1aec4d4e3fb7290a024dd63215205c1946" prot="public" virt="non-virtual"><scope>market</scope><name>byobject</name></member>
+      <member refid="structmarket_1a53576755ab437401bbfab4c85ba6d452" prot="public" virt="non-virtual"><scope>market</scope><name>byseller</name></member>
+      <member refid="structmarket_1a78d8b5de11ee00c72b99edb40eab1782" prot="public" virt="non-virtual"><scope>market</scope><name>delivery_from</name></member>
+      <member refid="structmarket_1ad0409fddbc7e1313e5e86bb6a24deb42" prot="public" virt="non-virtual"><scope>market</scope><name>delivery_methods</name></member>
+      <member refid="structmarket_1a8b2da82e70889a7323fa7acf34c6e898" prot="public" virt="non-virtual"><scope>market</scope><name>delivery_operators</name></member>
+      <member refid="structmarket_1ae532d3fe0cf32f7ce146ac8dc471193d" prot="public" virt="non-virtual"><scope>market</scope><name>id</name></member>
+      <member refid="structmarket_1a1a525a7a7d471cd53b2260c6bd870e53" prot="public" virt="non-virtual"><scope>market</scope><name>is_auction</name></member>
+      <member refid="structmarket_1a76827b0c4006f50a200a70cdfa8009f4" prot="public" virt="non-virtual"><scope>market</scope><name>lang</name></member>
+      <member refid="structmarket_1a002f3b71b9e0cff2cc552f38230c7f93" prot="public" virt="non-virtual"><scope>market</scope><name>meta</name></member>
+      <member refid="structmarket_1a689d16b1e14bff56aef7c38da92419dd" prot="public" virt="non-virtual"><scope>market</scope><name>object_id</name></member>
+      <member refid="structmarket_1a50e8b9260677b44667b85a3e7bb4f8db" prot="public" virt="non-virtual"><scope>market</scope><name>one_piece_price</name></member>
+      <member refid="structmarket_1a927be547fb7499a82fc5a717e133a7b4" prot="public" virt="non-virtual"><scope>market</scope><name>primary_key</name></member>
+      <member refid="structmarket_1a7662149844341cd1db77dd35e471d0cc" prot="public" virt="non-virtual"><scope>market</scope><name>remain_pieces</name></member>
+      <member refid="structmarket_1a2107c26a159822590207fb43b18b9ccf" prot="public" virt="non-virtual"><scope>market</scope><name>sales_closed_at</name></member>
+      <member refid="structmarket_1a07bca9207b9a494add46ef5761e7bbc0" prot="public" virt="non-virtual"><scope>market</scope><name>sales_start_at</name></member>
+      <member refid="structmarket_1a566e0dc0c21b7cf57f8e9a005d91ee65" prot="public" virt="non-virtual"><scope>market</scope><name>seller</name></member>
+      <member refid="structmarket_1a4544fe17534bb4a666652de41c4ba9a7" prot="public" virt="non-virtual"><scope>market</scope><name>status</name></member>
+      <member refid="structmarket_1a2d0fc4fffe1e28833615acacad39201f" prot="public" virt="non-virtual"><scope>market</scope><name>token_contract</name></member>
+      <member refid="structmarket_1a30304aaf389c43d7bea115e0eb9e329e" prot="public" virt="non-virtual"><scope>market</scope><name>total_price</name></member>
+      <member refid="structmarket_1a036767444c3524d00836cff2b569b5bd" prot="public" virt="non-virtual"><scope>market</scope><name>with_delivery</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Стек:<sp/>C/C++,<sp/>eosio.cdt<sp/>1.7.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Введение</highlight></codeline>
+<codeline><highlight class="normal">Контракт<sp/>предоставляет<sp/>сервис<sp/>выпуска,<sp/>покупки<sp/>и<sp/>продажи<sp/>NFT<sp/>с<sp/>возможностью<sp/>физической<sp/>поставки.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Компиляция</highlight></codeline>
+<codeline><highlight class="normal">Заменить<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>на<sp/>абсолютный<sp/>путь<sp/>к<sp/>директории<sp/>контракта<sp/>NFT.<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">docker<sp/>run<sp/>--rm<sp/>--name<sp/>eosio.cdt_v1.7.0<sp/>--volume<sp/>/ABSOLUTE_PATH_TO_CONTRACT:/project<sp/>-w<sp/>/project<sp/>eostudio/eosio.cdt:v1.7.0<sp/>/bin/bash<sp/>-c<sp/>&quot;eosio-cpp<sp/>-abigen<sp/>-I<sp/>include<sp/>-R<sp/>include<sp/>-contract<sp/>nft<sp/>-o<sp/>nft.wasm<sp/>nft.cpp&quot;<sp/>&amp;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Генерация<sp/>документации</highlight></codeline>
+<codeline><highlight class="normal">Требуется<sp/>Doxygen<sp/>версии<sp/>от<sp/>1.9.3</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>submodule<sp/>update<sp/>--init<sp/>--recursive</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Установка</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>nft<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>-p<sp/>nft</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Действующие<sp/>аккаунты</highlight></codeline>
+<codeline><highlight class="normal">me<sp/>-<sp/>собственное<sp/>имя<sp/>контракта;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Роли</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Сценарии</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Пополнение<sp/>баланса</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>покупки<sp/>NFT<sp/>необходимо<sp/>пополнить<sp/>баланс<sp/>в<sp/>контракте.<sp/>Для<sp/>этого,<sp/>необходимо<sp/>осуществить<sp/>перевод<sp/>токенов<sp/>на<sp/>аккаунт<sp/>контракта.<sp/>В<sp/>этот<sp/>момент,<sp/>контракт<sp/>автоматически<sp/>создаст<sp/>запись<sp/>в<sp/>базе<sp/>с<sp/>балансом<sp/>токенов<sp/>и<sp/>их<sp/>контрактом.<sp/>Обычно<sp/>действие<sp/>перевода<sp/>токенов<sp/>на<sp/>контракт<sp/>находится<sp/>в<sp/>одной<sp/>транзакции<sp/>с<sp/>действием<sp/>на<sp/>оформление<sp/>покупки.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Выпуск<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Выпуск<sp/>NFT<sp/>осуществляется<sp/>создателем<sp/>с<sp/>уникальным<sp/>ID.<sp/>До<sp/>поступления<sp/>NFT<sp/>в<sp/>продажу,<sp/>NFT<sp/>хранится<sp/>в<sp/>области<sp/>оперативной<sp/>памяти<sp/>создателя<sp/>под<sp/>его<sp/>управлением.<sp/>Создатель<sp/>указывает<sp/>базовую<sp/>стоимость<sp/>целой<sp/>NFT<sp/>при<sp/>её<sp/>создании.<sp/>Создатель<sp/>может<sp/>указать,<sp/>может<sp/>ли<sp/>он<sp/>или<sp/>будущие<sp/>владельцы<sp/>выпускать<sp/>дополнительные<sp/>части<sp/>NFT<sp/>или<sp/>делить<sp/>её<sp/>на<sp/>части.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cоздадим<sp/>объект<sp/>NFT<sp/>с<sp/>одной<sp/>частью:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>create<sp/>&apos;[creator,<sp/>ru,<sp/>&quot;первая<sp/>NFT&quot;,<sp/>&quot;описание<sp/>волшебной<sp/>NFT&quot;,<sp/>1,<sp/>realty,<sp/>&quot;json_links_to_images&quot;,<sp/>&quot;link<sp/>to<sp/>ipns,<sp/>if<sp/>use&quot;,<sp/>false,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cоздадим<sp/>объект<sp/>NFT<sp/>со<sp/>множеством<sp/>частей:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>create<sp/>&apos;[creator,<sp/>ru,<sp/>&quot;первая<sp/>NFT&quot;,<sp/>&quot;описание<sp/>волшебной<sp/>NFT&quot;,<sp/>26,<sp/>realty,<sp/>&quot;json_links_to_images&quot;,<sp/>&quot;link<sp/>to<sp/>ipns,<sp/>if<sp/>use&quot;,<sp/>false,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Все<sp/>части<sp/>появляются<sp/>на<sp/>балансе<sp/>создателя<sp/>в<sp/>тот<sp/>же<sp/>момент.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Вызовом<sp/>действия<sp/>create<sp/>мы<sp/>создадим<sp/>объект<sp/>NFT<sp/>с<sp/>одной<sp/>частью.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Для<sp/>проверки<sp/>получим<sp/>таблицу<sp/>objects(nft,<sp/>nft).<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Редактирование<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Запрет<sp/>на<sp/>эмиссию<sp/>и<sp/>деление<sp/>NFT<sp/>не<sp/>может<sp/>быть<sp/>снят,<sp/>если<sp/>он<sp/>установлен<sp/>создателем.<sp/>Владельцы<sp/>могут<sp/>запретить<sp/>деление<sp/>и<sp/>эмиссию,<sp/>если<sp/>она<sp/>разрешена<sp/>создателем.<sp/>Новые<sp/>владельцы<sp/>не<sp/>могут<sp/>разрешить<sp/>деление<sp/>и<sp/>эмиссию,<sp/>если<sp/>она<sp/>была<sp/>запрещена<sp/>предыдущими<sp/>владельцами.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Продажа<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">После<sp/>создания,<sp/>любую<sp/>NFT<sp/>можно<sp/>продать.<sp/>Для<sp/>этого,<sp/>необходимо<sp/>вызвать<sp/>метод<sp/>sell:<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Продадим<sp/>одну-единственную<sp/>часть<sp/>созданной<sp/>NFT<sp/>за<sp/>10<sp/>токенов<sp/>SET<sp/>без<sp/>возможности<sp/>торгов,<sp/>но<sp/>с<sp/>физической<sp/>поставкой<sp/>методом<sp/>самовывоза:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>sell<sp/>&apos;[creator,<sp/>1,<sp/>1,<sp/>&quot;eosio.token&quot;,<sp/>&quot;10.0000<sp/>SET&quot;,<sp/>false,<sp/>true,<sp/>&quot;Alanya,<sp/>Turkey&quot;,<sp/>[selfdelivery],<sp/>[],<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Для<sp/>проверки<sp/>получим<sp/>таблицу<sp/>markets(nft,<sp/>nft).<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Покупка<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Создадим<sp/>запрос<sp/>на<sp/>покупку<sp/>выставленной<sp/>на<sp/>продажу<sp/>части:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>buy<sp/>&apos;[buyer,<sp/>1,<sp/>ru,<sp/>1,<sp/>&quot;10.0000<sp/>SET&quot;,<sp/>&quot;доставить<sp/>сюда&quot;,<sp/>&quot;selfdelivery&quot;,<sp/>&quot;&quot;,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>buyer</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Доставка<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Если<sp/>NFT<sp/>требует<sp/>доставки,<sp/>то<sp/>перед<sp/>тем,<sp/>как<sp/>принять<sp/>заказ<sp/>в<sp/>работу,<sp/>продавец<sp/>должен<sp/>убедиться<sp/>в<sp/>том,<sp/>что<sp/>покупатель<sp/>поставил<sp/>всю<sp/>необходимую<sp/>информацию.<sp/>Если<sp/>всё<sp/>верно,<sp/>вызвать<sp/>метод:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>acceptreq<sp/>&apos;[creator,<sp/>1]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">После<sp/>чего,<sp/>подтвердить<sp/>факт<sp/>осуществления<sp/>доставки<sp/>с<sp/>помощью<sp/>вызова<sp/>метода:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>setdelstatus<sp/>&apos;[creator,<sp/>1,<sp/>finish]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Заказ,<sp/>при<sp/>этом,<sp/>будет<sp/>помечен<sp/>как<sp/>исполненный,<sp/>а<sp/>NFT<sp/>передана<sp/>покупателю.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Торги<sp/>за<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Если<sp/>на<sp/>рынке<sp/>предусмотрена<sp/>возможность<sp/>торгов,<sp/>то<sp/>каждый<sp/>потенциальный<sp/>покупатель<sp/>может<sp/>предложить<sp/>свою<sp/>цену.<sp/>Если<sp/>цена<sp/>устраивает<sp/>продавца,<sp/>то<sp/>он<sp/>может<sp/>утвердить<sp/>сделку<sp/>методом:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>acceptreq<sp/>&apos;[creator,<sp/>1]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Эмиссия<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Эмиссия<sp/>NFT<sp/>происходит<sp/>с<sp/>помощью<sp/>вызова<sp/>метода<sp/>emit<sp/>создателем<sp/>NFT<sp/>или<sp/>членом<sp/>белого<sp/>листа:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>emit<sp/>&apos;[creator,<sp/>2,<sp/>100]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Здесь<sp/>создатель<sp/>выпускает<sp/>для<sp/>объекта<sp/>с<sp/>идентификатором<sp/>2<sp/>-<sp/>100<sp/>частей.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Удаление<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">Если<sp/>объект<sp/>создан,<sp/>но<sp/>никогда<sp/>не<sp/>был<sp/>продан,<sp/>то<sp/>его<sp/>можно<sp/>удалить<sp/>с<sp/>помощью<sp/>метода:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>remove<sp/>&apos;[creator,<sp/>3]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Здесь<sp/>мы<sp/>удаляем<sp/>объект<sp/>с<sp/>иденификатором<sp/>3</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Отзывы<sp/>на<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">После<sp/>завершения<sp/>сделки,<sp/>покупатель<sp/>может<sp/>создать<sp/>отзыв:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>setreview<sp/>&apos;[buyer,<sp/>2,<sp/>&quot;message<sp/>in<sp/>review&quot;,<sp/>5,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>buyer</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Здесь<sp/>покупатель<sp/>оставляет<sp/>отзыв<sp/>для<sp/>объекта<sp/>с<sp/>идентификатором<sp/>2<sp/>и<sp/>оценкой<sp/>5<sp/>(оценки<sp/>принимаются<sp/>от<sp/>0<sp/>до<sp/>5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Сообщения<sp/>в<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">В<sp/>процессе<sp/>обмена,<sp/>покупатель<sp/>и<sp/>продавец<sp/>могут<sp/>обмениваться<sp/>сообщениями,<sp/>для<sp/>этого:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>sendmessage<sp/>&apos;[usermame,<sp/>4,<sp/>ru,<sp/>&quot;this<sp/>is<sp/>message&quot;]&apos;<sp/>-p<sp/>username</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Где<sp/>username<sp/>-<sp/>это<sp/>buyer<sp/>или<sp/>seller</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Аукцион<sp/>NFT</highlight></codeline>
+<codeline><highlight class="normal">TODO<sp/>|<sp/>задание<sp/>на<sp/>хакатон<sp/>|<sp/>все<sp/>необходимые<sp/>структуры<sp/>данных<sp/>есть</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Документация<sp/>к<sp/>методам<sp/>и<sp/>таблицам<sp/>контракта</highlight></codeline>
+<codeline><highlight class="normal">Документация<sp/>к<sp/>методам<sp/>и<sp/>таблицам<sp/>контракта<sp/>доступна<sp/>в<sp/>папке<sp/>docs/html/index.html</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

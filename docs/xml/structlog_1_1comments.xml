@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structlog_1_1comments" kind="struct" language="C++" prot="public">
+    <compoundname>log::comments</compoundname>
+    <includes refid="log_8hpp" local="no">log.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlog_1_1comments_1ad50b5353b242f9c68ead22cc0e44425a" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t log::comments::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <qualifiedname>log::comments::hash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>хэш-сумма поста от прямой ссылки </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="45" column="18" bodyfile="log.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a519ef0a922064f6a1704f1dcc838cbc7" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t log::comments::parent_hash</definition>
+        <argsstring></argsstring>
+        <name>parent_hash</name>
+        <qualifiedname>log::comments::parent_hash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>хэш-сумма родительского поста от прямой ссылки </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="46" column="18" bodyfile="log.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a621064544334c8379392ee7bb1d60543" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name log::comments::author</definition>
+        <argsstring></argsstring>
+        <name>author</name>
+        <qualifiedname>log::comments::author</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>автор поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="47" column="21" bodyfile="log.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a4afa7b6695173423f88556182a0edbc7" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string log::comments::permlink</definition>
+        <argsstring></argsstring>
+        <name>permlink</name>
+        <qualifiedname>log::comments::permlink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>прямая ссылка </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="48" column="21" bodyfile="log.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a7a546f8092c777aa1023d34a7dc696a5" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name log::comments::parent_author</definition>
+        <argsstring></argsstring>
+        <name>parent_author</name>
+        <qualifiedname>log::comments::parent_author</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>автор родительского поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="49" column="21" bodyfile="log.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1af4735e901a624903180746e7872346aa" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string log::comments::parent_permlink</definition>
+        <argsstring></argsstring>
+        <name>parent_permlink</name>
+        <qualifiedname>log::comments::parent_permlink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>прямая ссылка родительского поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="50" column="21" bodyfile="log.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1ab2f982108778520a85c9dfdb6623a452" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string log::comments::body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <qualifiedname>log::comments::body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>тело поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="52" column="21" bodyfile="log.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a2f97406cc24f94c92aa26ff4493553e1" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string log::comments::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>log::comments::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>заголовок поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="53" column="21" bodyfile="log.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a1df61febbbc2e86b470a9dd3435593f2" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string log::comments::meta</definition>
+        <argsstring></argsstring>
+        <name>meta</name>
+        <qualifiedname>log::comments::meta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>мета-данные поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="54" column="21" bodyfile="log.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a783202937f14cc8d6ce688f99c15013c" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec log::comments::created</definition>
+        <argsstring></argsstring>
+        <name>created</name>
+        <qualifiedname>log::comments::created</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>дата создания поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="56" column="31" bodyfile="log.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1aee27d31f4e9a13e1efc41cc56cc316ed" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec log::comments::last_update</definition>
+        <argsstring></argsstring>
+        <name>last_update</name>
+        <qualifiedname>log::comments::last_update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>дата последнего обновления поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="57" column="31" bodyfile="log.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a95430cf8710e261873c47843854f2067" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool log::comments::is_encrypted</definition>
+        <argsstring></argsstring>
+        <name>is_encrypted</name>
+        <qualifiedname>log::comments::is_encrypted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>индикатор шифрования поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="59" column="14" bodyfile="log.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1ae9a657378568f58ddf77528c4f9ef697" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string log::comments::public_key</definition>
+        <argsstring></argsstring>
+        <name>public_key</name>
+        <qualifiedname>log::comments::public_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>публичный ключ шифрования поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="60" column="21" bodyfile="log.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1a6fa6611124fc1885be4a684df0992143" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool log::comments::comments_is_enabled</definition>
+        <argsstring></argsstring>
+        <name>comments_is_enabled</name>
+        <qualifiedname>log::comments::comments_is_enabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>индикатор подключенных комментариев (вкл / выкл) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="62" column="14" bodyfile="log.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog_1_1comments_1ab997eedbdb2311c1962366ddfab7ebba" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t log::comments::priority</definition>
+        <argsstring></argsstring>
+        <name>priority</name>
+        <qualifiedname>log::comments::priority</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>приоритет поста </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="64" column="17" bodyfile="log.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlog_1_1comments_1afb980eb2b96e78b95a2288b4cd885518" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t log::comments::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>log::comments::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return hash - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="log.hpp" line="66" column="18" bodyfile="log.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица хранения постов пользователей </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Contract: _me</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Scope: owner</title><para></para>
+</simplesect>
+<simplesect kind="par"><title>Table: comments</title><para></para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="log.hpp" line="44" column="5" bodyfile="log.hpp" bodystart="44" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structlog_1_1comments_1a621064544334c8379392ee7bb1d60543" prot="public" virt="non-virtual"><scope>log::comments</scope><name>author</name></member>
+      <member refid="structlog_1_1comments_1ab2f982108778520a85c9dfdb6623a452" prot="public" virt="non-virtual"><scope>log::comments</scope><name>body</name></member>
+      <member refid="structlog_1_1comments_1a6fa6611124fc1885be4a684df0992143" prot="public" virt="non-virtual"><scope>log::comments</scope><name>comments_is_enabled</name></member>
+      <member refid="structlog_1_1comments_1a783202937f14cc8d6ce688f99c15013c" prot="public" virt="non-virtual"><scope>log::comments</scope><name>created</name></member>
+      <member refid="structlog_1_1comments_1ad50b5353b242f9c68ead22cc0e44425a" prot="public" virt="non-virtual"><scope>log::comments</scope><name>hash</name></member>
+      <member refid="structlog_1_1comments_1a95430cf8710e261873c47843854f2067" prot="public" virt="non-virtual"><scope>log::comments</scope><name>is_encrypted</name></member>
+      <member refid="structlog_1_1comments_1aee27d31f4e9a13e1efc41cc56cc316ed" prot="public" virt="non-virtual"><scope>log::comments</scope><name>last_update</name></member>
+      <member refid="structlog_1_1comments_1a1df61febbbc2e86b470a9dd3435593f2" prot="public" virt="non-virtual"><scope>log::comments</scope><name>meta</name></member>
+      <member refid="structlog_1_1comments_1a7a546f8092c777aa1023d34a7dc696a5" prot="public" virt="non-virtual"><scope>log::comments</scope><name>parent_author</name></member>
+      <member refid="structlog_1_1comments_1a519ef0a922064f6a1704f1dcc838cbc7" prot="public" virt="non-virtual"><scope>log::comments</scope><name>parent_hash</name></member>
+      <member refid="structlog_1_1comments_1af4735e901a624903180746e7872346aa" prot="public" virt="non-virtual"><scope>log::comments</scope><name>parent_permlink</name></member>
+      <member refid="structlog_1_1comments_1a4afa7b6695173423f88556182a0edbc7" prot="public" virt="non-virtual"><scope>log::comments</scope><name>permlink</name></member>
+      <member refid="structlog_1_1comments_1afb980eb2b96e78b95a2288b4cd885518" prot="public" virt="non-virtual"><scope>log::comments</scope><name>primary_key</name></member>
+      <member refid="structlog_1_1comments_1ab997eedbdb2311c1962366ddfab7ebba" prot="public" virt="non-virtual"><scope>log::comments</scope><name>priority</name></member>
+      <member refid="structlog_1_1comments_1ae9a657378568f58ddf77528c4f9ef697" prot="public" virt="non-virtual"><scope>log::comments</scope><name>public_key</name></member>
+      <member refid="structlog_1_1comments_1a2f97406cc24f94c92aa26ff4493553e1" prot="public" virt="non-virtual"><scope>log::comments</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

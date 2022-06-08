@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>NFT</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_README"/><heading level="2">Стек: C/C++, eosio.cdt 1.7.0</heading>
+</para>
+<para><heading level="1">Введение</heading>
+</para>
+<para>Контракт предоставляет сервис выпуска, покупки и продажи NFT с возможностью физической поставки.</para>
+<para><heading level="1">Компиляция</heading>
+</para>
+<para>Заменить ABSOLUTE_PATH_TO_CONTRACT на абсолютный путь к директории контракта NFT. <programlisting><codeline><highlight class="normal">docker<sp/>run<sp/>--rm<sp/>--name<sp/>eosio.cdt_v1.7.0<sp/>--volume<sp/>/ABSOLUTE_PATH_TO_CONTRACT:/project<sp/>-w<sp/>/project<sp/>eostudio/eosio.cdt:v1.7.0<sp/>/bin/bash<sp/>-c<sp/>&quot;eosio-cpp<sp/>-abigen<sp/>-I<sp/>include<sp/>-R<sp/>include<sp/>-contract<sp/>nft<sp/>-o<sp/>nft.wasm<sp/>nft.cpp&quot;<sp/>&amp;</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Генерация документации</heading>
+</para>
+<para>Требуется Doxygen версии от 1.9.3 <programlisting><codeline><highlight class="normal">git<sp/>submodule<sp/>update<sp/>--init<sp/>--recursive</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Установка</heading>
+</para>
+<para><programlisting><codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>nft<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>-p<sp/>nft</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Действующие аккаунты</heading>
+</para>
+<para>me - собственное имя контракта;</para>
+<para><heading level="1">Роли</heading>
+</para>
+<para><heading level="1">Сценарии</heading>
+</para>
+<para><heading level="3">Пополнение баланса</heading>
+</para>
+<para>Для покупки NFT необходимо пополнить баланс в контракте. Для этого, необходимо осуществить перевод токенов на аккаунт контракта. В этот момент, контракт автоматически создаст запись в базе с балансом токенов и их контрактом. Обычно действие перевода токенов на контракт находится в одной транзакции с действием на оформление покупки.</para>
+<para><heading level="3">Выпуск NFT</heading>
+</para>
+<para>Выпуск NFT осуществляется создателем с уникальным ID. До поступления NFT в продажу, NFT хранится в области оперативной памяти создателя под его управлением. Создатель указывает базовую стоимость целой NFT при её создании. Создатель может указать, может ли он или будущие владельцы выпускать дополнительные части NFT или делить её на части.</para>
+<para>Cоздадим объект NFT с одной частью: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>create<sp/>&apos;[creator,<sp/>ru,<sp/>&quot;первая<sp/>NFT&quot;,<sp/>&quot;описание<sp/>волшебной<sp/>NFT&quot;,<sp/>1,<sp/>realty,<sp/>&quot;json_links_to_images&quot;,<sp/>&quot;link<sp/>to<sp/>ipns,<sp/>if<sp/>use&quot;,<sp/>false,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting></para>
+<para>Cоздадим объект NFT со множеством частей: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>create<sp/>&apos;[creator,<sp/>ru,<sp/>&quot;первая<sp/>NFT&quot;,<sp/>&quot;описание<sp/>волшебной<sp/>NFT&quot;,<sp/>26,<sp/>realty,<sp/>&quot;json_links_to_images&quot;,<sp/>&quot;link<sp/>to<sp/>ipns,<sp/>if<sp/>use&quot;,<sp/>false,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting> Все части появляются на балансе создателя в тот же момент.</para>
+<para>Вызовом действия create мы создадим объект NFT с одной частью.</para>
+<para>Для проверки получим таблицу <ref refid="structobjects" kindref="compound">objects(nft, nft)</ref>.</para>
+<para><heading level="3">Редактирование NFT</heading>
+</para>
+<para>Запрет на эмиссию и деление NFT не может быть снят, если он установлен создателем. Владельцы могут запретить деление и эмиссию, если она разрешена создателем. Новые владельцы не могут разрешить деление и эмиссию, если она была запрещена предыдущими владельцами.</para>
+<para><heading level="3">Продажа NFT</heading>
+</para>
+<para>После создания, любую NFT можно продать. Для этого, необходимо вызвать метод sell:</para>
+<para>Продадим одну-единственную часть созданной NFT за 10 токенов SET без возможности торгов, но с физической поставкой методом самовывоза: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>sell<sp/>&apos;[creator,<sp/>1,<sp/>1,<sp/>&quot;eosio.token&quot;,<sp/>&quot;10.0000<sp/>SET&quot;,<sp/>false,<sp/>true,<sp/>&quot;Alanya,<sp/>Turkey&quot;,<sp/>[selfdelivery],<sp/>[],<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting></para>
+<para>Для проверки получим таблицу markets(nft, nft).</para>
+<para><heading level="3">Покупка NFT</heading>
+</para>
+<para>Создадим запрос на покупку выставленной на продажу части: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>buy<sp/>&apos;[buyer,<sp/>1,<sp/>ru,<sp/>1,<sp/>&quot;10.0000<sp/>SET&quot;,<sp/>&quot;доставить<sp/>сюда&quot;,<sp/>&quot;selfdelivery&quot;,<sp/>&quot;&quot;,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>buyer</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Доставка NFT</heading>
+</para>
+<para>Если NFT требует доставки, то перед тем, как принять заказ в работу, продавец должен убедиться в том, что покупатель поставил всю необходимую информацию. Если всё верно, вызвать метод:</para>
+<para><programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>acceptreq<sp/>&apos;[creator,<sp/>1]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting> После чего, подтвердить факт осуществления доставки с помощью вызова метода: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>setdelstatus<sp/>&apos;[creator,<sp/>1,<sp/>finish]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting> Заказ, при этом, будет помечен как исполненный, а NFT передана покупателю.</para>
+<para><heading level="3">Торги за NFT</heading>
+</para>
+<para>Если на рынке предусмотрена возможность торгов, то каждый потенциальный покупатель может предложить свою цену. Если цена устраивает продавца, то он может утвердить сделку методом: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>acceptreq<sp/>&apos;[creator,<sp/>1]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Эмиссия NFT</heading>
+</para>
+<para>Эмиссия NFT происходит с помощью вызова метода emit создателем NFT или членом белого листа: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>emit<sp/>&apos;[creator,<sp/>2,<sp/>100]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting> Здесь создатель выпускает для объекта с идентификатором 2 - 100 частей.</para>
+<para><heading level="3">Удаление NFT</heading>
+</para>
+<para>Если объект создан, но никогда не был продан, то его можно удалить с помощью метода: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>remove<sp/>&apos;[creator,<sp/>3]&apos;<sp/>-p<sp/>creator</highlight></codeline>
+</programlisting> Здесь мы удаляем объект с иденификатором 3</para>
+<para><heading level="3">Отзывы на NFT</heading>
+</para>
+<para>После завершения сделки, покупатель может создать отзыв: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>setreview<sp/>&apos;[buyer,<sp/>2,<sp/>&quot;message<sp/>in<sp/>review&quot;,<sp/>5,<sp/>&quot;&quot;]&apos;<sp/>-p<sp/>buyer</highlight></codeline>
+</programlisting> Здесь покупатель оставляет отзыв для объекта с идентификатором 2 и оценкой 5 (оценки принимаются от 0 до 5)</para>
+<para><heading level="3">Сообщения в NFT</heading>
+</para>
+<para>В процессе обмена, покупатель и продавец могут обмениваться сообщениями, для этого: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>nft<sp/>sendmessage<sp/>&apos;[usermame,<sp/>4,<sp/>ru,<sp/>&quot;this<sp/>is<sp/>message&quot;]&apos;<sp/>-p<sp/>username</highlight></codeline>
+</programlisting> Где username - это buyer или seller</para>
+<para><heading level="3">Аукцион NFT</heading>
+</para>
+<para>TODO | задание на хакатон | все необходимые структуры данных есть</para>
+<para><heading level="2">Документация к методам и таблицам контракта</heading>
+</para>
+<para>Документация к методам и таблицам контракта доступна в папке docs/html/index.html </para>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>
